@@ -1,13 +1,13 @@
 enum MovieTypes {
-  trending,
+  popular,
   topRated,
   nowPlaying,
 }
 
 extension MovieTypesExtension on MovieTypes {
-  String names() {
+  String pathNames() {
     switch (this) {
-      case MovieTypes.trending:
+      case MovieTypes.popular:
         return "popular";
       case MovieTypes.topRated:
         return "top_rated";

@@ -22,12 +22,11 @@ class CarouselMovieItems extends StatelessWidget with NavigatorManager {
         itemBuilder: ((context, index, realIndex) {
           return GestureDetector(
             onTap: () {
-              navigateToWidget(
-                context,
-                DetailView(
-                  movie: movies?[index],
-                ),
-              );
+              navigateToWidget(context,
+                  widget: DetailView(
+                    movie: movies?[index],
+                  ),
+                  fullScreenDialog: true);
             },
             child: NetworkImageWithRadius(movie: movies?[index]),
           );

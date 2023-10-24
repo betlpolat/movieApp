@@ -19,7 +19,7 @@ class RatingField extends StatelessWidget {
     return Container(
       padding: AppPadding().paddingAllLow,
       decoration: BoxDecoration(
-        border: Border.all(color: const Color.fromRGBO(0, 0, 0, 1)),
+        border: Border.all(color: AppColors().black),
         borderRadius: AppBorderRadius().appborderRadiusLow,
       ),
       child: Row(
