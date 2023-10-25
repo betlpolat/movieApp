@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import '../../../product/mixin/navigate_manager.dart';
+import '../../../core/mixin/navigate_manager.dart';
 import '../../../product/widget/network_image_with_radius.dart';
 import '../../detail/view/detail_view.dart';
 import '../model/movies.dart';
