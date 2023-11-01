@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/cubit/home_cubit.dart';
 import 'package:movie_app/feature/home/cubit/home_state.dart';
-import 'package:movie_app/feature/home/view/search_form.dart';
+import 'package:movie_app/feature/home/view/widget/search_form.dart';
 import 'package:movie_app/product/language/language_items.dart';
 import '../../../product/constants/padding.dart';
 import '../../../product/widget/topic_title_text.dart';
-import 'carousel_movie_items.dart';
-import 'movie_items.dart';
+import 'widget/carousel_movie_items.dart';
+import 'widget/movie_items.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

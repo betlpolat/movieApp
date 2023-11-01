@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/product/constants/app_colors.dart';
 import 'package:movie_app/product/language/language_items.dart';
 
-import '../../../product/constants/border_radius.dart';
+import '../../../../product/constants/border_radius.dart';
 
 class SearchForm extends StatelessWidget {
   const SearchForm({

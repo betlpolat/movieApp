@@ -1,19 +1,17 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:movie_app/product/enum/movie_types.dart';
-import '../../../product/constants/app_path.dart';
 import '../model/movies.dart';
 
 abstract class IMovieService {
-  Future<List<Movie?>?> fetchMovieList(Dio dio, MovieTypes type);
+  Future<List<Movie?>?> fetchMovieList(Dio dio, String path);
 }
 
 class MovieService implements IMovieService {
   @override
-  Future<List<Movie?>?> fetchMovieList(Dio dio, MovieTypes type) async {
+  Future<List<Movie?>?> fetchMovieList(Dio dio, String path) async {
     late final Response response;
     try {
-      response = await dio.get("${type.pathNames()}?api_key=${AppPath().apiKey}");
+      response = await dio.get(path);
       if (response.statusCode == HttpStatus.ok) {
         final jsonBody = response.data;
         if (jsonBody is Map<String, dynamic>) {

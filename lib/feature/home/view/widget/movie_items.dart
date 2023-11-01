@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../product/constants/padding.dart';
-import '../../../product/widget/network_image_with_radius.dart';
-import '../../detail/view/detail_view.dart';
-import '../model/movies.dart';
+import '../../../../product/constants/padding.dart';
+import '../../../../product/widget/network_image_with_radius.dart';
+import '../../../detail/view/detail_view.dart';
+import '../../model/movies.dart';
 
 class MovieItems extends StatelessWidget {
   const MovieItems({
