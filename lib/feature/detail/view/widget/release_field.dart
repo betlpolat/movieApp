@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie_app/feature/home/model/movies.dart';
+import 'package:movie_app/product/constants/app_colors.dart';
 import 'package:movie_app/product/constants/border_radius.dart';
 import 'package:movie_app/product/constants/padding.dart';
-
-import '../../../../product/constants/app_colors.dart';
-import '../../../../product/language/language_items.dart';
-import '../../../home/model/movies.dart';
+import 'package:movie_app/product/language/language_items.dart';
 
 class ReleaseField extends StatelessWidget {
   const ReleaseField({

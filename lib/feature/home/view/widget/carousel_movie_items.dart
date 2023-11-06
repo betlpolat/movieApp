@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/mixin/navigate_manager.dart';
-import '../../../../product/widget/network_image_with_radius.dart';
-import '../../../detail/view/detail_view.dart';
-import '../../model/movies.dart';
+import 'package:movie_app/core/mixin/navigate_manager.dart';
+import 'package:movie_app/feature/detail/view/detail_view.dart';
+import 'package:movie_app/feature/home/model/movies.dart';
+import 'package:movie_app/product/widget/network_image_with_radius.dart';
 
 class CarouselMovieItems extends StatelessWidget with NavigatorManager {
   const CarouselMovieItems({

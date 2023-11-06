@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/feature/detail/view/widget/rating_field.dart';
 import 'package:movie_app/feature/detail/view/widget/release_field.dart';
+import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/constants/padding.dart';
-
-import '../../../../product/language/language_items.dart';
-import '../../../home/model/movies.dart';
+import 'package:movie_app/product/language/language_items.dart';
 
 class MovieInfos extends StatelessWidget {
   const MovieInfos({

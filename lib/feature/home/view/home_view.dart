@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/cubit/home_cubit.dart';
 import 'package:movie_app/feature/home/cubit/home_state.dart';
 import 'package:movie_app/feature/home/view/widget/search_form.dart';
+import 'package:movie_app/product/constants/padding.dart';
+import 'package:movie_app/product/init/loading_lottie.dart';
 import 'package:movie_app/product/language/language_items.dart';
-import '../../../product/constants/padding.dart';
-import '../../../product/widget/topic_title_text.dart';
+import 'package:movie_app/product/widget/topic_title_text.dart';
 import 'widget/carousel_movie_items.dart';
 import 'widget/movie_items.dart';
 
@@ -37,7 +38,7 @@ class _HomeViewState extends State<HomeView> {
             if (state is HomeInitial) {
               return Container();
             } else if (state is HomeLoading) {
-              return const Center(child: CircularProgressIndicator());
+              return const LoadingLottie();
             } else if (state is HomeComplated) {
               return _moviesLists(state);
             } else {

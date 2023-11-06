@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/constants/border_radius.dart';
-import '../../feature/home/model/movies.dart';
 
 class NetworkImageWithRadius extends StatelessWidget {
   const NetworkImageWithRadius({
