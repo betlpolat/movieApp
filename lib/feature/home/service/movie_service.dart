@@ -3,19 +3,25 @@ import 'package:dio/dio.dart';
 import '../model/movies.dart';
 
 abstract class IMovieService {
-  Future<List<Movie?>?> fetchMovieList(Dio dio, String path);
+  final Dio dio;
+
+  IMovieService(this.dio);
+  Future<List<Movie>?> fetchMovieList(String path);
 }
 
-class MovieService implements IMovieService {
+class MovieService extends IMovieService {
+  MovieService(super.dio);
+
   @override
-  Future<List<Movie?>?> fetchMovieList(Dio dio, String path) async {
+  Future<List<Movie>?> fetchMovieList(String path) async {
     late final Response response;
     try {
       response = await dio.get(path);
       if (response.statusCode == HttpStatus.ok) {
         final jsonBody = response.data;
         if (jsonBody is Map<String, dynamic>) {
-          return Movies.fromJson(jsonBody).results;
+          final response = Movies.fromJson(jsonBody).results;
+          return response;
         }
       }
     } catch (e) {

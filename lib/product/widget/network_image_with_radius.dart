@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/product/constants/border_radius.dart';
 import '../../feature/home/model/movies.dart';
-import '../constants/app_path.dart';
 
 class NetworkImageWithRadius extends StatelessWidget {
   const NetworkImageWithRadius({
@@ -16,7 +15,7 @@ class NetworkImageWithRadius extends StatelessWidget {
     return ClipRRect(
       borderRadius: AppBorderRadius().appborderRadius,
       child: Image.network(
-        AppPath().imagePath + (movie?.posterPath ?? ""),
+        movie?.posterPathValue ?? "",
         filterQuality: FilterQuality.high,
         fit: BoxFit.cover,
       ),

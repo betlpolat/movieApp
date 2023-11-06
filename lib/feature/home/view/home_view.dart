@@ -32,9 +32,7 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
         body: BlocConsumer<HomeCubit, HomeState>(
-          listener: (context, state) {
-            // TODO: implement listener
-          },
+          listener: (context, state) {},
           builder: (context, state) {
             if (state is HomeInitial) {
               return Container();

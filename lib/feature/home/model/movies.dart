@@ -1,52 +1,54 @@
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+import '../../../product/constants/app_path.dart';
+
+part 'movies.g.dart';
+
+@JsonSerializable()
 class Movies {
   int? page;
   List<Movie>? results;
+  @JsonKey(name: "total_pages")
   int? totalPages;
+  @JsonKey(name: "total_results")
   int? totalResults;
 
   Movies({this.page, this.results, this.totalPages, this.totalResults});
 
-  Movies.fromJson(Map<String, dynamic> json) {
-    page = json['page'];
-    if (json['results'] != null) {
-      results = <Movie>[];
-      json['results'].forEach((v) {
-        results!.add(Movie.fromJson(v));
-      });
-    }
-    totalPages = json['total_pages'];
-    totalResults = json['total_results'];
-  }
+  factory Movies.fromJson(Map<String, dynamic> json) => _$MoviesFromJson(json);
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['page'] = page;
-    if (results != null) {
-      data['results'] = results!.map((v) => v.toJson()).toList();
-    }
-    data['total_pages'] = totalPages;
-    data['total_results'] = totalResults;
-    return data;
+    return _$MoviesToJson(this);
   }
 }
 
-class Movie {
-  bool? adult;
-  String? backdropPath;
-  List<int>? genreIds;
-  int? id;
-  String? originalLanguage;
-  String? originalTitle;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  String? releaseDate;
-  String? title;
-  bool? video;
-  num? voteAverage;
-  int? voteCount;
+@JsonSerializable()
+class Movie extends Equatable {
+  final bool? adult;
+  @JsonKey(name: 'backdrop_path')
+  final String? backdropPath;
+  @JsonKey(name: "genre_ids")
+  final List<int>? genreIds;
+  final int? id;
+  @JsonKey(name: "original_language")
+  final String? originalLanguage;
+  @JsonKey(name: "original_title")
+  final String? originalTitle;
+  final String? overview;
+  final double? popularity;
+  @JsonKey(name: "poster_path")
+  final String? posterPath;
+  @JsonKey(name: "release_date")
+  final String? releaseDate;
+  final String? title;
+  final bool? video;
+  @JsonKey(name: "vote_average")
+  final num? voteAverage;
+  @JsonKey(name: "vote_count")
+  final int? voteCount;
 
-  Movie(
+  const Movie(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -62,39 +64,17 @@ class Movie {
       this.voteAverage,
       this.voteCount});
 
-  Movie.fromJson(Map<String, dynamic> json) {
-    adult = json['adult'];
-    backdropPath = json['backdrop_path'];
-    genreIds = json['genre_ids'].cast<int>();
-    id = json['id'];
-    originalLanguage = json['original_language'];
-    originalTitle = json['original_title'];
-    overview = json['overview'];
-    popularity = json['popularity'];
-    posterPath = json['poster_path'];
-    releaseDate = json['release_date'];
-    title = json['title'];
-    video = json['video'];
-    voteAverage = json['vote_average'];
-    voteCount = json['vote_count'];
+  String? get backdropPathValue => AppPath().imagePath + (backdropPath ?? "");
+  String? get posterPathValue => AppPath().imagePath + (posterPath ?? "");
+
+  factory Movie.fromJson(Map<String, dynamic> json) {
+    return _$MovieFromJson(json);
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['adult'] = adult;
-    data['backdrop_path'] = backdropPath;
-    data['genre_ids'] = genreIds;
-    data['id'] = id;
-    data['original_language'] = originalLanguage;
-    data['original_title'] = originalTitle;
-    data['overview'] = overview;
-    data['popularity'] = popularity;
-    data['poster_path'] = posterPath;
-    data['release_date'] = releaseDate;
-    data['title'] = title;
-    data['video'] = video;
-    data['vote_average'] = voteAverage;
-    data['vote_count'] = voteCount;
-    return data;
+    return _$MovieToJson(this);
   }
+
+  @override
+  List<Object?> get props => [id, backdropPath, title];
 }
