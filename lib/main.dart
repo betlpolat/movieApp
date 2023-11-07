@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/mixin/navigator_manager.dart';
 import 'package:movie_app/feature/home/cubit/home_cubit.dart';
 import 'package:movie_app/feature/home/service/movie_service.dart';
 import 'package:movie_app/feature/home/view/home_view.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: LanguageItems.appTitle,
       theme: AppTheme().theme,
+      navigatorKey: NavigatorManager.instance.navigatorGlobalKey,
       home: BlocProvider(
         create: (_) => HomeCubit(MovieService(NetworkManager.instance.service)),
         child: const HomeView(),

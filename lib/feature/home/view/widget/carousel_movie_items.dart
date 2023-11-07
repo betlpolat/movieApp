@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/mixin/navigate_manager.dart';
+import 'package:movie_app/core/mixin/navigator_manager.dart';
 import 'package:movie_app/feature/detail/view/detail_view.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/widget/network_image_with_radius.dart';
 
-class CarouselMovieItems extends StatelessWidget with NavigatorManager {
+class CarouselMovieItems extends StatelessWidget {
   const CarouselMovieItems({
     super.key,
     required this.movies,
@@ -22,7 +22,7 @@ class CarouselMovieItems extends StatelessWidget with NavigatorManager {
         itemBuilder: ((context, index, realIndex) {
           return GestureDetector(
             onTap: () {
-              navigateToWidget(context,
+              NavigatorManager.instance.pushToPage(context,
                   widget: DetailView(
                     movie: movies?[index],
                   ),
