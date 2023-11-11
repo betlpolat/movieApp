@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/feature/detail/view/detail_view.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/constants/padding.dart';
 import 'package:movie_app/product/init/navigator/navigator_manager.dart';
