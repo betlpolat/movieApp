@@ -4,7 +4,9 @@ import 'package:movie_app/feature/detail/view/widget/rating_field.dart';
 import 'package:movie_app/feature/detail/view/widget/release_field.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/constants/padding.dart';
-import 'package:movie_app/product/language/language_items.dart';
+import 'package:movie_app/product/init/language/language_items.dart';
+
+part 'movie_infos.g.dart';
 
 class MovieInfos extends StatelessWidget {
   const MovieInfos({
@@ -23,38 +25,16 @@ class MovieInfos extends StatelessWidget {
         padding: AppPadding().paddingAll,
         child: Column(
           children: [
-            _overviewTitle(),
-            _sizedBBox(),
-            _overviewText(),
-            _sizedBBox(),
+            _OverviewTitle(titleTextSize: _titleTextSize),
+            const _SizedBBox(),
+            _OverviewText(movie: movie, textSize: _textSize),
+            const _SizedBBox(),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               ReleaseField(movie: movie),
               RatingField(movie: movie),
             ]),
           ],
         ),
-      ),
-    );
-  }
-
-  SizedBox _sizedBBox() => const SizedBox(height: 16);
-
-  Text _overviewText() {
-    return Text(
-      movie?.overview ?? "",
-      style: GoogleFonts.roboto(
-        fontSize: _textSize,
-        fontWeight: FontWeight.w400,
-      ),
-    );
-  }
-
-  Text _overviewTitle() {
-    return Text(
-      LanguageItems.overviewTitle,
-      style: GoogleFonts.openSans(
-        fontSize: _titleTextSize,
-        fontWeight: FontWeight.w800,
       ),
     );
   }

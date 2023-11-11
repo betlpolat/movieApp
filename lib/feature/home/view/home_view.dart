@@ -5,10 +5,12 @@ import 'package:movie_app/feature/home/cubit/home_state.dart';
 import 'package:movie_app/feature/home/view/widget/search_form.dart';
 import 'package:movie_app/product/constants/padding.dart';
 import 'package:movie_app/product/init/loading_lottie.dart';
-import 'package:movie_app/product/language/language_items.dart';
+import 'package:movie_app/product/init/language/language_items.dart';
 import 'package:movie_app/product/widget/topic_title_text.dart';
 import 'widget/carousel_movie_items.dart';
 import 'widget/movie_items.dart';
+
+part 'home_view.g.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -40,45 +42,12 @@ class _HomeViewState extends State<HomeView> {
             } else if (state is HomeLoading) {
               return const LoadingLottie();
             } else if (state is HomeComplated) {
-              return _moviesLists(state);
+              return _MovieLists(searchController: _searchController, movies: state);
             } else {
               final error = state as HomeError;
               return Text(error.message);
             }
           },
         ));
-  }
-
-  Padding _moviesLists(HomeComplated movies) {
-    return Padding(
-      padding: AppPadding().paddingAll,
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: AppPadding().paddingAll,
-              child: SearchForm(searchController: _searchController),
-            ),
-            const TopicTitleText(text: LanguageItems.trendingTitle),
-            Padding(
-              padding: AppPadding().paddingAll,
-              child: CarouselMovieItems(movies: movies.trending),
-            ),
-            const TopicTitleText(text: LanguageItems.topRatedTitle),
-            Padding(
-              padding: AppPadding().paddingAll,
-              child: MovieItems(movies: movies.topRated),
-            ),
-            const TopicTitleText(text: LanguageItems.nowPlayingTitle),
-            Padding(
-              padding: AppPadding().paddingAll,
-              child: MovieItems(movies: movies.nowPlaying),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
