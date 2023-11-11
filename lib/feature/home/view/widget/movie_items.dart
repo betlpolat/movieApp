@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/feature/detail/view/detail_view.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/constants/padding.dart';
+import 'package:movie_app/product/init/navigator/navigator_manager.dart';
+import 'package:movie_app/product/init/navigator/navigator_routes.dart';
 import 'package:movie_app/product/widget/network_image_with_radius.dart';
 
 class MovieItems extends StatelessWidget {
@@ -25,13 +27,9 @@ class MovieItems extends StatelessWidget {
             return Padding(
               padding: AppPadding().paddingAll,
               child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DetailView(
-                                movie: movies?[index],
-                              )));
+                onTap: () async {
+                  await NavigatorManager.instance
+                      .pushToPage(route: NavigatorRoutes.homeDetail, arguments: movies?[index]);
                 },
                 child: NetworkImageWithRadius(movie: movies?[index]),
               ),
