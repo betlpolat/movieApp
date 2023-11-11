@@ -4,7 +4,7 @@ import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/constants/app_colors.dart';
 import 'package:movie_app/product/constants/border_radius.dart';
 import 'package:movie_app/product/constants/padding.dart';
-import 'package:movie_app/product/language/language_items.dart';
+import 'package:movie_app/product/init/language/language_items.dart';
 
 class ReleaseField extends StatelessWidget {
   const ReleaseField({

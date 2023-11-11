@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/button/arrow_back_icon_button.dart';
+import 'package:movie_app/product/widget/button/arrow_back_icon_button.dart';
 import 'package:movie_app/product/widget/network_image_with_radius.dart';
 
 class DetailAppBar extends StatelessWidget {

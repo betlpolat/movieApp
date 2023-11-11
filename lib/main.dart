@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/cubit/home_cubit.dart';
 import 'package:movie_app/feature/home/service/movie_service.dart';
 import 'package:movie_app/product/init/network_manager.dart';
-import 'package:movie_app/product/language/language_items.dart';
-import 'package:movie_app/product/navigator/navigator_manager.dart';
-import 'package:movie_app/product/navigator/navigator_routes.dart';
-import 'package:movie_app/product/theme/app_theme.dart';
+import 'package:movie_app/product/init/language/language_items.dart';
+import 'package:movie_app/product/init/navigator/navigator_manager.dart';
+import 'package:movie_app/product/init/navigator/navigator_routes.dart';
+import 'package:movie_app/product/init/theme/app_theme.dart';
 
 void main() => runApp(const MyApp());
 
