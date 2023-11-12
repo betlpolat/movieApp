@@ -1,0 +1,14 @@
+{
+  "title": {
+    "app": "MOVIES",
+    "trending": "Trending Movies",
+    "topRated": "Top Rated Movies",
+    "nowPlaying": "Now PLaying Movies",
+    "overview": "Overview"
+  },
+  "text": {
+    "rating": "Rating",
+    "release": "Release Date",
+    "search": "Search"
+  }
+}

@@ -35,7 +35,7 @@ class _OverviewTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      LanguageItems.overviewTitle,
+      LocaleKeys.title_overview.tr(),
       style: GoogleFonts.openSans(
         fontSize: _titleTextSize,
         fontWeight: FontWeight.w800,

@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/constants/app_colors.dart';
-import 'package:movie_app/product/constants/border_radius.dart';
-import 'package:movie_app/product/constants/padding.dart';
-import 'package:movie_app/product/init/language/language_items.dart';
+import '../../../home/model/movies.dart';
+import '../../../../product/constants/app_colors.dart';
+import '../../../../product/constants/border_radius.dart';
+import '../../../../product/constants/padding.dart';
+import '../../../../product/init/language/locale_keys.g.dart';
 
 class RatingField extends StatelessWidget {
   const RatingField({
@@ -25,7 +26,7 @@ class RatingField extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            "${LanguageItems.ratingText}: ",
+            "${LocaleKeys.text_rating.tr()}: ",
             style: GoogleFonts.roboto(
               fontSize: _textSize,
               fontWeight: FontWeight.bold,

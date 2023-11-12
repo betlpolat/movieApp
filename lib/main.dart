@@ -1,14 +1,26 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/feature/home/cubit/home_cubit.dart';
-import 'package:movie_app/feature/home/service/movie_service.dart';
-import 'package:movie_app/product/init/network_manager.dart';
-import 'package:movie_app/product/init/language/language_items.dart';
-import 'package:movie_app/product/init/navigator/navigator_manager.dart';
-import 'package:movie_app/product/init/navigator/navigator_routes.dart';
-import 'package:movie_app/product/init/theme/app_theme.dart';
 
-void main() => runApp(const MyApp());
+import 'feature/home/cubit/home_cubit.dart';
+import 'feature/home/service/movie_service.dart';
+import 'product/init/application_init.dart';
+import 'product/init/language/locale_keys.g.dart';
+import 'product/init/navigator/navigator_manager.dart';
+import 'product/init/navigator/navigator_routes.dart';
+import 'product/init/network_manager.dart';
+import 'product/init/theme/app_theme.dart';
+
+void main() async {
+  final initialManager = ApplicationInit();
+  await initialManager.start();
+
+  runApp(EasyLocalization(
+    supportedLocales: initialManager.localize.supportedLocales,
+    path: initialManager.localize.path,
+    child: const MyApp(),
+  ));
+}
 
 class MyApp extends StatelessWidget with NavigatorRoutesMixin {
   const MyApp({super.key});
@@ -17,8 +29,10 @@ class MyApp extends StatelessWidget with NavigatorRoutesMixin {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: LanguageItems.appTitle,
+      title: (LocaleKeys.title_app),
       theme: AppTheme().theme,
+      localizationsDelegates: context.localizationDelegates,
+      locale: context.locale,
       onGenerateRoute: onGnerateRoute,
       navigatorKey: NavigatorManager.instance.navigatorGlobalKey,
     );

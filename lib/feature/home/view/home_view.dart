@@ -1,14 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/feature/home/cubit/home_cubit.dart';
-import 'package:movie_app/feature/home/cubit/home_state.dart';
-import 'package:movie_app/feature/home/view/widget/search_form.dart';
-import 'package:movie_app/product/constants/padding.dart';
-import 'package:movie_app/product/init/loading_lottie.dart';
-import 'package:movie_app/product/init/language/language_items.dart';
-import 'package:movie_app/product/widget/topic_title_text.dart';
+
+import '../../../product/constants/padding.dart';
+import '../../../product/init/language/locale_keys.g.dart';
+import '../../../product/init/loading_lottie.dart';
+import '../../../product/widget/topic_title_text.dart';
+import '../cubit/home_cubit.dart';
+import '../cubit/home_state.dart';
 import 'widget/carousel_movie_items.dart';
 import 'widget/movie_items.dart';
+import 'widget/search_form.dart';
 
 part 'home_view.g.dart';
 
@@ -30,8 +32,8 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            LanguageItems.appTitle,
+          title: Text(
+            LocaleKeys.title_app.tr(),
           ),
         ),
         body: BlocConsumer<HomeCubit, HomeState>(

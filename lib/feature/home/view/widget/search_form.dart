@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/constants/app_colors.dart';
-import 'package:movie_app/product/constants/border_radius.dart';
-import 'package:movie_app/product/init/language/language_items.dart';
+
+import '../../../../product/constants/app_colors.dart';
+import '../../../../product/constants/border_radius.dart';
+import '../../../../product/init/language/locale_keys.g.dart';
 
 class SearchForm extends StatelessWidget {
   const SearchForm({
@@ -26,7 +28,7 @@ class SearchForm extends StatelessWidget {
             ),
             borderRadius: AppBorderRadius().appborderRadius,
           ),
-          hintText: LanguageItems.searchText,
+          hintText: LocaleKeys.text_search.tr(),
           hintStyle: TextStyle(
             fontSize: _textSize,
           ),
