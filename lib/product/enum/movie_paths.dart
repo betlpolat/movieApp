@@ -4,4 +4,5 @@ enum MoviePaths {
   popular,
   top_rated,
   now_playing,
+  search,
 }

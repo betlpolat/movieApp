@@ -1,6 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:movie_app/feature/home/cubit/search/search_cubit.dart';
+import 'package:movie_app/feature/home/cubit/search/search_state.dart';
+import 'package:movie_app/product/init/loading_lottie.dart';
+import 'package:movie_app/product/widget/network_image_with_radius.dart';
 import '../../../../product/constants/app_colors.dart';
 import '../../../../product/constants/border_radius.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
@@ -16,27 +21,68 @@ class SearchForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      style: TextStyle(
-        fontSize: _textSize,
-      ),
-      controller: _searchController,
-      decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors().white,
+    return SingleChildScrollView(
+      physics: const NeverScrollableScrollPhysics(),
+      child: Column(
+        children: [
+          TextField(
+            style: TextStyle(
+              fontSize: _textSize,
             ),
-            borderRadius: AppBorderRadius().appborderRadius,
+            onChanged: (value) {
+              context.read<SearchCubit>().getSearch(_searchController.text);
+            },
+            controller: _searchController,
+            decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColors().white,
+                  ),
+                  borderRadius: AppBorderRadius().appborderRadius,
+                ),
+                hintText: LocaleKeys.text_search.tr(),
+                hintStyle: TextStyle(
+                  fontSize: _textSize,
+                ),
+                fillColor: AppColors().white,
+                enabledBorder: _borderStyle(),
+                disabledBorder: _borderStyle(),
+                focusedBorder: _borderStyle()),
+            cursorColor: AppColors().white,
           ),
-          hintText: LocaleKeys.text_search.tr(),
-          hintStyle: TextStyle(
-            fontSize: _textSize,
-          ),
-          fillColor: AppColors().white,
-          enabledBorder: _borderStyle(),
-          disabledBorder: _borderStyle(),
-          focusedBorder: _borderStyle()),
-      cursorColor: AppColors().white,
+          BlocConsumer<SearchCubit, SearchState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              if (state is SearchInitial) {
+                return const SizedBox.shrink();
+              }
+              if (state is SearchLoading) {
+                return const LoadingLottie();
+              }
+              if (state is SearchComplated) {
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height / 2,
+                  child: ListView.builder(
+                      itemCount: state.search?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        return Card(
+                            child: ListTile(
+                          title: Text(state.search?[index]?.title ?? ""),
+                          leading: SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: NetworkImageWithRadius(posterPathValue: state.search?[index]?.posterPathValue)),
+                        ));
+                      }),
+                );
+              } else {
+                final error = state as SearchError;
+                return Text(error.message);
+              }
+            },
+          )
+        ],
+      ),
     );
   }
 

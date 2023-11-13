@@ -6,16 +6,20 @@ abstract class IMovieService {
   final Dio dio;
 
   IMovieService(this.dio);
-  Future<List<Movie>?> fetchMovieList(String path);
+  Future<List<Movie>?> fetchMovieList(String path, {String query});
 }
 
 class MovieService extends IMovieService {
   MovieService(super.dio);
 
   @override
-  Future<List<Movie>?> fetchMovieList(String path) async {
+  Future<List<Movie>?> fetchMovieList(String path, {String query = ""}) async {
     late final Response response;
     try {
+      if (query.isNotEmpty) {
+        query = "&query=$query";
+        path += query;
+      }
       response = await dio.get(path);
       if (response.statusCode == HttpStatus.ok) {
         final jsonBody = response.data;

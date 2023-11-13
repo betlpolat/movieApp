@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/service/movie_service.dart';
 import 'package:movie_app/product/extension/movie_paths_extension.dart';
-import '../../../product/enum/movie_paths.dart';
+import '../../../../product/enum/movie_paths.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -11,9 +11,9 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> getMovie() async {
     try {
       emit(HomeLoading());
-      final popular = await _movieService.fetchMovieList(MoviePaths.popular.path());
-      final topRated = await _movieService.fetchMovieList(MoviePaths.top_rated.path());
-      final nowPlaying = await _movieService.fetchMovieList(MoviePaths.now_playing.path());
+      final popular = await _movieService.fetchMovieList(MoviePaths.popular.moviePath());
+      final topRated = await _movieService.fetchMovieList(MoviePaths.top_rated.moviePath());
+      final nowPlaying = await _movieService.fetchMovieList(MoviePaths.now_playing.moviePath());
 
       emit(HomeComplated(popular, topRated, nowPlaying));
     } on NetworkError catch (e) {

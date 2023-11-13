@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'feature/home/cubit/home_cubit.dart';
+import 'package:movie_app/feature/home/cubit/home/home_cubit.dart';
+import 'package:movie_app/feature/home/cubit/search/search_cubit.dart';
 import 'feature/home/service/movie_service.dart';
 import 'product/init/application_init.dart';
 import 'product/init/language/locale_keys.g.dart';
@@ -48,8 +48,11 @@ class BlocWidget extends StatelessWidget {
   final Widget widget;
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HomeCubit(MovieService(NetworkManager.instance.service)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<HomeCubit>(create: (_) => HomeCubit(MovieService(NetworkManager.instance.service))),
+        BlocProvider<SearchCubit>(create: (_) => SearchCubit(MovieService(NetworkManager.instance.service))),
+      ],
       child: widget,
     );
   }

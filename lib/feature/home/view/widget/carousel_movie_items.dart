@@ -25,7 +25,7 @@ class CarouselMovieItems extends StatelessWidget {
               await NavigatorManager.instance
                   .pushToPage(route: NavigatorRoutes.homeDetail, fullScreenDialog: true, arguments: movies?[index]);
             },
-            child: NetworkImageWithRadius(movie: movies?[index]),
+            child: NetworkImageWithRadius(posterPathValue: movies?[index]?.posterPathValue),
           );
         }),
         options: _carouselOptions(),

@@ -28,7 +28,7 @@ class DetailAppBar extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        background: NetworkImageWithRadius(movie: movie),
+        background: NetworkImageWithRadius(posterPathValue: movie?.posterPathValue),
       ),
     );
   }

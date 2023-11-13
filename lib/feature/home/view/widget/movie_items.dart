@@ -30,7 +30,7 @@ class MovieItems extends StatelessWidget {
                   await NavigatorManager.instance
                       .pushToPage(route: NavigatorRoutes.homeDetail, arguments: movies?[index]);
                 },
-                child: NetworkImageWithRadius(movie: movies?[index]),
+                child: NetworkImageWithRadius(posterPathValue: movies?[index]?.posterPathValue),
               ),
             );
           }),
