@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:movie_app/feature/home/cubit/search/search_cubit.dart';
 import 'package:movie_app/feature/home/cubit/search/search_state.dart';
-import 'package:movie_app/product/init/loading_lottie.dart';
+import 'package:movie_app/product/widget/loading_lottie.dart';
 import 'package:movie_app/product/widget/network_image_with_radius.dart';
-import '../../../../product/constants/app_colors.dart';
-import '../../../../product/constants/border_radius.dart';
+import '../../../../product/utility/constants/color_constant.dart';
+import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 
 class SearchForm extends StatelessWidget {
@@ -35,8 +35,8 @@ class SearchForm extends StatelessWidget {
             controller: _searchController,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: AppColors().white,
+                  borderSide: const BorderSide(
+                    color: ColorConstant.white,
                   ),
                   borderRadius: AppBorderRadius().appborderRadius,
                 ),
@@ -44,11 +44,11 @@ class SearchForm extends StatelessWidget {
                 hintStyle: TextStyle(
                   fontSize: _textSize,
                 ),
-                fillColor: AppColors().white,
+                fillColor: ColorConstant.white,
                 enabledBorder: _borderStyle(),
                 disabledBorder: _borderStyle(),
                 focusedBorder: _borderStyle()),
-            cursorColor: AppColors().white,
+            cursorColor: ColorConstant.white,
           ),
           BlocConsumer<SearchCubit, SearchState>(
             listener: (context, state) {},
@@ -89,8 +89,8 @@ class SearchForm extends StatelessWidget {
   OutlineInputBorder _borderStyle() {
     return OutlineInputBorder(
       borderRadius: AppBorderRadius().appborderRadius,
-      borderSide: BorderSide(
-        color: AppColors().white,
+      borderSide: const BorderSide(
+        color: ColorConstant.white,
         width: 2.0,
       ),
     );

@@ -14,29 +14,29 @@ class _MovieLists extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: AppPadding().paddingAll,
+      padding: PaddingConstant.paddingAll,
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: AppPadding().paddingAll,
+              padding: PaddingConstant.paddingAll,
               child: SearchForm(searchController: _searchController),
             ),
             TopicTitleText(text: LocaleKeys.title_trending.tr()),
             Padding(
-              padding: AppPadding().paddingAll,
+              padding: PaddingConstant.paddingAll,
               child: CarouselMovieItems(movies: movies.trending),
             ),
             TopicTitleText(text: LocaleKeys.title_topRated.tr()),
             Padding(
-              padding: AppPadding().paddingAll,
+              padding: PaddingConstant.paddingAll,
               child: MovieItems(movies: movies.topRated),
             ),
             TopicTitleText(text: LocaleKeys.title_nowPlaying.tr()),
             Padding(
-              padding: AppPadding().paddingAll,
+              padding: PaddingConstant.paddingAll,
               child: MovieItems(movies: movies.nowPlaying),
             ),
           ],

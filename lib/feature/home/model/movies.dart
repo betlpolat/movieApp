@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../product/constants/app_path.dart';
+import '../../../product/utility/constants/path_constant.dart';
 
 part 'movies.g.dart';
 
@@ -64,8 +64,8 @@ class Movie extends Equatable {
       this.voteAverage,
       this.voteCount});
 
-  String? get backdropPathValue => AppPath().imagePath + (backdropPath ?? "");
-  String? get posterPathValue => AppPath().imagePath + (posterPath ?? "");
+  String? get backdropPathValue => PathConstant.imagePath + (backdropPath ?? "");
+  String? get posterPathValue => PathConstant.imagePath + (posterPath ?? "");
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return _$MovieFromJson(json);

@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/feature/detail/view/widget/rating_field.dart';
 import 'package:movie_app/feature/detail/view/widget/release_field.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/constants/padding.dart';
+import 'package:movie_app/product/utility/constants/padding_constant.dart';
 import 'package:movie_app/product/init/language/locale_keys.g.dart';
 
 part 'movie_infos.g.dart';
@@ -23,7 +23,7 @@ class MovieInfos extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: AppPadding().paddingAll,
+        padding: PaddingConstant.paddingAll,
         child: Column(
           children: [
             _OverviewTitle(titleTextSize: _titleTextSize),

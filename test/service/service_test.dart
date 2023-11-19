@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:movie_app/feature/home/service/movie_service.dart';
-import 'package:movie_app/product/enum/movie_paths.dart';
-import 'package:movie_app/product/extension/movie_paths_extension.dart';
+import 'package:movie_app/product/utility/enum/movie_paths.dart';
+import 'package:movie_app/product/utility/extension/movie_paths_extension.dart';
 import 'package:movie_app/product/init/network_manager.dart';
 
 void main() {

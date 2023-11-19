@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:movie_app/product/constants/app_path.dart';
+import 'package:movie_app/product/utility/constants/path_constant.dart';
 
 class NetworkManager {
   NetworkManager._() {
     _dio = Dio(BaseOptions(
-      baseUrl: AppPath().basePath,
+      baseUrl: PathConstant.basePath,
       headers: {
         "Content-Type": "application/json",
       },

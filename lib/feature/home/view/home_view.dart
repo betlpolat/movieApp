@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/cubit/home/home_cubit.dart';
 import 'package:movie_app/feature/home/cubit/home/home_state.dart';
 
-import '../../../product/constants/padding.dart';
+import '../../../product/utility/constants/padding_constant.dart';
 import '../../../product/init/language/locale_keys.g.dart';
-import '../../../product/init/loading_lottie.dart';
+import '../../../product/widget/loading_lottie.dart';
 import '../../../product/widget/topic_title_text.dart';
 
 import 'widget/carousel_movie_items.dart';

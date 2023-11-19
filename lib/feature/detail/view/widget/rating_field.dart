@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../home/model/movies.dart';
-import '../../../../product/constants/app_colors.dart';
-import '../../../../product/constants/border_radius.dart';
-import '../../../../product/constants/padding.dart';
+import '../../../../product/utility/constants/color_constant.dart';
+import '../../../../product/utility/border_radius/app_border_radius.dart';
+import '../../../../product/utility/constants/padding_constant.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 
 class RatingField extends StatelessWidget {
@@ -18,9 +18,9 @@ class RatingField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: AppPadding().paddingAllLow,
+      padding: PaddingConstant.paddingAllLow,
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors().black),
+        border: Border.all(color: ColorConstant.black),
         borderRadius: AppBorderRadius().appborderRadiusLow,
       ),
       child: Row(
@@ -32,9 +32,9 @@ class RatingField extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Icon(
+          const Icon(
             Icons.star,
-            color: AppColors().amber,
+            color: ColorConstant.amber,
           ),
           Text(
             "${(movie?.voteAverage ?? 0).toStringAsFixed(1)}/10",

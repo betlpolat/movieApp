@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movie_app/product/enum/lottie_items.dart';
+import 'package:movie_app/product/utility/enum/lottie_items.dart';
 
 class LoadingLottie extends StatelessWidget {
   const LoadingLottie({
