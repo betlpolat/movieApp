@@ -52,6 +52,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     context.read<ThemeNotifer>().changeTheme();
                     controller.animateTo(isLight ? 1 : 0.5);
                   });
+
                   isLight = !isLight;
                 },
                 child: Lottie.asset(LottieItems.theme_change.lottiePath,
