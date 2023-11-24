@@ -1,16 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/feature/home/cubit/home/home_cubit.dart';
-import 'package:movie_app/feature/home/cubit/search/search_cubit.dart';
-import 'package:movie_app/product/init/theme/theme_notifier.dart';
 import 'package:provider/provider.dart';
+import 'feature/home/cubit/home/index.dart';
+import 'feature/home/cubit/search/index.dart';
 import 'feature/home/service/movie_service.dart';
 import 'product/init/application_init.dart';
 import 'product/init/language/locale_keys.g.dart';
-import 'product/init/navigator/navigator_manager.dart';
-import 'product/init/navigator/navigator_routes.dart';
+import 'product/init/navigator/index.dart';
 import 'product/init/network/network_manager.dart';
+import 'product/init/theme/theme_notifier.dart';
 
 void main() async {
   final initialManager = ApplicationInit.instance;
