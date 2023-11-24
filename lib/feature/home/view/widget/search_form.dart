@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movie_app/product/utility/enum/widget_size.dart';
 import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
@@ -65,8 +66,8 @@ class SearchForm extends StatelessWidget {
                             child: ListTile(
                           title: Text(state.search?[index]?.title ?? ""),
                           leading: SizedBox(
-                              height: 50,
-                              width: 50,
+                              height: WidgetSize.searchArea.value,
+                              width: WidgetSize.searchArea.value,
                               child: NetworkImageWithRadius(posterPathValue: state.search?[index]?.posterPathValue)),
                         ));
                       }),

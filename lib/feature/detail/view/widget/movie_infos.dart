@@ -7,6 +7,7 @@ import 'package:movie_app/feature/detail/view/widget/release_field.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/init/language/locale_keys.g.dart';
 import 'package:movie_app/product/utility/constants/index.dart';
+import 'package:movie_app/product/utility/enum/widget_size.dart';
 part 'movie_infos.g.dart';
 
 class MovieInfos extends StatelessWidget {

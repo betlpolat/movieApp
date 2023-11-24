@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/product/utility/constants/color_constant.dart';
 import 'package:movie_app/product/utility/border_radius/app_border_radius.dart';
 import 'package:movie_app/product/utility/constants/padding_constant.dart';
-import 'package:movie_app/product/utility/enum/icon_size.dart';
+import 'package:movie_app/product/utility/enum/widget_size.dart';
 
 class ArrowBackIconButton extends StatelessWidget {
   const ArrowBackIconButton({
@@ -12,8 +12,8 @@ class ArrowBackIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: IconSize.medium.value,
-      width: IconSize.medium.value,
+      height: WidgetSize.icon.value,
+      width: WidgetSize.icon.value,
       margin: PaddingConstant.paddingTopLeft,
       decoration: BoxDecoration(borderRadius: AppBorderRadius().appborderRadiusLow, color: ColorConstant.grey),
       child: IconButton(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:movie_app/product/init/theme/theme_notifier.dart';
+import 'package:movie_app/product/utility/app_duration.dart';
 import 'package:movie_app/product/utility/enum/lottie_items.dart';
 import 'package:movie_app/product/widget/icon/loading_lottie.dart';
 import 'package:movie_app/product/widget/text/topic_title_text.dart';
@@ -29,7 +30,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     super.initState();
     isLight = context.read<ThemeNotifer>().isLightTheme;
     context.read<HomeCubit>().getMovie();
-    controller = AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    controller = AnimationController(vsync: this, duration: AppDuration.low);
     Future.microtask(() {
       controller.animateTo(isLight ? 0 : 0.5);
     });
