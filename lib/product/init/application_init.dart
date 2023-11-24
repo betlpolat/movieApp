@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/global/theme_notifier.dart';
 import 'package:movie_app/product/init/cache/app_cache.dart';
+import 'package:movie_app/product/init/theme/theme_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 

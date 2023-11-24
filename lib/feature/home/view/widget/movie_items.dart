@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/utility/constants/index.dart';
-import 'package:movie_app/product/widget/index.dart';
+import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
 import '../../../../product/init/navigator/index.dart';
 
 class MovieItems extends StatelessWidget {

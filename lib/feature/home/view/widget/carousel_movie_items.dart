@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import '../../../../product/init/navigator/index.dart';
-import '../../../../product/widget/index.dart';
+import '../../../../product/widget/image/network_image_with_radius.dart';
 
 class CarouselMovieItems extends StatelessWidget {
   const CarouselMovieItems({

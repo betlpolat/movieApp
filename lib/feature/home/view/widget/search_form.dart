@@ -2,10 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/product/widget/index.dart';
+import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/utility/constants/index.dart';
+import '../../../../product/widget/icon/loading_lottie.dart';
 import '../../cubit/search/index.dart';
 
 class SearchForm extends StatelessWidget {
