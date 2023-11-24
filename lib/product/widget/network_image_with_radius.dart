@@ -17,6 +17,9 @@ class NetworkImageWithRadius extends StatelessWidget {
         posterPathValue ?? "",
         filterQuality: FilterQuality.high,
         fit: BoxFit.cover,
+        errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+          return const SizedBox.shrink();
+        },
       ),
     );
   }

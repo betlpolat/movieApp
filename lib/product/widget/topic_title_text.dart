@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kartal/kartal.dart';
 
 class TopicTitleText extends StatelessWidget {
   const TopicTitleText({
@@ -8,13 +9,12 @@ class TopicTitleText extends StatelessWidget {
   });
 
   final String text;
-  final double _textSize = 20;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       style: GoogleFonts.aBeeZee(
-        fontSize: _textSize,
+        textStyle: context.general.textTheme.titleLarge,
       ),
     );
   }

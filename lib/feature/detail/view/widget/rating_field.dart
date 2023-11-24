@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kartal/kartal.dart';
+import '../../../../product/utility/constants/index.dart';
 import '../../../home/model/movies.dart';
-import '../../../../product/utility/constants/color_constant.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
-import '../../../../product/utility/constants/padding_constant.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 
 class RatingField extends StatelessWidget {
@@ -14,7 +14,6 @@ class RatingField extends StatelessWidget {
   });
 
   final Movie? movie;
-  final double _textSize = 17;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +27,7 @@ class RatingField extends StatelessWidget {
           Text(
             "${LocaleKeys.text_rating.tr()}: ",
             style: GoogleFonts.roboto(
-              fontSize: _textSize,
+              textStyle: context.general.textTheme.bodyLarge,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -39,7 +38,7 @@ class RatingField extends StatelessWidget {
           Text(
             "${(movie?.voteAverage ?? 0).toStringAsFixed(1)}/10",
             style: GoogleFonts.roboto(
-              fontSize: _textSize,
+              textStyle: context.general.textTheme.bodyLarge,
               fontWeight: FontWeight.bold,
             ),
           ),

@@ -1,14 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:movie_app/feature/home/cubit/search/search_cubit.dart';
-import 'package:movie_app/feature/home/cubit/search/search_state.dart';
-import 'package:movie_app/product/widget/loading_lottie.dart';
-import 'package:movie_app/product/widget/network_image_with_radius.dart';
-import '../../../../product/utility/constants/color_constant.dart';
+import 'package:kartal/kartal.dart';
+import 'package:movie_app/product/widget/index.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
+import '../../../../product/utility/constants/index.dart';
+import '../../cubit/search/index.dart';
 
 class SearchForm extends StatelessWidget {
   const SearchForm({
@@ -17,7 +15,6 @@ class SearchForm extends StatelessWidget {
   }) : _searchController = searchController;
 
   final TextEditingController _searchController;
-  final double _textSize = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +23,11 @@ class SearchForm extends StatelessWidget {
       child: Column(
         children: [
           TextField(
-            style: TextStyle(
-              fontSize: _textSize,
-            ),
+            style: context.general.textTheme.bodyLarge,
             onChanged: (value) {
-              context.read<SearchCubit>().getSearch(_searchController.text);
+              value.length > 2
+                  ? context.read<SearchCubit>().getSearch(_searchController.text)
+                  : context.read<SearchCubit>().closeSearch();
             },
             controller: _searchController,
             decoration: InputDecoration(
@@ -41,9 +38,7 @@ class SearchForm extends StatelessWidget {
                   borderRadius: AppBorderRadius().appborderRadius,
                 ),
                 hintText: LocaleKeys.text_search.tr(),
-                hintStyle: TextStyle(
-                  fontSize: _textSize,
-                ),
+                hintStyle: context.general.textTheme.bodyLarge,
                 fillColor: ColorConstant.white,
                 enabledBorder: _borderStyle(),
                 disabledBorder: _borderStyle(),
@@ -61,7 +56,7 @@ class SearchForm extends StatelessWidget {
               }
               if (state is SearchComplated) {
                 return SizedBox(
-                  height: MediaQuery.of(context).size.height / 2,
+                  height: (MediaQuery.of(context).size.height) / 3,
                   child: ListView.builder(
                       itemCount: state.search?.length ?? 0,
                       itemBuilder: (context, index) {

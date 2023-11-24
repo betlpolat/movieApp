@@ -2,16 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movie_app/feature/home/cubit/home/home_cubit.dart';
-import 'package:movie_app/feature/home/cubit/home/home_state.dart';
-import 'package:movie_app/product/global/theme_notifier.dart';
 import 'package:movie_app/product/utility/enum/lottie_items.dart';
-
-import '../../../product/utility/constants/padding_constant.dart';
+import '../../../product/global/theme_notifier.dart';
 import '../../../product/init/language/locale_keys.g.dart';
-import '../../../product/widget/loading_lottie.dart';
-import '../../../product/widget/topic_title_text.dart';
-
+import '../../../product/utility/constants/index.dart';
+import '../../../product/widget/index.dart';
+import '../cubit/home/index.dart';
 import 'widget/carousel_movie_items.dart';
 import 'widget/movie_items.dart';
 import 'widget/search_form.dart';
@@ -43,6 +39,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           actions: [
             SizedBox(
               width: MediaQuery.of(context).size.height / 10,

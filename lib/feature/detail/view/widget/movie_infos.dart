@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kartal/kartal.dart';
 import 'package:movie_app/feature/detail/view/widget/rating_field.dart';
 import 'package:movie_app/feature/detail/view/widget/release_field.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/utility/constants/padding_constant.dart';
 import 'package:movie_app/product/init/language/locale_keys.g.dart';
-
+import 'package:movie_app/product/utility/constants/index.dart';
 part 'movie_infos.g.dart';
 
 class MovieInfos extends StatelessWidget {
@@ -16,8 +16,6 @@ class MovieInfos extends StatelessWidget {
   });
 
   final Movie? movie;
-  final double _titleTextSize = 30;
-  final double _textSize = 25;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +24,9 @@ class MovieInfos extends StatelessWidget {
         padding: PaddingConstant.paddingAll,
         child: Column(
           children: [
-            _OverviewTitle(titleTextSize: _titleTextSize),
+            _OverviewTitle(textStyle: context.general.textTheme.headlineLarge ?? const TextStyle()),
             const _SizedBBox(),
-            _OverviewText(movie: movie, textSize: _textSize),
+            _OverviewText(movie: movie, textStyle: context.general.textTheme.headlineSmall ?? const TextStyle()),
             const _SizedBBox(),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               ReleaseField(movie: movie),

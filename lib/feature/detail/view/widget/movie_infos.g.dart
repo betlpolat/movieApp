@@ -4,19 +4,19 @@ class _OverviewText extends StatelessWidget {
   const _OverviewText({
     Key? key,
     required this.movie,
-    required double textSize,
-  })  : _textSize = textSize,
+    required TextStyle textStyle,
+  })  : _textStyle = textStyle,
         super(key: key);
 
   final Movie? movie;
-  final double _textSize;
+  final TextStyle? _textStyle;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       movie?.overview ?? "",
       style: GoogleFonts.roboto(
-        fontSize: _textSize,
+        textStyle: _textStyle,
         fontWeight: FontWeight.w400,
       ),
     );
@@ -26,18 +26,18 @@ class _OverviewText extends StatelessWidget {
 class _OverviewTitle extends StatelessWidget {
   const _OverviewTitle({
     Key? key,
-    required double titleTextSize,
-  })  : _titleTextSize = titleTextSize,
+    required TextStyle textStyle,
+  })  : _textStyle = textStyle,
         super(key: key);
 
-  final double _titleTextSize;
+  final TextStyle _textStyle;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       LocaleKeys.title_overview.tr(),
       style: GoogleFonts.openSans(
-        fontSize: _titleTextSize,
+        textStyle: _textStyle,
         fontWeight: FontWeight.w800,
       ),
     );

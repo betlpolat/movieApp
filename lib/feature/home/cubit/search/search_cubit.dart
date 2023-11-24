@@ -16,14 +16,18 @@ class SearchCubit extends Cubit<SearchState> {
       try {
         emit(SearchLoading());
         final search = await _movieService.fetchMovieList(MoviePaths.search.searchPath(), query: query);
-        if (search == null || search.isEmpty || search == []) {
+        if (search == null || search.isEmpty) {
           emit(SearchInitial());
         } else {
-          emit(SearchComplated(search));
+          emit(SearchComplated(search.sublist(0, 5)));
         }
       } on NetworkError catch (e) {
         emit(SearchError(e.message));
       }
     }
+  }
+
+  Future<void> closeSearch() async {
+    emit(SearchInitial());
   }
 }
