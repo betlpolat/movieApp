@@ -1,7 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/string_extension.dart';
 import 'package:movie_app/feature/detail/view/widget/rating_field.dart';
 import 'package:movie_app/feature/detail/view/widget/release_field.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
@@ -29,7 +29,7 @@ class MovieInfos extends StatelessWidget {
             const _SizedBBox(),
             _OverviewText(movie: movie, textStyle: context.general.textTheme.headlineSmall ?? const TextStyle()),
             const _SizedBBox(),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               ReleaseField(movie: movie),
               RatingField(movie: movie),
             ]),

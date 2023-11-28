@@ -1,7 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/string_extension.dart';
 import 'package:movie_app/product/utility/constants/index.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
@@ -26,7 +26,7 @@ class ReleaseField extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            "${LocaleKeys.text_release.tr()}: ${movie?.releaseDate ?? ""}",
+            "${LocaleKeys.text_release.locale}: ${movie?.releaseDate ?? ""}",
             style: GoogleFonts.roboto(
               textStyle: context.general.textTheme.bodyLarge,
               fontWeight: FontWeight.bold,

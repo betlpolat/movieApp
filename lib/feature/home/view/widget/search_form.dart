@@ -1,7 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/string_extension.dart';
 import 'package:movie_app/product/utility/enum/widget_size.dart';
 import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
@@ -39,7 +39,7 @@ class SearchForm extends StatelessWidget {
                   ),
                   borderRadius: AppBorderRadius().appborderRadius,
                 ),
-                hintText: LocaleKeys.text_search.tr(),
+                hintText: LocaleKeys.text_search.locale,
                 hintStyle: context.general.textTheme.bodyLarge,
                 fillColor: ColorConstant.white,
                 enabledBorder: _borderStyle(),

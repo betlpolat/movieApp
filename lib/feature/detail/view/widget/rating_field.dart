@@ -1,7 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/string_extension.dart';
 import '../../../../product/utility/constants/index.dart';
 import '../../../home/model/movies.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
@@ -25,7 +25,7 @@ class RatingField extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            "${LocaleKeys.text_rating.tr()}: ",
+            "${LocaleKeys.text_rating.locale}: ",
             style: GoogleFonts.roboto(
               textStyle: context.general.textTheme.bodyLarge,
               fontWeight: FontWeight.bold,

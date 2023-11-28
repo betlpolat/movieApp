@@ -24,17 +24,19 @@ class _MovieLists extends StatelessWidget {
               padding: PaddingConstant.paddingAll,
               child: SearchForm(searchController: _searchController),
             ),
-            TopicTitleText(text: LocaleKeys.title_trending.tr()),
+            const TopicTitleText(text: LocaleKeys.title_trending),
             Padding(
               padding: PaddingConstant.paddingAll,
               child: CarouselMovieItems(movies: movies.trending),
             ),
-            TopicTitleText(text: LocaleKeys.title_topRated.tr()),
+            const TopicTitleText(
+              text: LocaleKeys.title_topRated,
+            ),
             Padding(
               padding: PaddingConstant.paddingAll,
               child: MovieItems(movies: movies.topRated),
             ),
-            TopicTitleText(text: LocaleKeys.title_nowPlaying.tr()),
+            const TopicTitleText(text: LocaleKeys.title_nowPlaying),
             Padding(
               padding: PaddingConstant.paddingAll,
               child: MovieItems(movies: movies.nowPlaying),

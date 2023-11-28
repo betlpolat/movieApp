@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/product/init/language/language_notifier.dart';
 import 'package:provider/provider.dart';
 import 'feature/home/cubit/home/index.dart';
 import 'feature/home/cubit/search/index.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget with NavigatorRoutesMixin {
       theme: context.watch<ThemeNotifer>().currentTheme,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
+      supportedLocales: context.supportedLocales,
       onGenerateRoute: onGnerateRoute,
       navigatorKey: NavigatorManager.instance.navigatorGlobalKey,
     );

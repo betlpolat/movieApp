@@ -1,0 +1,14 @@
+{
+    "title": {
+        "app": "FILME",
+        "trending": "Trend Filme",
+        "topRated": "Am besten bewertete Filme",
+        "nowPlaying": "Jetzt werden Filme abgespielt",
+        "overview": "Überblick"
+    },
+    "text": {
+        "rating": "Bewertung",
+        "release": "Veröffentlichungsdatum",
+        "search": "Suchen"
+    }
+}

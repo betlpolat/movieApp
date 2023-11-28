@@ -2,12 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:movie_app/core/component/text/locale_text.dart';
+import 'package:movie_app/core/extension/string_extension.dart';
+import 'package:movie_app/core/init/core_localize.dart';
+import 'package:movie_app/product/init/language/language_notifier.dart';
+import 'package:movie_app/product/init/language/locale_keys.g.dart';
 import 'package:movie_app/product/init/theme/theme_notifier.dart';
 import 'package:movie_app/product/utility/app_duration.dart';
 import 'package:movie_app/product/utility/enum/lottie_items.dart';
 import 'package:movie_app/product/widget/icon/loading_lottie.dart';
 import 'package:movie_app/product/widget/text/topic_title_text.dart';
-import '../../../product/init/language/locale_keys.g.dart';
 import '../../../product/utility/constants/index.dart';
 import '../cubit/home/index.dart';
 import 'widget/carousel_movie_items.dart';
@@ -29,7 +33,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     isLight = context.read<ThemeNotifer>().isLightTheme;
-    context.read<HomeCubit>().getMovie();
+    final currentLanguage = context.read<LanguageNotifer>().currentLanguage;
+    context.read<HomeCubit>().getMovie(currentLanguage!);
     controller = AnimationController(vsync: this, duration: AppDuration.low);
     Future.microtask(() {
       controller.animateTo(isLight ? 0 : 0.5);
@@ -42,25 +47,19 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
+          leading: IconButton(
+              onPressed: () {
+                LanguageNotifer().changeLanguge(context);
+              },
+              icon: const Icon(Icons.language_outlined)),
           actions: [
             SizedBox(
               width: MediaQuery.of(context).size.height / 10,
-              child: InkWell(
-                onTap: () async {
-                  Future.microtask(() {
-                    context.read<ThemeNotifer>().changeTheme();
-                    controller.animateTo(isLight ? 1 : 0.5);
-                  });
-
-                  isLight = !isLight;
-                },
-                child: Lottie.asset(LottieItems.theme_change.lottiePath,
-                    fit: BoxFit.cover, repeat: false, controller: controller),
-              ),
+              child: _changeThemeButton(context),
             )
           ],
           title: Text(
-            LocaleKeys.title_app.tr(),
+            LocaleKeys.title_app.locale,
           ),
         ),
         body: BlocConsumer<HomeCubit, HomeState>(
@@ -78,5 +77,20 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             }
           },
         ));
+  }
+
+  InkWell _changeThemeButton(BuildContext context) {
+    return InkWell(
+      onTap: () async {
+        Future.microtask(() {
+          context.read<ThemeNotifer>().changeTheme();
+          controller.animateTo(isLight ? 1 : 0.5);
+        });
+
+        isLight = !isLight;
+      },
+      child:
+          Lottie.asset(LottieItems.theme_change.lottiePath, fit: BoxFit.cover, repeat: false, controller: controller),
+    );
   }
 }
