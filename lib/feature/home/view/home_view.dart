@@ -1,18 +1,16 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movie_app/core/component/text/locale_text.dart';
-import 'package:movie_app/core/extension/string_extension.dart';
-import 'package:movie_app/core/init/core_localize.dart';
-import 'package:movie_app/product/init/language/language_notifier.dart';
-import 'package:movie_app/product/init/language/locale_keys.g.dart';
-import 'package:movie_app/product/init/theme/theme_notifier.dart';
-import 'package:movie_app/product/utility/app_duration.dart';
-import 'package:movie_app/product/utility/enum/lottie_items.dart';
-import 'package:movie_app/product/widget/icon/loading_lottie.dart';
-import 'package:movie_app/product/widget/text/topic_title_text.dart';
+
+import '../../../core/extension/string_extension.dart';
+import '../../../product/init/language/language_notifier.dart';
+import '../../../product/init/language/locale_keys.g.dart';
+import '../../../product/init/theme/theme_notifier.dart';
+import '../../../product/utility/app_duration.dart';
 import '../../../product/utility/constants/index.dart';
+import '../../../product/utility/enum/lottie_items.dart';
+import '../../../product/widget/icon/loading_lottie.dart';
+import '../../../product/widget/text/topic_title_text.dart';
 import '../cubit/home/index.dart';
 import 'widget/carousel_movie_items.dart';
 import 'widget/movie_items.dart';

@@ -1,5 +1,8 @@
 import 'dart:io';
+
 import 'package:dio/dio.dart';
+
+import '../../../core/base/model/network_error.dart';
 import '../model/movies.dart';
 
 abstract class IMovieService {
@@ -36,11 +39,4 @@ class MovieService extends IMovieService {
     }
     return null;
   }
-}
-
-class NetworkError implements Exception {
-  final String statusCode;
-  final String message;
-
-  NetworkError(this.statusCode, this.message);
 }

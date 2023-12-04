@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/product/init/language/language_notifier.dart';
 import 'package:provider/provider.dart';
+
 import 'feature/home/cubit/home/index.dart';
 import 'feature/home/cubit/search/index.dart';
 import 'feature/home/service/movie_service.dart';
