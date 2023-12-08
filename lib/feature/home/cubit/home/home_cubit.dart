@@ -13,13 +13,15 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> getMovie(LanguageCode currentLanguage) async {
     try {
-      print(currentLanguage);
       emit(HomeLoading());
-      final popular = await _movieService.fetchMovieList(MoviePaths.popular.moviePath(currentLanguage));
-      final topRated = await _movieService.fetchMovieList(MoviePaths.top_rated.moviePath(currentLanguage));
-      final nowPlaying = await _movieService.fetchMovieList(MoviePaths.now_playing.moviePath(currentLanguage));
+      final popular = await _movieService
+          .fetchMovieList(MoviePaths.popular.moviePath(currentLanguage));
+      final topRated = await _movieService
+          .fetchMovieList(MoviePaths.top_rated.moviePath(currentLanguage));
+      final nowPlaying = await _movieService
+          .fetchMovieList(MoviePaths.now_playing.moviePath(currentLanguage));
 
-      emit(HomeComplated(popular, topRated, nowPlaying));
+      emit(HomeCompleted(popular, topRated, nowPlaying));
     } on NetworkError catch (e) {
       emit(HomeError(e.message));
     }

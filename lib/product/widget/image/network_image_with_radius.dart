@@ -12,12 +12,13 @@ class NetworkImageWithRadius extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: AppBorderRadius().appborderRadius,
+      borderRadius: AppBorderRadius().appBorderRadius,
       child: Image.network(
         posterPathValue ?? "",
         filterQuality: FilterQuality.high,
         fit: BoxFit.cover,
-        errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+        errorBuilder:
+            (BuildContext context, Object exception, StackTrace? stackTrace) {
           return const SizedBox.shrink();
         },
       ),

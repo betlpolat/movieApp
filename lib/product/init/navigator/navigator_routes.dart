@@ -5,21 +5,23 @@ import 'package:movie_app/feature/home/view/home_view.dart';
 import 'package:movie_app/main.dart';
 
 mixin NavigatorRoutesMixin<T extends MyApp> on Widget {
-  Route<dynamic>? onGnerateRoute(RouteSettings routeSettings) {
+  Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
     if ((routeSettings.name?.isEmpty ?? true) || (routeSettings.name == "/")) {
       return _navigateToNormal(const BlocWidget(
         widget: HomeView(),
       ));
     }
 
-    final routes = NavigatorRoutes.values.byName(routeSettings.name!.substring(1));
+    final routes =
+        NavigatorRoutes.values.byName(routeSettings.name!.substring(1));
 
     switch (routes) {
       case NavigatorRoutes.home:
         return _navigateToNormal(const HomeView());
       case NavigatorRoutes.homeDetail:
         final movie = routeSettings.arguments;
-        return _navigateToNormal(DetailView(movie: movie is Movie ? movie : null));
+        return _navigateToNormal(
+            DetailView(movie: movie is Movie ? movie : null));
     }
   }
 

@@ -12,12 +12,12 @@ class HomeLoading extends HomeState {
   HomeLoading();
 }
 
-class HomeComplated extends HomeState {
+class HomeCompleted extends HomeState {
   final List<Movie?>? trending;
   final List<Movie?>? topRated;
   final List<Movie?>? nowPlaying;
 
-  HomeComplated(
+  HomeCompleted(
     this.trending,
     this.topRated,
     this.nowPlaying,

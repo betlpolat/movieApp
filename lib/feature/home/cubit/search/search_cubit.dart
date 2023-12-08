@@ -17,11 +17,12 @@ class SearchCubit extends Cubit<SearchState> {
     } else {
       try {
         emit(SearchLoading());
-        final search = await _movieService.fetchMovieList(MoviePaths.search.searchPath(), query: query);
+        final search = await _movieService
+            .fetchMovieList(MoviePaths.search.searchPath(), query: query);
         if (search == null || search.isEmpty) {
           emit(SearchInitial());
         } else {
-          emit(SearchComplated(search.sublist(0, 5)));
+          emit(SearchCompleted(search.sublist(0, 5)));
         }
       } on NetworkError catch (e) {
         emit(SearchError(e.message));

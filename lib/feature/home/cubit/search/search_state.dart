@@ -12,10 +12,10 @@ class SearchLoading extends SearchState {
   SearchLoading();
 }
 
-class SearchComplated extends SearchState {
+class SearchCompleted extends SearchState {
   final List<Movie?>? search;
 
-  SearchComplated(this.search);
+  SearchCompleted(this.search);
 }
 
 class SearchError extends SearchState {

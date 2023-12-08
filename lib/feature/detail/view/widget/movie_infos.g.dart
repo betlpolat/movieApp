@@ -15,8 +15,7 @@ class _OverviewText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       movie?.overview ?? "",
-      style: GoogleFonts.roboto(
-        textStyle: _textStyle,
+      style: _textStyle!.copyWith(
         fontWeight: FontWeight.w400,
       ),
     );
@@ -34,13 +33,10 @@ class _OverviewTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      LocaleKeys.title_overview.locale,
-      style: GoogleFonts.openSans(
-        textStyle: _textStyle,
-        fontWeight: FontWeight.w800,
-      ),
-    );
+    return Text(LocaleKeys.title_overview.locale,
+        style: _textStyle.copyWith(
+          fontWeight: FontWeight.w800,
+        ));
   }
 }
 
@@ -50,5 +46,6 @@ class _SizedBBox extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => SizedBox(height: WidgetSize.sizeBoxed.value);
+  Widget build(BuildContext context) =>
+      SizedBox(height: WidgetSize.sizeBoxed.value);
 }

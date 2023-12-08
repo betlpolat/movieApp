@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/cubit/home/home_cubit.dart';
 import 'package:movie_app/product/utility/enum/language_code.dart';
 
-class LanguageNotifer extends ChangeNotifier {
+class LanguageNotifier extends ChangeNotifier {
   LanguageCode? currentLanguage = LanguageCode.english;
-  void changeLanguge(BuildContext context) {
+  void changeLanguage(BuildContext context) {
     Locale? currentLocal = EasyLocalization.of(context)!.currentLocale;
 
     if (currentLocal == const Locale('en', 'US')) {

@@ -9,7 +9,7 @@ class _MovieLists extends StatelessWidget {
         super(key: key);
 
   final TextEditingController _searchController;
-  final HomeComplated movies;
+  final HomeCompleted movies;
 
   @override
   Widget build(BuildContext context) {

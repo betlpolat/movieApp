@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:kartal/kartal.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/utility/enum/widget_size.dart';
 import 'package:movie_app/product/widget/button/arrow_back_icon_button.dart';
-import 'package:kartal/kartal.dart';
 import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
 
 class DetailAppBar extends StatelessWidget {
@@ -23,12 +22,12 @@ class DetailAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           movie?.title ?? "",
-          style: GoogleFonts.belleza(
-            textStyle: context.general.textTheme.bodyLarge,
+          style: context.general.textTheme.bodyLarge!.copyWith(
             fontWeight: FontWeight.w600,
           ),
         ),
-        background: NetworkImageWithRadius(posterPathValue: movie?.posterPathValue),
+        background:
+            NetworkImageWithRadius(posterPathValue: movie?.posterPathValue),
       ),
     );
   }

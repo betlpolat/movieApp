@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../core/extension/string_extension.dart';
-import '../../../product/init/language/language_notifier.dart';
 import '../../../product/init/language/locale_keys.g.dart';
-import '../../../product/init/theme/theme_notifier.dart';
+import '../../../product/state/language_notifier.dart';
+import '../../../product/state/theme_notifier.dart';
 import '../../../product/utility/app_duration.dart';
 import '../../../product/utility/constants/index.dart';
 import '../../../product/utility/enum/lottie_items.dart';
@@ -30,8 +30,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    isLight = context.read<ThemeNotifer>().isLightTheme;
-    final currentLanguage = context.read<LanguageNotifer>().currentLanguage;
+    isLight = context.read<ThemeNotifier>().isLightTheme;
+    final currentLanguage = context.read<LanguageNotifier>().currentLanguage;
     context.read<HomeCubit>().getMovie(currentLanguage!);
     controller = AnimationController(vsync: this, duration: AppDuration.low);
     Future.microtask(() {
@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
-                LanguageNotifer().changeLanguge(context);
+                LanguageNotifier().changeLanguage(context);
               },
               icon: const Icon(Icons.language_outlined)),
           actions: [
@@ -67,8 +67,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               return Container();
             } else if (state is HomeLoading) {
               return const LoadingLottie();
-            } else if (state is HomeComplated) {
-              return _MovieLists(searchController: _searchController, movies: state);
+            } else if (state is HomeCompleted) {
+              return _MovieLists(
+                  searchController: _searchController, movies: state);
             } else {
               final error = state as HomeError;
               return Text(error.message);
@@ -81,14 +82,14 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     return InkWell(
       onTap: () async {
         Future.microtask(() {
-          context.read<ThemeNotifer>().changeTheme();
+          context.read<ThemeNotifier>().changeTheme();
           controller.animateTo(isLight ? 1 : 0.5);
         });
 
         isLight = !isLight;
       },
-      child:
-          Lottie.asset(LottieItems.theme_change.lottiePath, fit: BoxFit.cover, repeat: false, controller: controller),
+      child: Lottie.asset(LottieItems.theme_change.lottiePath,
+          fit: BoxFit.cover, repeat: false, controller: controller),
     );
   }
 }

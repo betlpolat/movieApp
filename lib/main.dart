@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/product/state/theme_notifier.dart';
 import 'package:provider/provider.dart';
 
 import 'feature/home/cubit/home/index.dart';
@@ -10,7 +11,6 @@ import 'product/init/application_init.dart';
 import 'product/init/language/locale_keys.g.dart';
 import 'product/init/navigator/index.dart';
 import 'product/init/network/network_manager.dart';
-import 'product/init/theme/theme_notifier.dart';
 
 void main() async {
   final initialManager = ApplicationInit.instance;
@@ -34,11 +34,11 @@ class MyApp extends StatelessWidget with NavigatorRoutesMixin {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: (LocaleKeys.title_app),
-      theme: context.watch<ThemeNotifer>().currentTheme,
+      theme: context.watch<ThemeNotifier>().currentTheme,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
       supportedLocales: context.supportedLocales,
-      onGenerateRoute: onGnerateRoute,
+      onGenerateRoute: onGenerateRoute,
       navigatorKey: NavigatorManager.instance.navigatorGlobalKey,
     );
   }
@@ -55,8 +55,12 @@ class BlocWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<HomeCubit>(create: (_) => HomeCubit(MovieService(NetworkManager.instance.service))),
-        BlocProvider<SearchCubit>(create: (_) => SearchCubit(MovieService(NetworkManager.instance.service))),
+        BlocProvider<HomeCubit>(
+            create: (_) =>
+                HomeCubit(MovieService(NetworkManager.instance.service))),
+        BlocProvider<SearchCubit>(
+            create: (_) =>
+                SearchCubit(MovieService(NetworkManager.instance.service))),
       ],
       child: widget,
     );
