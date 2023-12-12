@@ -3,12 +3,9 @@ part of 'home_view.dart';
 class _MovieLists extends StatelessWidget {
   const _MovieLists({
     Key? key,
-    required TextEditingController searchController,
     required this.movies,
-  })  : _searchController = searchController,
-        super(key: key);
+  }) : super(key: key);
 
-  final TextEditingController _searchController;
   final HomeCompleted movies;
 
   @override
@@ -20,9 +17,9 @@ class _MovieLists extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
+            const Padding(
               padding: PaddingConstant.paddingAll,
-              child: SearchForm(searchController: _searchController),
+              child: SearchForm(),
             ),
             const TopicTitleText(text: LocaleKeys.title_trending),
             Padding(

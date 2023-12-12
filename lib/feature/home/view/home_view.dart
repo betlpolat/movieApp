@@ -39,7 +39,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     });
   }
 
-  final TextEditingController _searchController = TextEditingController();
+  //final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,8 +68,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             } else if (state is HomeLoading) {
               return const LoadingLottie();
             } else if (state is HomeCompleted) {
-              return _MovieLists(
-                  searchController: _searchController, movies: state);
+              return _MovieLists(movies: state);
             } else {
               final error = state as HomeError;
               return Text(error.message);

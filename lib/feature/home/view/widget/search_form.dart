@@ -1,22 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movie_app/core/extension/string_extension.dart';
+import 'package:movie_app/product/init/navigator/navigator_manager.dart';
 import 'package:movie_app/product/utility/enum/widget_size.dart';
 import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
 
 import '../../../../product/init/language/locale_keys.g.dart';
+import '../../../../product/init/navigator/navigator_routes.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/widget/icon/loading_lottie.dart';
 import '../../cubit/search/index.dart';
 
-class SearchForm extends StatelessWidget {
+class SearchForm extends StatefulWidget {
   const SearchForm({
     super.key,
-    required TextEditingController searchController,
-  }) : _searchController = searchController;
+  });
 
-  final TextEditingController _searchController;
+  @override
+  State<SearchForm> createState() => _SearchFormState();
+}
+
+class _SearchFormState extends State<SearchForm> {
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _controllerClear() {
+    context.read<SearchCubit>().closeSearch();
+    _searchController.clear();
+    FocusScope.of(context).requestFocus(FocusNode());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,16 +88,25 @@ class SearchForm extends StatelessWidget {
                   child: ListView.builder(
                       itemCount: state.search?.length ?? 0,
                       itemBuilder: (context, index) {
-                        return Card(
-                            child: ListTile(
-                          title: Text(state.search?[index]?.title ?? ""),
-                          leading: SizedBox(
-                              height: WidgetSize.searchArea.value,
-                              width: WidgetSize.searchArea.value,
-                              child: NetworkImageWithRadius(
-                                  posterPathValue:
-                                      state.search?[index]?.posterPathValue)),
-                        ));
+                        return GestureDetector(
+                          onTap: () async {
+                            await NavigatorManager.instance.pushToPage(
+                                route: NavigatorRoutes.homeDetail,
+                                fullScreenDialog: true,
+                                arguments: state.search?[index]);
+                            _controllerClear();
+                          },
+                          child: Card(
+                              child: ListTile(
+                            title: Text(state.search?[index]?.title ?? ""),
+                            leading: SizedBox(
+                                height: WidgetSize.searchArea.value,
+                                width: WidgetSize.searchArea.value,
+                                child: NetworkImageWithRadius(
+                                    posterPathValue:
+                                        state.search?[index]?.posterPathValue)),
+                          )),
+                        );
                       }),
                 );
               } else {
