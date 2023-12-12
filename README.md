@@ -1,5 +1,4 @@
 
 
-
-https://github.com/betlpolat/movieApp/assets/63367737/2b70abac-7952-490f-b64a-17872910ae16
+https://github.com/betlpolat/movieApp/assets/63367737/00e0e187-4ed1-4337-b5a0-1a483cfb9b9e
 
