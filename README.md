@@ -1,5 +1,5 @@
 
 
 
-Uploading Android_Emulator_-_Pixel_6_Pro_API_33_5554_2023-12-12_13-38-12 (1) (online-video-cutter.com).mp4…
+https://github.com/betlpolat/movieApp/assets/63367737/2b70abac-7952-490f-b64a-17872910ae16
 
