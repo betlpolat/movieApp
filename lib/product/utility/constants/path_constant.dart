@@ -5,9 +5,9 @@ import '../../init/config/app_environment.dart';
 @immutable
 class PathConstant {
   const PathConstant._();
-  static String basePath = AppEnvironment.baseUrl;
-  static String moviePath = AppEnvironment.movieUrl;
-  static String searchPath = AppEnvironment.searchUrl;
-  static String apiKey = AppEnvironment.apiKey;
-  static String imagePath = AppEnvironment.imageUrl;
+  static String basePath = AppEnvironmentItems.baseUrl.value;
+  static String moviePath = AppEnvironmentItems.movieUrl.value;
+  static String searchPath = AppEnvironmentItems.searchUrl.value;
+  static String apiKey = AppEnvironmentItems.apiKey.value;
+  static String imagePath = AppEnvironmentItems.imageUrl.value;
 }

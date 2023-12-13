@@ -6,10 +6,31 @@ final class AppEnvironment {
   }
 
   static late final AppConfiguration _config;
+}
 
-  static String get baseUrl => _config.baseUrl;
-  static String get imageUrl => _config.imageUrl;
-  static String get apiKey => _config.apiKey;
-  static String get movieUrl => _config.movieUrl;
-  static String get searchUrl => _config.searchUrl;
+enum AppEnvironmentItems {
+  baseUrl,
+  imageUrl,
+  apiKey,
+  movieUrl,
+  searchUrl;
+
+  String get value {
+    try {
+      switch (this) {
+        case AppEnvironmentItems.baseUrl:
+          return AppEnvironment._config.baseUrl;
+        case AppEnvironmentItems.apiKey:
+          return AppEnvironment._config.apiKey;
+        case AppEnvironmentItems.imageUrl:
+          return AppEnvironment._config.imageUrl;
+        case AppEnvironmentItems.movieUrl:
+          return AppEnvironment._config.movieUrl;
+        case AppEnvironmentItems.searchUrl:
+          return AppEnvironment._config.searchUrl;
+      }
+    } catch (e) {
+      throw Exception('AppEnvironment is not initialized.');
+    }
+  }
 }
