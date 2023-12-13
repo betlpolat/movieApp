@@ -1,4 +1,4 @@
-import 'package:movie_app/feature/home/model/movies.dart';
+import '../../model/movies.dart';
 
 abstract class SearchState {
   SearchState();

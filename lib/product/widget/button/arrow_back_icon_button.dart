@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/utility/border_radius/app_border_radius.dart';
-import 'package:movie_app/product/utility/constants/padding_constant.dart';
-import 'package:movie_app/product/utility/enum/widget_size.dart';
+
+import '../../utility/border_radius/app_border_radius.dart';
+import '../../utility/constants/padding_constant.dart';
+import '../../utility/enum/widget_size.dart';
 
 class ArrowBackIconButton extends StatelessWidget {
   const ArrowBackIconButton({

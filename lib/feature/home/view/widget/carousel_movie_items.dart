@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/utility/app_duration.dart';
-import 'package:movie_app/product/utility/enum/widget_size.dart';
+
 import '../../../../product/init/navigator/index.dart';
+import '../../../../product/utility/app_duration.dart';
+import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
+import '../../model/movies.dart';
 
 class CarouselMovieItems extends StatelessWidget {
   const CarouselMovieItems({
@@ -23,10 +24,13 @@ class CarouselMovieItems extends StatelessWidget {
         itemBuilder: ((context, index, realIndex) {
           return GestureDetector(
             onTap: () async {
-              await NavigatorManager.instance
-                  .pushToPage(route: NavigatorRoutes.homeDetail, fullScreenDialog: true, arguments: movies?[index]);
+              await NavigatorManager.instance.pushToPage(
+                  route: NavigatorRoutes.homeDetail,
+                  fullScreenDialog: true,
+                  arguments: movies?[index]);
             },
-            child: NetworkImageWithRadius(posterPathValue: movies?[index]?.posterPathValue),
+            child: NetworkImageWithRadius(
+                posterPathValue: movies?[index]?.posterPathValue),
           );
         }),
         options: _carouselOptions(),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/feature/detail/view/detail_view.dart';
-import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/feature/home/view/home_view.dart';
-import 'package:movie_app/main.dart';
+
+import '../../../feature/detail/view/detail_view.dart';
+import '../../../feature/home/model/movies.dart';
+import '../../../feature/home/view/home_view.dart';
+import '../../../main.dart';
 
 mixin NavigatorRoutesMixin<T extends MyApp> on Widget {
   Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {

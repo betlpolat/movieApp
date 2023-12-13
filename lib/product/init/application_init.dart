@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/init/cache/app_cache.dart';
-import 'package:movie_app/product/state/language_notifier.dart';
-import 'package:movie_app/product/state/theme_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 import '../../core/init/core_localize.dart';
+import '../state/language_notifier.dart';
+import '../state/theme_notifier.dart';
+import 'cache/app_cache.dart';
 
 @immutable
 final class ApplicationInit {

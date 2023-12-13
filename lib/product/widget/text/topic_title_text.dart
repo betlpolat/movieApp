@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/core/extension/string_extension.dart';
+
+import '../../../core/extension/string_extension.dart';
 
 class TopicTitleText extends StatelessWidget {
   const TopicTitleText({

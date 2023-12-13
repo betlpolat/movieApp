@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/core/extension/string_extension.dart';
-import 'package:movie_app/product/init/navigator/navigator_manager.dart';
-import 'package:movie_app/product/utility/enum/widget_size.dart';
-import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
 
+import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
+import '../../../../product/init/navigator/navigator_manager.dart';
 import '../../../../product/init/navigator/navigator_routes.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
+import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/icon/loading_lottie.dart';
+import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../cubit/search/index.dart';
 
 class SearchForm extends StatefulWidget {

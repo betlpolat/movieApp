@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/core/extension/string_extension.dart';
-import 'package:movie_app/feature/detail/view/widget/rating_field.dart';
-import 'package:movie_app/feature/detail/view/widget/release_field.dart';
-import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/init/language/locale_keys.g.dart';
-import 'package:movie_app/product/utility/constants/index.dart';
-import 'package:movie_app/product/utility/enum/widget_size.dart';
+
+import '../../../../core/extension/string_extension.dart';
+import '../../../../product/init/language/locale_keys.g.dart';
+import '../../../../product/utility/constants/index.dart';
+import '../../../../product/utility/enum/widget_size.dart';
+import '../../../home/model/movies.dart';
+import 'rating_field.dart';
+import 'release_field.dart';
 
 part 'movie_infos.g.dart';
 

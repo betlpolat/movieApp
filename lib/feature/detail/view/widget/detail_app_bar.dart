@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/utility/enum/widget_size.dart';
-import 'package:movie_app/product/widget/button/arrow_back_icon_button.dart';
-import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
+
+import '../../../../product/utility/enum/widget_size.dart';
+import '../../../../product/widget/button/arrow_back_icon_button.dart';
+import '../../../../product/widget/image/network_image_with_radius.dart';
+import '../../../home/model/movies.dart';
 
 class DetailAppBar extends StatelessWidget {
   const DetailAppBar({

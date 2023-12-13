@@ -1,9 +1,11 @@
-import 'package:movie_app/product/init/cache/app_cache.dart';
+import 'app_cache.dart';
 
 enum CacheKeys {
   theme,
   language;
 
-  bool get readBool => AppCache.instance.sharedPreferences.getBool(name) ?? false;
-  Future<bool> writeBool(bool value) => AppCache.instance.sharedPreferences.setBool(name, value);
+  bool get readBool =>
+      AppCache.instance.sharedPreferences.getBool(name) ?? false;
+  Future<bool> writeBool(bool value) =>
+      AppCache.instance.sharedPreferences.setBool(name, value);
 }

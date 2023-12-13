@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/feature/home/model/movies.dart';
+
+import '../../home/model/movies.dart';
 import 'widget/detail_app_bar.dart';
 import 'widget/movie_infos.dart';
 

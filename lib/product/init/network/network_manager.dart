@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:movie_app/product/utility/constants/path_constant.dart';
+
+import '../../utility/constants/path_constant.dart';
 
 class NetworkManager {
   NetworkManager._() {

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/feature/home/model/movies.dart';
-import 'package:movie_app/product/utility/constants/index.dart';
-import 'package:movie_app/product/utility/enum/widget_size.dart';
-import 'package:movie_app/product/widget/image/network_image_with_radius.dart';
+
 import '../../../../product/init/navigator/index.dart';
+import '../../../../product/utility/constants/index.dart';
+import '../../../../product/utility/enum/widget_size.dart';
+import '../../../../product/widget/image/network_image_with_radius.dart';
+import '../../model/movies.dart';
 
 class MovieItems extends StatelessWidget {
   const MovieItems({
@@ -26,10 +27,12 @@ class MovieItems extends StatelessWidget {
               padding: PaddingConstant.paddingAll,
               child: GestureDetector(
                 onTap: () async {
-                  await NavigatorManager.instance
-                      .pushToPage(route: NavigatorRoutes.homeDetail, arguments: movies?[index]);
+                  await NavigatorManager.instance.pushToPage(
+                      route: NavigatorRoutes.homeDetail,
+                      arguments: movies?[index]);
                 },
-                child: NetworkImageWithRadius(posterPathValue: movies?[index]?.posterPathValue),
+                child: NetworkImageWithRadius(
+                    posterPathValue: movies?[index]?.posterPathValue),
               ),
             );
           }),

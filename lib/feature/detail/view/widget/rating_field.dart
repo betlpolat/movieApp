@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/core/extension/string_extension.dart';
 
+import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/utility/constants/index.dart';

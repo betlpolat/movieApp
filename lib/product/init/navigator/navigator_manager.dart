@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/init/navigator/navigator_routes.dart';
+
+import 'navigator_routes.dart';
 
 class NavigatorManager {
   NavigatorManager._();
@@ -7,7 +8,11 @@ class NavigatorManager {
   final GlobalKey<NavigatorState> _navigatorGlobalKey = GlobalKey();
   GlobalKey<NavigatorState> get navigatorGlobalKey => _navigatorGlobalKey;
 
-  Future<void> pushToPage<T>({required NavigatorRoutes route, Object? arguments, bool fullScreenDialog = false}) async {
-    await _navigatorGlobalKey.currentState?.pushNamed(route.withSlash, arguments: arguments);
+  Future<void> pushToPage<T>(
+      {required NavigatorRoutes route,
+      Object? arguments,
+      bool fullScreenDialog = false}) async {
+    await _navigatorGlobalKey.currentState
+        ?.pushNamed(route.withSlash, arguments: arguments);
   }
 }
