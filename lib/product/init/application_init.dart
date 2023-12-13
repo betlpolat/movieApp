@@ -7,6 +7,8 @@ import '../../core/init/core_localize.dart';
 import '../state/language_notifier.dart';
 import '../state/theme_notifier.dart';
 import 'cache/app_cache.dart';
+import 'config/app_environment.dart';
+import 'config/env_dev.dart';
 
 @immutable
 final class ApplicationInit {
@@ -27,5 +29,6 @@ final class ApplicationInit {
     WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
     await AppCache.instance.setUp();
+    AppEnvironment.setup(config: EnvDev());
   }
 }

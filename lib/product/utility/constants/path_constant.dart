@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../init/config/app_environment.dart';
+
 @immutable
 class PathConstant {
   const PathConstant._();
-  static const basePath = "https://api.themoviedb.org/3/";
-  static const moviePath = "movie/";
-  static const searchPath = "search/movie";
-  static const apiKey = "68e959c5c6327f7e39f82f806bb22462";
-  static const imagePath = "https://image.tmdb.org/t/p/w500/";
+  static String basePath = AppEnvironment.baseUrl;
+  static String moviePath = AppEnvironment.movieUrl;
+  static String searchPath = AppEnvironment.searchUrl;
+  static String apiKey = AppEnvironment.apiKey;
+  static String imagePath = AppEnvironment.imageUrl;
 }
