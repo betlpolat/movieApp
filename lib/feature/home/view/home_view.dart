@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../../core/extension/string_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
-import '../../../product/state/language_notifier.dart';
-import '../../../product/state/theme_notifier.dart';
-import '../../../product/utility/app_duration.dart';
+import '../../../product/state/index.dart';
 import '../../../product/utility/constants/index.dart';
-import '../../../product/utility/enum/lottie_items.dart';
-import '../../../product/widget/icon/loading_lottie.dart';
+import '../../../product/widget/icon/index.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../cubit/home/index.dart';
-import 'widget/carousel_movie_items.dart';
-import 'widget/movie_items.dart';
-import 'widget/search_form.dart';
+import 'mixin/home_view_mixin.dart';
+import 'widget/change_theme_button.dart';
+import 'widget/index.dart';
 
 part 'home_view.g.dart';
 
@@ -24,22 +20,7 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
-  late AnimationController controller;
-  bool isLight = false;
-  @override
-  void initState() {
-    super.initState();
-    isLight = context.read<ThemeNotifier>().isLightTheme;
-    final currentLanguage = context.read<LanguageNotifier>().currentLanguage;
-    context.read<HomeCubit>().getMovie(currentLanguage!);
-    controller = AnimationController(vsync: this, duration: AppDuration.low);
-    Future.microtask(() {
-      controller.animateTo(isLight ? 0 : 0.5);
-    });
-  }
-
-  //final TextEditingController _searchController = TextEditingController();
+class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +34,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           actions: [
             SizedBox(
               width: MediaQuery.of(context).size.height / 10,
-              child: _changeThemeButton(context),
+              child: const ChangeThemeButton(),
             )
           ],
           title: Text(
@@ -75,20 +56,5 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             }
           },
         ));
-  }
-
-  InkWell _changeThemeButton(BuildContext context) {
-    return InkWell(
-      onTap: () async {
-        Future.microtask(() {
-          context.read<ThemeNotifier>().changeTheme();
-          controller.animateTo(isLight ? 1 : 0.5);
-        });
-
-        isLight = !isLight;
-      },
-      child: Lottie.asset(LottieItems.theme_change.lottiePath,
-          fit: BoxFit.cover, repeat: false, controller: controller),
-    );
   }
 }

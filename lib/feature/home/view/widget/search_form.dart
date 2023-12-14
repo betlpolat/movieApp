@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
-import '../../../../product/init/navigator/navigator_manager.dart';
-import '../../../../product/init/navigator/navigator_routes.dart';
+import '../../../../product/init/navigator/index.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/icon/loading_lottie.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../cubit/search/index.dart';
+import '../mixin/search_form_mixin.dart';
 
 class SearchForm extends StatefulWidget {
   const SearchForm({
@@ -22,27 +21,7 @@ class SearchForm extends StatefulWidget {
   State<SearchForm> createState() => _SearchFormState();
 }
 
-class _SearchFormState extends State<SearchForm> {
-  final TextEditingController _searchController = TextEditingController();
-
-  @override
-  void initState() {
-    SystemChannels.textInput.invokeMethod('TextInput.hide');
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-
-  void _controllerClear() {
-    context.read<SearchCubit>().closeSearch();
-    _searchController.clear();
-    FocusScope.of(context).requestFocus(FocusNode());
-  }
-
+class _SearchFormState extends State<SearchForm> with SearchFormMixin {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -53,12 +32,10 @@ class _SearchFormState extends State<SearchForm> {
             style: context.general.textTheme.bodyLarge,
             onChanged: (value) {
               value.length > 2
-                  ? context
-                      .read<SearchCubit>()
-                      .getSearch(_searchController.text)
+                  ? context.read<SearchCubit>().getSearch(searchController.text)
                   : context.read<SearchCubit>().closeSearch();
             },
-            controller: _searchController,
+            controller: searchController,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
@@ -94,7 +71,7 @@ class _SearchFormState extends State<SearchForm> {
                                 route: NavigatorRoutes.homeDetail,
                                 fullScreenDialog: true,
                                 arguments: state.search?[index]);
-                            _controllerClear();
+                            controllerClear();
                           },
                           child: Card(
                               child: ListTile(
