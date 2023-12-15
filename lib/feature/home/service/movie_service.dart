@@ -23,7 +23,6 @@ class MovieService extends IMovieService {
         query = "&query=$query";
         path += query;
       }
-      print(path);
       response = await dio.get(path);
       if (response.statusCode == HttpStatus.ok) {
         final jsonBody = response.data;

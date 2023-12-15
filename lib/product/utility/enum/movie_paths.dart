@@ -1,8 +1,9 @@
-// ignore_for_file: constant_identifier_names
-
 enum MoviePaths {
-  popular,
-  top_rated,
-  now_playing,
-  search,
+  popular('popular'),
+  topRated('top_rated'),
+  nowPlaying('now_playing'),
+  search('search');
+
+  final String value;
+  const MoviePaths(this.value);
 }

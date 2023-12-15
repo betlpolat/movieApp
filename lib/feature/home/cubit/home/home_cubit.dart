@@ -17,9 +17,9 @@ class HomeCubit extends Cubit<HomeState> {
       final popular = await _movieService
           .fetchMovieList(MoviePaths.popular.moviePath(currentLanguage));
       final topRated = await _movieService
-          .fetchMovieList(MoviePaths.top_rated.moviePath(currentLanguage));
+          .fetchMovieList(MoviePaths.topRated.moviePath(currentLanguage));
       final nowPlaying = await _movieService
-          .fetchMovieList(MoviePaths.now_playing.moviePath(currentLanguage));
+          .fetchMovieList(MoviePaths.nowPlaying.moviePath(currentLanguage));
 
       emit(HomeCompleted(popular, topRated, nowPlaying));
     } on NetworkError catch (e) {

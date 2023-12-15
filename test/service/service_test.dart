@@ -18,13 +18,13 @@ void main() {
   });
   test('Service Test - top rated movies', () async {
     final responseTopRated = await movieService
-        .fetchMovieList(MoviePaths.top_rated.moviePath(LanguageCode.english));
+        .fetchMovieList(MoviePaths.topRated.moviePath(LanguageCode.english));
     expect(responseTopRated, isNotNull);
     expect(responseTopRated, isList);
   });
   test('Service Test - now playing movies', () async {
     final responseNowPLaying = await movieService
-        .fetchMovieList(MoviePaths.now_playing.moviePath(LanguageCode.english));
+        .fetchMovieList(MoviePaths.nowPlaying.moviePath(LanguageCode.english));
     expect(responseNowPLaying, isNotNull);
     expect(responseNowPLaying, isList);
   });
