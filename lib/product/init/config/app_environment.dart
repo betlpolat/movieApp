@@ -11,9 +11,7 @@ final class AppEnvironment {
 enum AppEnvironmentItems {
   baseUrl,
   imageUrl,
-  apiKey,
-  movieUrl,
-  searchUrl;
+  apiKey;
 
   String get value {
     try {
@@ -24,10 +22,6 @@ enum AppEnvironmentItems {
           return AppEnvironment._config.apiKey;
         case AppEnvironmentItems.imageUrl:
           return AppEnvironment._config.imageUrl;
-        case AppEnvironmentItems.movieUrl:
-          return AppEnvironment._config.movieUrl;
-        case AppEnvironmentItems.searchUrl:
-          return AppEnvironment._config.searchUrl;
       }
     } catch (e) {
       throw Exception('AppEnvironment is not initialized.');

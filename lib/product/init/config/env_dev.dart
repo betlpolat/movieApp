@@ -15,10 +15,6 @@ final class EnvDev implements AppConfiguration {
   static final String _imageUrl = _EnvDev._imageUrl;
   @EnviedField(varName: 'API_KEY')
   static final String _apiKey = _EnvDev._apiKey;
-  @EnviedField(varName: 'MOVIE_URL')
-  static final String _movieUrl = _EnvDev._movieUrl;
-  @EnviedField(varName: 'SEARCH_URL')
-  static final String _searchUrl = _EnvDev._searchUrl;
 
   @override
   String get baseUrl => _baseUrl;
@@ -28,10 +24,4 @@ final class EnvDev implements AppConfiguration {
 
   @override
   String get apiKey => _apiKey;
-
-  @override
-  String get movieUrl => _movieUrl;
-
-  @override
-  String get searchUrl => _searchUrl;
 }
