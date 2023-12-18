@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
@@ -27,13 +27,13 @@ class MovieInfos extends StatelessWidget {
         child: Column(
           children: [
             _OverviewTitle(
-                textStyle: context.general.textTheme.headlineLarge ??
-                    const TextStyle()),
+                textStyle:
+                    context.textTheme.headlineLarge ?? const TextStyle()),
             const _SizedBBox(),
             _OverviewText(
                 movie: movie,
-                textStyle: context.general.textTheme.headlineSmall ??
-                    const TextStyle()),
+                textStyle:
+                    context.textTheme.headlineSmall ?? const TextStyle()),
             const _SizedBBox(),
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               ReleaseField(movie: movie),

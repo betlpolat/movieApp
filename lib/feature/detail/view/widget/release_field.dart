@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
@@ -27,7 +27,7 @@ class ReleaseField extends StatelessWidget {
         children: [
           Text(
             "${LocaleKeys.text_release.locale}: ${movie?.releaseDate ?? ""}",
-            style: context.general.textTheme.bodyLarge!.copyWith(
+            style: context.textTheme.bodyLarge!.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),

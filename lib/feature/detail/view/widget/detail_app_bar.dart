@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/button/arrow_back_icon_button.dart';
@@ -23,7 +23,7 @@ class DetailAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           movie?.title ?? "",
-          style: context.general.textTheme.bodyLarge!.copyWith(
+          style: context.textTheme.bodyLarge!.copyWith(
             fontWeight: FontWeight.w600,
           ),
         ),

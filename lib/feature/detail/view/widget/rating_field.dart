@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
@@ -25,12 +25,12 @@ class RatingField extends StatelessWidget {
       child: Row(
         children: [
           Text("${LocaleKeys.text_rating.locale}: ",
-              style: context.general.textTheme.bodyLarge!.copyWith(
+              style: context.textTheme.bodyLarge!.copyWith(
                 fontWeight: FontWeight.bold,
               )),
           Icon(Icons.star, color: Theme.of(context).colorScheme.tertiary),
           Text("${(movie?.voteAverage ?? 0).toStringAsFixed(1)}/10",
-              style: context.general.textTheme.bodyLarge!.copyWith(
+              style: context.textTheme.bodyLarge!.copyWith(
                 fontWeight: FontWeight.bold,
               )),
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
@@ -29,7 +29,7 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
       child: Column(
         children: [
           TextField(
-            style: context.general.textTheme.bodyLarge,
+            style: context.textTheme.bodyLarge,
             onChanged: (value) {
               value.length > 2
                   ? context.read<SearchCubit>().getSearch(searchController.text)
@@ -43,7 +43,7 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
                   borderRadius: AppBorderRadius().appBorderRadius,
                 ),
                 hintText: LocaleKeys.text_search.locale,
-                hintStyle: context.general.textTheme.bodyLarge,
+                hintStyle: context.textTheme.bodyLarge,
                 fillColor: Theme.of(context).colorScheme.onSurface,
                 enabledBorder: _borderStyle(context),
                 disabledBorder: _borderStyle(context),
