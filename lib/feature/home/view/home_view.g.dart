@@ -18,24 +18,24 @@ class _MovieLists extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: context.paddingMedium,
+              padding: context.paddingLow,
               child: const SearchForm(),
             ),
             const TopicTitleText(text: LocaleKeys.title_trending),
             Padding(
-              padding: context.paddingMedium,
+              padding: context.paddingLow,
               child: CarouselMovieItems(movies: movies.trending),
             ),
             const TopicTitleText(
               text: LocaleKeys.title_topRated,
             ),
             Padding(
-              padding: context.paddingMedium,
+              padding: context.paddingLow,
               child: MovieItems(movies: movies.topRated),
             ),
             const TopicTitleText(text: LocaleKeys.title_nowPlaying),
             Padding(
-              padding: context.paddingMedium,
+              padding: context.paddingLow,
               child: MovieItems(movies: movies.nowPlaying),
             ),
           ],

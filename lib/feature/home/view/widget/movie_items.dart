@@ -24,7 +24,7 @@ class MovieItems extends StatelessWidget {
           itemCount: movies?.length ?? 0,
           itemBuilder: (context, index) {
             return Padding(
-              padding: context.paddingMedium,
+              padding: context.paddingLow,
               child: GestureDetector(
                 onTap: () async {
                   await NavigatorManager.instance.pushToPage(

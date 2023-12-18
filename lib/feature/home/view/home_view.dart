@@ -33,7 +33,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
               icon: const Icon(Icons.language_outlined)),
           actions: [
             SizedBox(
-              width: context.highValue,
+              width: context.lowValue,
               child: const ChangeThemeButton(),
             )
           ],

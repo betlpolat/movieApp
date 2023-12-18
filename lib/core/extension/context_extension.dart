@@ -28,8 +28,8 @@ extension PaddingExtensionAll on BuildContext {
 }
 
 extension PaddingExtensionOnly on BuildContext {
-  EdgeInsets get paddingHighTopLeft =>
-      EdgeInsets.only(top: highValue, left: highValue);
+  EdgeInsets get paddingNormalTopLeft =>
+      EdgeInsets.only(top: normalValue, left: normalValue);
 }
 
 extension PaddingExtensionSymmetric on BuildContext {

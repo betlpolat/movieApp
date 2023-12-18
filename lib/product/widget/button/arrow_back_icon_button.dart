@@ -13,7 +13,7 @@ class ArrowBackIconButton extends StatelessWidget {
     return Container(
       height: WidgetSize.icon.value,
       width: WidgetSize.icon.value,
-      margin: context.paddingHighTopLeft,
+      margin: context.paddingNormalTopLeft,
       decoration: BoxDecoration(
         borderRadius: context.borderRadiusLow,
         color: context.colors.secondary,
