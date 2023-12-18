@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../core/extension/string_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
 import '../../../product/state/index.dart';
-import '../../../product/utility/constants/index.dart';
 import '../../../product/widget/icon/index.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../cubit/home/index.dart';

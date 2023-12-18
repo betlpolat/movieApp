@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../product/state/theme_notifier.dart';
-import '../../../../product/utility/app_duration.dart';
 import '../../../../product/widget/icon/theme_change_lottie.dart';
 
 class ChangeThemeButton extends StatefulWidget {
@@ -21,7 +21,8 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton>
   void initState() {
     isLight = context.read<ThemeNotifier>().isLightTheme;
 
-    controller = AnimationController(duration: AppDuration.low, vsync: this);
+    controller =
+        AnimationController(duration: context.highDuration, vsync: this);
     Future.microtask(() {
       controller.animateTo(isLight ? 0 : 0.5);
     });

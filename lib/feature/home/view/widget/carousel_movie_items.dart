@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../product/init/navigator/index.dart';
-import '../../../../product/utility/app_duration.dart';
 import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../model/movies.dart';
@@ -33,19 +33,19 @@ class CarouselMovieItems extends StatelessWidget {
                 posterPathValue: movies?[index]?.posterPathValue),
           );
         }),
-        options: _carouselOptions(),
+        options: _carouselOptions(context: context),
       ),
     );
   }
 
-  CarouselOptions _carouselOptions() {
+  CarouselOptions _carouselOptions({required BuildContext context}) {
     return CarouselOptions(
       height: WidgetSize.carousel.value,
       autoPlay: true,
       viewportFraction: 0.55,
       enlargeCenterPage: true,
       autoPlayCurve: Curves.fastOutSlowIn,
-      autoPlayAnimationDuration: AppDuration.low,
+      autoPlayAnimationDuration: context.highDuration,
     );
   }
 }

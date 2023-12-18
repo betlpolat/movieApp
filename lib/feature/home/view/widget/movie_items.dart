@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../product/init/navigator/index.dart';
-import '../../../../product/utility/constants/index.dart';
 import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../model/movies.dart';
@@ -24,7 +24,7 @@ class MovieItems extends StatelessWidget {
           itemCount: movies?.length ?? 0,
           itemBuilder: (context, index) {
             return Padding(
-              padding: PaddingConstant.paddingAll,
+              padding: context.paddingMedium,
               child: GestureDetector(
                 onTap: () async {
                   await NavigatorManager.instance.pushToPage(

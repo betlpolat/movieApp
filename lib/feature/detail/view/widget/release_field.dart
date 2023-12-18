@@ -4,7 +4,6 @@ import 'package:movie_app/core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/utility/border_radius/app_border_radius.dart';
-import '../../../../product/utility/constants/index.dart';
 import '../../../home/model/movies.dart';
 
 class ReleaseField extends StatelessWidget {
@@ -18,7 +17,7 @@ class ReleaseField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: PaddingConstant.paddingAllLow,
+      padding: context.paddingLow,
       decoration: BoxDecoration(
         border: Border.all(color: Theme.of(context).colorScheme.onSurface),
         borderRadius: AppBorderRadius().appBorderRadiusLow,

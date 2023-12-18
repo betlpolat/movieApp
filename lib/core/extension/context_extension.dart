@@ -27,6 +27,11 @@ extension PaddingExtensionAll on BuildContext {
   EdgeInsets get paddingHigh => EdgeInsets.all(highValue);
 }
 
+extension PaddingExtensionOnly on BuildContext {
+  EdgeInsets get paddingHighTopLeft =>
+      EdgeInsets.only(top: highValue, left: highValue);
+}
+
 extension PaddingExtensionSymmetric on BuildContext {
   EdgeInsets get paddingLowVertical => EdgeInsets.symmetric(vertical: lowValue);
   EdgeInsets get paddingNormalVertical =>
@@ -49,4 +54,5 @@ extension PaddingExtensionSymmetric on BuildContext {
 extension DurationExtension on BuildContext {
   Duration get lowDuration => const Duration(milliseconds: 500);
   Duration get normalDuration => const Duration(seconds: 1);
+  Duration get highDuration => const Duration(seconds: 2);
 }

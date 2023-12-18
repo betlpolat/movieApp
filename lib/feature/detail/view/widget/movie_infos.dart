@@ -3,7 +3,6 @@ import 'package:movie_app/core/extension/context_extension.dart';
 
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
-import '../../../../product/utility/constants/index.dart';
 import '../../../../product/utility/enum/widget_size.dart';
 import '../../../home/model/movies.dart';
 import 'rating_field.dart';
@@ -23,7 +22,7 @@ class MovieInfos extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: PaddingConstant.paddingAll,
+        padding: context.paddingMedium,
         child: Column(
           children: [
             _OverviewTitle(
