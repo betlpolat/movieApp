@@ -52,7 +52,13 @@ extension PaddingExtensionSymmetric on BuildContext {
 }
 
 extension DurationExtension on BuildContext {
-  Duration get lowDuration => const Duration(milliseconds: 500);
-  Duration get normalDuration => const Duration(seconds: 1);
-  Duration get highDuration => const Duration(seconds: 2);
+  Duration get durationLow => const Duration(milliseconds: 500);
+  Duration get durationNormal => const Duration(seconds: 1);
+  Duration get durationHigh => const Duration(seconds: 2);
+}
+
+extension BorderRadiusExtension on BuildContext {
+  BorderRadius get borderRadiusLow => BorderRadius.circular(8.0);
+  BorderRadius get borderRadiusNormal => BorderRadius.circular(12.0);
+  BorderRadius get borderRadiusHigh => BorderRadius.circular(16.0);
 }

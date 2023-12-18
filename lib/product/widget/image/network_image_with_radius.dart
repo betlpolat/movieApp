@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../utility/border_radius/app_border_radius.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
 class NetworkImageWithRadius extends StatelessWidget {
   const NetworkImageWithRadius({
@@ -13,7 +12,7 @@ class NetworkImageWithRadius extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: AppBorderRadius().appBorderRadius,
+      borderRadius: context.borderRadiusNormal,
       child: Image.network(
         posterPathValue ?? "",
         filterQuality: FilterQuality.high,

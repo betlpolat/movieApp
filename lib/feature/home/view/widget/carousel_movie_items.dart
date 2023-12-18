@@ -45,7 +45,7 @@ class CarouselMovieItems extends StatelessWidget {
       viewportFraction: 0.55,
       enlargeCenterPage: true,
       autoPlayCurve: Curves.fastOutSlowIn,
-      autoPlayAnimationDuration: context.highDuration,
+      autoPlayAnimationDuration: context.durationHigh,
     );
   }
 }

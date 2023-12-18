@@ -22,7 +22,7 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton>
     isLight = context.read<ThemeNotifier>().isLightTheme;
 
     controller =
-        AnimationController(duration: context.highDuration, vsync: this);
+        AnimationController(duration: context.durationHigh, vsync: this);
     Future.microtask(() {
       controller.animateTo(isLight ? 0 : 0.5);
     });

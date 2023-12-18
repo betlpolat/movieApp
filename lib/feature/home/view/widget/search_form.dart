@@ -5,7 +5,6 @@ import 'package:movie_app/core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/init/navigator/index.dart';
-import '../../../../product/utility/border_radius/app_border_radius.dart';
 import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/icon/loading_lottie.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
@@ -38,17 +37,16 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
             controller: searchController,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: Theme.of(context).colorScheme.onSurface),
-                  borderRadius: AppBorderRadius().appBorderRadius,
+                  borderSide: BorderSide(color: context.colors.onSurface),
+                  borderRadius: context.borderRadiusNormal,
                 ),
                 hintText: LocaleKeys.text_search.locale,
                 hintStyle: context.textTheme.bodyLarge,
-                fillColor: Theme.of(context).colorScheme.onSurface,
+                fillColor: context.colors.onSurface,
                 enabledBorder: _borderStyle(context),
                 disabledBorder: _borderStyle(context),
                 focusedBorder: _borderStyle(context)),
-            cursorColor: Theme.of(context).colorScheme.onSurface,
+            cursorColor: context.colors.onSurface,
           ),
           BlocConsumer<SearchCubit, SearchState>(
             listener: (context, state) {},
@@ -99,9 +97,9 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
 
   OutlineInputBorder _borderStyle(BuildContext context) {
     return OutlineInputBorder(
-      borderRadius: AppBorderRadius().appBorderRadius,
+      borderRadius: context.borderRadiusNormal,
       borderSide: BorderSide(
-        color: Theme.of(context).colorScheme.onSurface,
+        color: context.colors.onSurface,
         width: 2.0,
       ),
     );
