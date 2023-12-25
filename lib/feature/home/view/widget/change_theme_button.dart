@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/component/icon/lottie_icon.dart';
 import 'package:movie_app/core/extension/context_extension.dart';
+import 'package:movie_app/product/utility/enum/index.dart';
 
 import '../../../../product/state/theme_notifier.dart';
-import '../../../../product/widget/icon/theme_change_lottie.dart';
 
 class ChangeThemeButton extends StatefulWidget {
   const ChangeThemeButton({super.key});
@@ -40,8 +41,10 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton>
 
           isLight = !isLight;
         },
-        child: ThemeChangeLottie(
+        child: LottieIcon(
+          item: LottieItems.theme_change,
           controller: controller,
+          fit: BoxFit.cover,
         ));
   }
 }

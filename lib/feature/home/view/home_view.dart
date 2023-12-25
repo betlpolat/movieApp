@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/extension/context_extension.dart';
 
+import '../../../core/component/icon/lottie_icon.dart';
 import '../../../core/extension/string_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
 import '../../../product/state/index.dart';
-import '../../../product/widget/icon/index.dart';
+import '../../../product/utility/enum/lottie_items.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../cubit/home/index.dart';
 import 'mixin/home_view_mixin.dart';
@@ -33,7 +34,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
               icon: const Icon(Icons.language_outlined)),
           actions: [
             SizedBox(
-              width: context.lowValue,
+              width: context.highValue,
               child: const ChangeThemeButton(),
             )
           ],
@@ -47,7 +48,10 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
             if (state is HomeInitial) {
               return Container();
             } else if (state is HomeLoading) {
-              return const LoadingLottie();
+              return const Center(
+                  child: LottieIcon(
+                item: LottieItems.loading,
+              ));
             } else if (state is HomeCompleted) {
               return _MovieLists(movies: state);
             } else {
