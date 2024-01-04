@@ -1,14 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/product/init/network/network_manager.dart';
 
-import '../../../../core/base/model/network_error.dart';
+import '../../../../core/base/model/base_error.dart';
 import '../../../../product/utility/enum/movie_paths.dart';
 import '../../../../product/utility/extension/movie_paths_extension.dart';
-import '../../service/movie_service.dart';
+import '../../model/movies.dart';
 import 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  final IMovieService _movieService;
-  SearchCubit(this._movieService) : super(SearchInitial());
+  final NetworkManager _networkManager;
+  SearchCubit(this._networkManager) : super(SearchInitial());
 
   Future<void> getSearch(String query) async {
     // ignore: unnecessary_null_comparison
@@ -17,14 +18,16 @@ class SearchCubit extends Cubit<SearchState> {
     } else {
       try {
         emit(SearchLoading());
-        final search = await _movieService
-            .fetchMovieList(MoviePaths.search.searchPath(), query: query);
-        if (search == null || search.isEmpty) {
+        String path = "${MoviePaths.search.searchPath()}&query=$query";
+        final Movies search = await _networkManager.dioGet(path, Movies());
+        final searchList = search.results;
+        //  .fetchMovieList(MoviePaths.search.searchPath(), query: query);
+        if (searchList == null || searchList.isEmpty) {
           emit(SearchInitial());
         } else {
-          emit(SearchCompleted(search.sublist(0, 5)));
+          emit(SearchCompleted(searchList.sublist(0, 5)));
         }
-      } on NetworkError catch (e) {
+      } on BaseError catch (e) {
         emit(SearchError(e.message));
       }
     }

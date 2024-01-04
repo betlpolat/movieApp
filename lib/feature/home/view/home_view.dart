@@ -26,22 +26,19 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          leading: IconButton(
-              onPressed: () {
-                LanguageNotifier().changeLanguage(context);
-              },
-              icon: const Icon(Icons.language_outlined)),
-          actions: [
-            SizedBox(
-              width: context.highValue,
-              child: const ChangeThemeButton(),
-            )
-          ],
-          title: Text(
-            LocaleKeys.title_app.locale,
-          ),
-        ),
+            centerTitle: true,
+            leading: IconButton(
+                onPressed: () {
+                  LanguageNotifier().changeLanguage(context);
+                },
+                icon: const Icon(Icons.language_outlined)),
+            actions: [
+              SizedBox(
+                width: context.highValue,
+                child: const ChangeThemeButton(),
+              )
+            ],
+            title: Text(LocaleKeys.title_app.locale)),
         body: BlocConsumer<HomeCubit, HomeState>(
           listener: (context, state) {},
           builder: (context, state) {

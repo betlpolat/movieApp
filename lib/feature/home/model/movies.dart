@@ -1,12 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../core/base/model/base_model.dart';
 import '../../../product/utility/constants/path_constant.dart';
 
 part 'movies.g.dart';
 
 @JsonSerializable()
-class Movies {
+class Movies extends BaseModel {
   int? page;
   List<Movie>? results;
   @JsonKey(name: "total_pages")
@@ -16,10 +17,14 @@ class Movies {
 
   Movies({this.page, this.results, this.totalPages, this.totalResults});
 
-  factory Movies.fromJson(Map<String, dynamic> json) => _$MoviesFromJson(json);
-
+  @override
   Map<String, dynamic> toJson() {
     return _$MoviesToJson(this);
+  }
+
+  @override
+  fromJson(Map<String, dynamic> json) {
+    return _$MoviesFromJson(json);
   }
 }
 
@@ -64,17 +69,24 @@ class Movie extends Equatable {
       this.voteAverage,
       this.voteCount});
 
-  String? get backdropPathValue => PathConstant.imagePath + (backdropPath ?? "");
+  String? get backdropPathValue =>
+      PathConstant.imagePath + (backdropPath ?? "");
   String? get posterPathValue => PathConstant.imagePath + (posterPath ?? "");
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return _$MovieFromJson(json);
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return _$MovieToJson(this);
   }
 
   @override
   List<Object?> get props => [id, backdropPath, title];
+
+  @override
+  fromJson(Map<String, dynamic> json) {
+    throw UnimplementedError();
+  }
 }

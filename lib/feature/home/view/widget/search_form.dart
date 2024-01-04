@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/core/component/icon/lottie_icon.dart';
 import 'package:movie_app/core/extension/context_extension.dart';
-import 'package:movie_app/product/utility/enum/index.dart';
 
+import '../../../../core/component/icon/lottie_icon.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
-import '../../../../product/init/navigator/index.dart';
+import '../../../../product/init/navigator/navigator_manager.dart';
+import '../../../../product/init/navigator/navigator_routes.dart';
+import '../../../../product/utility/enum/lottie_items.dart';
+import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
-import '../../cubit/search/index.dart';
+import '../../cubit/search/search_cubit.dart';
+import '../../cubit/search/search_state.dart';
 import '../mixin/search_form_mixin.dart';
 
 class SearchForm extends StatefulWidget {

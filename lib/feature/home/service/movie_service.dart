@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import '../../../core/base/model/network_error.dart';
+import '../../../core/base/model/base_error.dart';
 import '../model/movies.dart';
 
 abstract class IMovieService {
@@ -27,12 +27,12 @@ class MovieService extends IMovieService {
       if (response.statusCode == HttpStatus.ok) {
         final jsonBody = response.data;
         if (jsonBody is Map<String, dynamic>) {
-          final response = Movies.fromJson(jsonBody).results;
-          return response;
+          // final response = Movies.fromJson(jsonBody).results;
+          //return response;
         }
       }
     } catch (e) {
-      throw NetworkError(
+      throw BaseError(
         response.statusCode.toString(),
         response.data,
       );
