@@ -77,16 +77,10 @@ class Movie extends Equatable {
     return _$MovieFromJson(json);
   }
 
-  @override
   Map<String, dynamic> toJson() {
     return _$MovieToJson(this);
   }
 
   @override
   List<Object?> get props => [id, backdropPath, title];
-
-  @override
-  fromJson(Map<String, dynamic> json) {
-    throw UnimplementedError();
-  }
 }
