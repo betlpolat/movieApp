@@ -10,8 +10,8 @@ import '../../../../product/init/navigator/navigator_routes.dart';
 import '../../../../product/utility/enum/lottie_items.dart';
 import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
-import '../../cubit/search/search_cubit.dart';
-import '../../cubit/search/search_state.dart';
+import '../../view-model/search/search_cubit.dart';
+import '../../view-model/search/search_state.dart';
 import '../mixin/search_form_mixin.dart';
 
 class SearchForm extends StatefulWidget {

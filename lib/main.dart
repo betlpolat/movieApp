@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/feature/home/cubit/search/index.dart';
+import 'package:movie_app/feature/home/view-model/search/index.dart';
 import 'package:provider/provider.dart';
 
-import 'feature/home/cubit/home/index.dart';
+import 'feature/home/view-model/home/index.dart';
 import 'product/init/application_init.dart';
 import 'product/init/language/locale_keys.g.dart';
 import 'product/init/navigator/index.dart';

@@ -8,7 +8,7 @@ import '../../../product/init/language/locale_keys.g.dart';
 import '../../../product/state/index.dart';
 import '../../../product/utility/enum/lottie_items.dart';
 import '../../../product/widget/text/topic_title_text.dart';
-import '../cubit/home/index.dart';
+import '../view-model/home/index.dart';
 import 'mixin/home_view_mixin.dart';
 import 'widget/change_theme_button.dart';
 import 'widget/index.dart';
