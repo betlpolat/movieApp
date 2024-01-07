@@ -12,14 +12,13 @@ class NetworkManager {
   }
 
   NetworkManager._() {
-    dio = CustomDio(
-      baseOptions: BaseOptions(
-        baseUrl: PathConstant.basePath,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      ),
+    final baseOptions = BaseOptions(
+      baseUrl: PathConstant.basePath,
+      headers: {
+        "Content-Type": "application/json",
+      },
     );
+    dio = CustomDio(baseOptions: baseOptions);
   }
   late final BaseDio dio;
 }
