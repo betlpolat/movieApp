@@ -8,7 +8,6 @@ import 'feature/home/view-model/home/index.dart';
 import 'product/init/application_init.dart';
 import 'product/init/language/locale_keys.g.dart';
 import 'product/init/navigator/index.dart';
-import 'product/init/network/network_manager.dart';
 import 'product/state/theme_notifier.dart';
 
 void main() async {
@@ -54,10 +53,8 @@ class BlocWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<HomeCubit>(
-            create: (_) => HomeCubit(NetworkManager.instance)),
-        BlocProvider<SearchCubit>(
-            create: (_) => SearchCubit(NetworkManager.instance)),
+        BlocProvider<HomeCubit>(create: (_) => HomeCubit()),
+        BlocProvider<SearchCubit>(create: (_) => SearchCubit()),
       ],
       child: widget,
     );
