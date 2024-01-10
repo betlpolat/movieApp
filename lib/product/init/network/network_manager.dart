@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:movie_app/core/base/model/base_dio.dart';
-import 'package:movie_app/product/init/network/custom_dio.dart';
 
+import '../../../core/base/model/base_dio.dart';
 import '../../utility/constants/path_constant.dart';
+import 'custom_dio.dart';
 
 class NetworkManager {
   static NetworkManager? _instance;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/extension/context_extension.dart';
 
+import '../../../core/extension/context_extension.dart';
 import '../../../core/extension/string_extension.dart';
 
 class TopicTitleText extends StatelessWidget {

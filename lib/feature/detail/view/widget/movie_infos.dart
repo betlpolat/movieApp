@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/extension/context_extension.dart';
 
+import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/utility/enum/widget_size.dart';

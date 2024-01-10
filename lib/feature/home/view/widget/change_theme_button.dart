@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/core/component/icon/lottie_icon.dart';
-import 'package:movie_app/core/extension/context_extension.dart';
-import 'package:movie_app/product/utility/enum/index.dart';
 
+import '../../../../core/component/icon/lottie_icon.dart';
+import '../../../../core/extension/context_extension.dart';
 import '../../../../product/state/theme_notifier.dart';
+import '../../../../product/utility/enum/index.dart';
 
 class ChangeThemeButton extends StatefulWidget {
   const ChangeThemeButton({super.key});

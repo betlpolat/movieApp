@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/core/base/model/base_view_model.dart';
 
 import '../../../../core/base/model/base_error.dart';
+import '../../../../core/base/model/base_view_model.dart';
 import '../../../../product/utility/enum/language_code.dart';
 import '../../../../product/utility/enum/movie_paths.dart';
 import '../../../../product/utility/extension/movie_paths_extension.dart';
