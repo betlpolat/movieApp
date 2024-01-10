@@ -7,7 +7,6 @@ import '../widget/search_form.dart';
 
 mixin SearchFormMixin on State<SearchForm> {
   final TextEditingController searchController = TextEditingController();
-
   @override
   void initState() {
     SystemChannels.textInput.invokeMethod('TextInput.hide');

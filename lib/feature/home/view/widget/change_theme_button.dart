@@ -36,7 +36,7 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton>
       onTap: () async {
         await Future.microtask(() {
           context.read<ThemeNotifier>().changeTheme();
-          controller.animateTo(isLight ? 1 : 0.5);
+          controller.animateTo(isLight ? 0.5 : 1);
         });
 
         isLight = !isLight;

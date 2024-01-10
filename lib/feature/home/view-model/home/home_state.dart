@@ -14,11 +14,11 @@ class HomeLoading extends HomeState {
 
 class HomeCompleted extends HomeState {
   HomeCompleted(
-    this.trending,
+    this.popular,
     this.topRated,
     this.nowPlaying,
   );
-  final List<Movie>? trending;
+  final List<Movie>? popular;
   final List<Movie>? topRated;
   final List<Movie>? nowPlaying;
 }

@@ -23,7 +23,7 @@ class _MovieLists extends StatelessWidget {
             const TopicTitleText(text: LocaleKeys.title_trending),
             Padding(
               padding: context.paddingLow,
-              child: CarouselMovieItems(movies: movies.trending),
+              child: CarouselMovieItems(movies: movies.popular),
             ),
             const TopicTitleText(
               text: LocaleKeys.title_topRated,
