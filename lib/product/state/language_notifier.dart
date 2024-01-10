@@ -8,7 +8,7 @@ import '../utility/enum/language_code.dart';
 class LanguageNotifier extends ChangeNotifier {
   LanguageCode? currentLanguage = LanguageCode.english;
   void changeLanguage(BuildContext context) {
-    Locale? currentLocal = EasyLocalization.of(context)!.currentLocale;
+    final currentLocal = EasyLocalization.of(context)!.currentLocale;
 
     if (currentLocal == const Locale('en', 'US')) {
       currentLanguage = LanguageCode.german;

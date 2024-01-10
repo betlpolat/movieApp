@@ -58,7 +58,7 @@ extension DurationExtension on BuildContext {
 }
 
 extension BorderRadiusExtension on BuildContext {
-  BorderRadius get borderRadiusLow => BorderRadius.circular(8.0);
-  BorderRadius get borderRadiusNormal => BorderRadius.circular(12.0);
-  BorderRadius get borderRadiusHigh => BorderRadius.circular(16.0);
+  BorderRadius get borderRadiusLow => BorderRadius.circular(8);
+  BorderRadius get borderRadiusNormal => BorderRadius.circular(12);
+  BorderRadius get borderRadiusHigh => BorderRadius.circular(16);
 }

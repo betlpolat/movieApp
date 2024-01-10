@@ -21,18 +21,20 @@ class CarouselMovieItems extends StatelessWidget {
       width: double.infinity,
       child: CarouselSlider.builder(
         itemCount: movies?.length ?? 0,
-        itemBuilder: ((context, index, realIndex) {
+        itemBuilder: (context, index, realIndex) {
           return GestureDetector(
             onTap: () async {
-              await NavigatorManager.instance.pushToPage(
-                  route: NavigatorRoutes.homeDetail,
-                  fullScreenDialog: true,
-                  arguments: movies?[index]);
+              await NavigatorManager.instance.pushToPage<Widget>(
+                route: NavigatorRoutes.homeDetail,
+                fullScreenDialog: true,
+                arguments: movies?[index],
+              );
             },
             child: NetworkImageWithRadius(
-                posterPathValue: movies?[index]?.posterPathValue),
+              posterPathValue: movies?[index]?.posterPathValue,
+            ),
           );
-        }),
+        },
         options: _carouselOptions(context: context),
       ),
     );
@@ -44,7 +46,6 @@ class CarouselMovieItems extends StatelessWidget {
       autoPlay: true,
       viewportFraction: 0.55,
       enlargeCenterPage: true,
-      autoPlayCurve: Curves.fastOutSlowIn,
       autoPlayAnimationDuration: context.durationHigh,
     );
   }

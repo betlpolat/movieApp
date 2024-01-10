@@ -31,6 +31,7 @@ final class CustomColorScheme {
 
     ///arrow back icon
 
+
     onSecondary: Color(0xFFFFFFFF),
 
 
@@ -41,6 +42,7 @@ final class CustomColorScheme {
 
 
     ///star icon
+
 
     tertiary: Color(0xFFFFBF00),
 

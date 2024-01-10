@@ -22,7 +22,7 @@ final class ApplicationInit {
     ),
     ChangeNotifierProvider<LanguageNotifier>(
       create: (context) => LanguageNotifier(),
-    )
+    ),
   ];
 
   Future<void> start() async {

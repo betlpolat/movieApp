@@ -7,15 +7,17 @@ import '../../../core/base/model/base_dio.dart';
 import '../../../core/base/model/base_model.dart';
 
 class CustomDio with DioMixin implements Dio, BaseDio {
-  late final BaseOptions baseOptions;
-
   CustomDio({required this.baseOptions}) {
     options = baseOptions;
     httpClientAdapter = IOHttpClientAdapter();
   }
+  late final BaseOptions baseOptions;
 
   @override
-  Future dioGet<T extends BaseModel>(String path, T model) async {
+  Future dioGet<T extends BaseModel<T>>(
+    String path,
+    T model,
+  ) async {
     final response = await get(path);
     switch (response.statusCode) {
       case HttpStatus.ok:

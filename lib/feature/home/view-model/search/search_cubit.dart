@@ -13,12 +13,12 @@ class SearchCubit extends Cubit<SearchState> with BaseViewModel {
 
   Future<void> getSearch(String query) async {
     // ignore: unnecessary_null_comparison
-    if (query == "" || query == null) {
+    if (query == '' || query == null) {
       emit(SearchInitial());
     } else {
       try {
         emit(SearchLoading());
-        String path = "${MoviePaths.search.searchPath()}&query=$query";
+        final path = '${MoviePaths.search.searchPath()}&query=$query';
 
         final Movies search = await customDio.dioGet(path, Movies());
 

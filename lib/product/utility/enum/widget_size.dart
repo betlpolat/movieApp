@@ -6,6 +6,6 @@ enum WidgetSize {
   searchArea(50),
   expanded(500);
 
-  final double value;
   const WidgetSize(this.value);
+  final double value;
 }

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class CoreLocalize {
   const CoreLocalize._();
   static CoreLocalize instance = const CoreLocalize._();
-  final path = 'asset/translations';
-  final enLocale = const Locale('en', 'US');
-  final deLocale = const Locale('de', 'DE');
+  String get path => 'asset/translations';
+  Locale get enLocale => const Locale('en', 'US');
+  Locale get deLocale => const Locale('de', 'DE');
   List<Locale> get supportedLocales => [
         deLocale,
         enLocale,

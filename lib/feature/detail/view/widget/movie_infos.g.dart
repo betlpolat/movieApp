@@ -14,7 +14,7 @@ class _OverviewText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      movie?.overview ?? "",
+      movie?.overview ?? '',
       style: _textStyle!.copyWith(
         fontWeight: FontWeight.w400,
       ),

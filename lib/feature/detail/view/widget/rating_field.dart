@@ -22,15 +22,19 @@ class RatingField extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Text("${LocaleKeys.text_rating.locale}: ",
-              style: context.textTheme.bodyLarge!.copyWith(
-                fontWeight: FontWeight.bold,
-              )),
+          Text(
+            '${LocaleKeys.text_rating.locale}: ',
+            style: context.textTheme.bodyLarge!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           Icon(Icons.star, color: context.colors.tertiary),
-          Text("${(movie?.voteAverage ?? 0).toStringAsFixed(1)}/10",
-              style: context.textTheme.bodyLarge!.copyWith(
-                fontWeight: FontWeight.bold,
-              )),
+          Text(
+            '${(movie?.voteAverage ?? 0).toStringAsFixed(1)}/10',
+            style: context.textTheme.bodyLarge!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );

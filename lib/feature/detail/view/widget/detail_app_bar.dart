@@ -17,12 +17,11 @@ class DetailAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar.large(
       expandedHeight: WidgetSize.expanded.value,
-      pinned: true,
       floating: true,
       leading: const ArrowBackIconButton(),
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
-          movie?.title ?? "",
+          movie?.title ?? '',
           style: context.textTheme.bodyLarge!.copyWith(
             fontWeight: FontWeight.w600,
           ),

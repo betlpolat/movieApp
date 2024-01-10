@@ -13,13 +13,11 @@ class SearchLoading extends SearchState {
 }
 
 class SearchCompleted extends SearchState {
-  final List<Movie?>? search;
-
   SearchCompleted(this.search);
+  final List<Movie?>? search;
 }
 
 class SearchError extends SearchState {
-  final String message;
-
   SearchError(this.message);
+  final String message;
 }

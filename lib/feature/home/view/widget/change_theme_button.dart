@@ -33,18 +33,19 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton>
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () async {
-          Future.microtask(() {
-            context.read<ThemeNotifier>().changeTheme();
-            controller.animateTo(isLight ? 1 : 0.5);
-          });
+      onTap: () async {
+        await Future.microtask(() {
+          context.read<ThemeNotifier>().changeTheme();
+          controller.animateTo(isLight ? 1 : 0.5);
+        });
 
-          isLight = !isLight;
-        },
-        child: LottieIcon(
-          item: LottieItems.theme_change,
-          controller: controller,
-          fit: BoxFit.cover,
-        ));
+        isLight = !isLight;
+      },
+      child: LottieIcon(
+        item: LottieItems.theme_change,
+        controller: controller,
+        fit: BoxFit.cover,
+      ),
+    );
   }
 }

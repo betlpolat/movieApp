@@ -4,10 +4,13 @@ import '../enum/movie_paths.dart';
 
 extension MoviePathsExtension on MoviePaths {
   String moviePath(LanguageCode languageCode) {
-    return "${PathConstant.moviePath}$value?language=${languageCode.code}&api_key=${PathConstant.apiKey}";
+    final apiKey = PathConstant.apiKey;
+    final moviePath = PathConstant.moviePath;
+    final code = languageCode.code;
+    return '$moviePath$value?language=$code&api_key=$apiKey';
   }
 
   String searchPath() {
-    return "${PathConstant.searchPath}?api_key=${PathConstant.apiKey}";
+    return '${PathConstant.searchPath}?api_key=${PathConstant.apiKey}';
   }
 }

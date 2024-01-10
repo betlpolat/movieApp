@@ -4,6 +4,6 @@ enum MoviePaths {
   nowPlaying('now_playing'),
   search('search');
 
-  final String value;
   const MoviePaths(this.value);
+  final String value;
 }

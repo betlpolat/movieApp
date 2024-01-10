@@ -20,22 +20,25 @@ class MovieItems extends StatelessWidget {
       height: WidgetSize.image.value,
       width: double.infinity,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: movies?.length ?? 0,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: context.paddingLow,
-              child: GestureDetector(
-                onTap: () async {
-                  await NavigatorManager.instance.pushToPage(
-                      route: NavigatorRoutes.homeDetail,
-                      arguments: movies?[index]);
-                },
-                child: NetworkImageWithRadius(
-                    posterPathValue: movies?[index]?.posterPathValue),
+        scrollDirection: Axis.horizontal,
+        itemCount: movies?.length ?? 0,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: context.paddingLow,
+            child: GestureDetector(
+              onTap: () async {
+                await NavigatorManager.instance.pushToPage<Widget>(
+                  route: NavigatorRoutes.homeDetail,
+                  arguments: movies?[index],
+                );
+              },
+              child: NetworkImageWithRadius(
+                posterPathValue: movies?[index]?.posterPathValue,
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 }

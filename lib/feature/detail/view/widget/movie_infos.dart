@@ -26,21 +26,24 @@ class MovieInfos extends StatelessWidget {
         child: Column(
           children: [
             _OverviewTitle(
-                textStyle:
-                    context.textTheme.headlineLarge ?? const TextStyle()),
+              textStyle: context.textTheme.headlineLarge ?? const TextStyle(),
+            ),
             const _SizedBBox(),
             _OverviewText(
-                movie: movie,
-                textStyle:
-                    context.textTheme.headlineSmall ?? const TextStyle()),
+              movie: movie,
+              textStyle: context.textTheme.headlineSmall ?? const TextStyle(),
+            ),
             const _SizedBBox(),
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-              ReleaseField(movie: movie),
-              SizedBox(
-                height: WidgetSize.sizeBoxed.value,
-              ),
-              RatingField(movie: movie),
-            ]),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ReleaseField(movie: movie),
+                SizedBox(
+                  height: WidgetSize.sizeBoxed.value,
+                ),
+                RatingField(movie: movie),
+              ],
+            ),
           ],
         ),
       ),

@@ -39,16 +39,17 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
             },
             controller: searchController,
             decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: context.colors.onSurface),
-                  borderRadius: context.borderRadiusNormal,
-                ),
-                hintText: LocaleKeys.text_search.locale,
-                hintStyle: context.textTheme.bodyLarge,
-                fillColor: context.colors.onSurface,
-                enabledBorder: _borderStyle(context),
-                disabledBorder: _borderStyle(context),
-                focusedBorder: _borderStyle(context)),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: context.colors.onSurface),
+                borderRadius: context.borderRadiusNormal,
+              ),
+              hintText: LocaleKeys.text_search.locale,
+              hintStyle: context.textTheme.bodyLarge,
+              fillColor: context.colors.onSurface,
+              enabledBorder: _borderStyle(context),
+              disabledBorder: _borderStyle(context),
+              focusedBorder: _borderStyle(context),
+            ),
             cursorColor: context.colors.onSurface,
           ),
           BlocConsumer<SearchCubit, SearchState>(
@@ -59,43 +60,49 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
               }
               if (state is SearchLoading) {
                 return const Center(
-                    child: LottieIcon(
-                  item: LottieItems.loading,
-                ));
+                  child: LottieIcon(
+                    item: LottieItems.loading,
+                  ),
+                );
               }
               if (state is SearchCompleted) {
                 return SizedBox(
                   height: (MediaQuery.of(context).size.height) / 3,
                   child: ListView.builder(
-                      itemCount: state.search?.length ?? 0,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () async {
-                            await NavigatorManager.instance.pushToPage(
-                                route: NavigatorRoutes.homeDetail,
-                                fullScreenDialog: true,
-                                arguments: state.search?[index]);
-                            controllerClear();
-                          },
-                          child: Card(
-                              child: ListTile(
-                            title: Text(state.search?[index]?.title ?? ""),
+                    itemCount: state.search?.length ?? 0,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () async {
+                          await NavigatorManager.instance.pushToPage<Widget>(
+                            route: NavigatorRoutes.homeDetail,
+                            fullScreenDialog: true,
+                            arguments: state.search?[index],
+                          );
+                          controllerClear();
+                        },
+                        child: Card(
+                          child: ListTile(
+                            title: Text(state.search?[index]?.title ?? ''),
                             leading: SizedBox(
-                                height: WidgetSize.searchArea.value,
-                                width: WidgetSize.searchArea.value,
-                                child: NetworkImageWithRadius(
-                                    posterPathValue:
-                                        state.search?[index]?.posterPathValue)),
-                          )),
-                        );
-                      }),
+                              height: WidgetSize.searchArea.value,
+                              width: WidgetSize.searchArea.value,
+                              child: NetworkImageWithRadius(
+                                posterPathValue:
+                                    state.search?[index]?.posterPathValue,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 );
               } else {
                 final error = state as SearchError;
                 return Text(error.message);
               }
             },
-          )
+          ),
         ],
       ),
     );
@@ -106,7 +113,7 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
       borderRadius: context.borderRadiusNormal,
       borderSide: BorderSide(
         color: context.colors.onSurface,
-        width: 2.0,
+        width: 2,
       ),
     );
   }

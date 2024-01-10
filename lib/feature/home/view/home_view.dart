@@ -25,37 +25,41 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            centerTitle: true,
-            leading: IconButton(
-                onPressed: () {
-                  LanguageNotifier().changeLanguage(context);
-                },
-                icon: const Icon(Icons.language_outlined)),
-            actions: [
-              SizedBox(
-                width: context.highValue,
-                child: const ChangeThemeButton(),
-              )
-            ],
-            title: Text(LocaleKeys.title_app.locale)),
-        body: BlocConsumer<HomeCubit, HomeState>(
-          listener: (context, state) {},
-          builder: (context, state) {
-            if (state is HomeInitial) {
-              return Container();
-            } else if (state is HomeLoading) {
-              return const Center(
-                  child: LottieIcon(
-                item: LottieItems.loading,
-              ));
-            } else if (state is HomeCompleted) {
-              return _MovieLists(movies: state);
-            } else {
-              final error = state as HomeError;
-              return Text(error.message);
-            }
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            LanguageNotifier().changeLanguage(context);
           },
-        ));
+          icon: const Icon(Icons.language_outlined),
+        ),
+        actions: [
+          SizedBox(
+            width: context.highValue,
+            child: const ChangeThemeButton(),
+          ),
+        ],
+        title: Text(LocaleKeys.title_app.locale),
+      ),
+      body: BlocConsumer<HomeCubit, HomeState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          if (state is HomeInitial) {
+            return Container();
+          } else if (state is HomeLoading) {
+            return const Center(
+              child: LottieIcon(
+                item: LottieItems.loading,
+              ),
+            );
+          } else if (state is HomeCompleted) {
+            return _MovieLists(movies: state);
+          } else {
+            final error = state as HomeError;
+            return Text(error.message);
+          }
+        },
+      ),
+    );
   }
 }

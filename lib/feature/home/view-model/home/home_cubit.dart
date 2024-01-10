@@ -14,16 +14,22 @@ class HomeCubit extends Cubit<HomeState> with BaseViewModel {
   Future<void> getMovie(LanguageCode currentLanguage) async {
     try {
       emit(HomeLoading());
-      final Movies popular = await customDio.dioGet(
-          MoviePaths.popular.moviePath(currentLanguage), Movies());
-      final List<Movie>? popularList = popular.results;
-      final Movies topRated = await customDio.dioGet(
-          MoviePaths.topRated.moviePath(currentLanguage), Movies());
-      final List<Movie>? topRatedList = topRated.results;
+      final Movies popular = await customDio.dioGet<Movies>(
+        MoviePaths.popular.moviePath(currentLanguage),
+        Movies() as dynamic,
+      );
+      final popularList = popular.results;
+      final Movies topRated = await customDio.dioGet<Movies>(
+        MoviePaths.topRated.moviePath(currentLanguage),
+        Movies(),
+      );
+      final topRatedList = topRated.results;
 
       final Movies nowPlaying = await customDio.dioGet(
-          MoviePaths.nowPlaying.moviePath(currentLanguage), Movies());
-      final List<Movie>? nowPlayingList = nowPlaying.results;
+        MoviePaths.nowPlaying.moviePath(currentLanguage),
+        Movies(),
+      );
+      final nowPlayingList = nowPlaying.results;
 
       emit(HomeCompleted(popularList, topRatedList, nowPlayingList));
     } on BaseError catch (e) {
