@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vexana/vexana.dart';
 
 import '../../../../core/base/model/base_error.dart';
 import '../../../../core/base/model/base_view_model.dart';
@@ -14,22 +15,24 @@ class HomeCubit extends Cubit<HomeState> with BaseViewModel {
   Future<void> getMovie(LanguageCode currentLanguage) async {
     try {
       emit(HomeLoading());
-      final Movies popular = await customDio.dioGet<Movies>(
+      final popular = await networkManager.send<Movies, Movies>(
         MoviePaths.popular.moviePath(currentLanguage),
-        Movies() as dynamic,
+        parseModel: Movies(),
+        method: RequestType.GET,
       );
-      final popularList = popular.results;
-      final Movies topRated = await customDio.dioGet<Movies>(
+      final popularList = popular.data?.results;
+      final topRated = await networkManager.send<Movies, Movies>(
         MoviePaths.topRated.moviePath(currentLanguage),
-        Movies(),
+        parseModel: Movies(),
+        method: RequestType.GET,
       );
-      final topRatedList = topRated.results;
-
-      final Movies nowPlaying = await customDio.dioGet(
+      final topRatedList = topRated.data?.results;
+      final nowPlaying = await networkManager.send<Movies, Movies>(
         MoviePaths.nowPlaying.moviePath(currentLanguage),
-        Movies(),
+        parseModel: Movies(),
+        method: RequestType.GET,
       );
-      final nowPlayingList = nowPlaying.results;
+      final nowPlayingList = nowPlaying.data?.results;
 
       emit(HomeCompleted(popularList, topRatedList, nowPlayingList));
     } on BaseError catch (e) {

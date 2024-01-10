@@ -9,7 +9,7 @@ class ThemeNotifier extends ChangeNotifier {
 
   void changeTheme() {
     isLightTheme = !isLightTheme;
-    CacheKeys.theme.writeBool(isLightTheme);
+    CacheKeys.theme.writeBool(value: isLightTheme);
     notifyListeners();
   }
 

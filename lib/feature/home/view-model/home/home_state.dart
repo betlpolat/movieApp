@@ -13,19 +13,17 @@ class HomeLoading extends HomeState {
 }
 
 class HomeCompleted extends HomeState {
-  final List<Movie?>? trending;
-  final List<Movie?>? topRated;
-  final List<Movie?>? nowPlaying;
-
   HomeCompleted(
     this.trending,
     this.topRated,
     this.nowPlaying,
   );
+  final List<Movie>? trending;
+  final List<Movie>? topRated;
+  final List<Movie>? nowPlaying;
 }
 
 class HomeError extends HomeState {
-  final String message;
-
   HomeError(this.message);
+  final String message;
 }

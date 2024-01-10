@@ -2,9 +2,8 @@ part of 'home_view.dart';
 
 class _MovieLists extends StatelessWidget {
   const _MovieLists({
-    Key? key,
     required this.movies,
-  }) : super(key: key);
+  });
 
   final HomeCompleted movies;
 

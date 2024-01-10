@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
 
-import '../../../core/base/model/base_model.dart';
 import '../../../product/utility/constants/path_constant.dart';
 
 part 'movies.g.dart';
 
 @JsonSerializable()
-class Movies extends BaseModel<Movies> {
+class Movies extends INetworkModel<Movies> {
   Movies({this.page, this.results, this.totalPages, this.totalResults});
   int? page;
   List<Movie>? results;
@@ -17,19 +17,19 @@ class Movies extends BaseModel<Movies> {
   int? totalResults;
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$MoviesToJson(this);
+  Movies fromJson(Map<String, dynamic> json) {
+    return _$MoviesFromJson(json);
   }
 
   @override
-  Movies fromJson(Map<String, dynamic> json) {
-    return _$MoviesFromJson(json);
+  Map<String, dynamic>? toJson() {
+    return _$MoviesToJson(this);
   }
 }
 
 @JsonSerializable()
-class Movie extends Equatable {
-  const Movie({
+class Movie extends INetworkModel<Movie> with EquatableMixin {
+  Movie({
     this.adult,
     this.backdropPath,
     this.genreIds,
@@ -49,6 +49,7 @@ class Movie extends Equatable {
   factory Movie.fromJson(Map<String, dynamic> json) {
     return _$MovieFromJson(json);
   }
+
   final bool? adult;
   @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
@@ -76,10 +77,16 @@ class Movie extends Equatable {
       PathConstant.imagePath + (backdropPath ?? '');
   String? get posterPathValue => PathConstant.imagePath + (posterPath ?? '');
 
-  Map<String, dynamic> toJson() {
+  @override
+  Movie fromJson(Map<String, dynamic> json) {
+    return fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson() {
     return _$MovieToJson(this);
   }
 
   @override
-  List<Object?> get props => [id, backdropPath, title];
+  List<Object?> get props => [id, title];
 }

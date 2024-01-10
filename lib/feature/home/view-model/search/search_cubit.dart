@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/base/model/base_view_model.dart';
+import 'package:vexana/vexana.dart';
 
 import '../../../../core/base/model/base_error.dart';
 import '../../../../product/utility/enum/movie_paths.dart';
@@ -19,10 +20,13 @@ class SearchCubit extends Cubit<SearchState> with BaseViewModel {
       try {
         emit(SearchLoading());
         final path = '${MoviePaths.search.searchPath()}&query=$query';
+        final search = await networkManager.send<Movies, Movies>(
+          path,
+          parseModel: Movies(),
+          method: RequestType.GET,
+        );
 
-        final Movies search = await customDio.dioGet(path, Movies());
-
-        final searchList = search.results;
+        final searchList = search.data?.results;
         //  .fetchMovieList(MoviePaths.search.searchPath(), query: query);
         if (searchList == null || searchList.isEmpty) {
           emit(SearchInitial());

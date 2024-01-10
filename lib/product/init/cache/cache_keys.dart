@@ -6,6 +6,6 @@ enum CacheKeys {
 
   bool get readBool =>
       AppCache.instance.sharedPreferences.getBool(name) ?? false;
-  Future<bool> writeBool(bool value) =>
+  Future<bool> writeBool({required bool value}) =>
       AppCache.instance.sharedPreferences.setBool(name, value);
 }

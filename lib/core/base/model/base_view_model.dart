@@ -1,6 +1,7 @@
-import '../../../product/init/network/network_manager.dart';
-import 'base_dio.dart';
+import 'package:vexana/vexana.dart';
+
+import '../../network/vexana_manager.dart';
 
 mixin BaseViewModel {
-  final BaseDio customDio = NetworkManager.instance.dio;
+  final INetworkManager networkManager = VexanaManager.instance.networkManager;
 }

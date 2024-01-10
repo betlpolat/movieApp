@@ -10,7 +10,6 @@ import '../../../product/utility/enum/lottie_items.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../view-model/home/index.dart';
 import 'mixin/home_view_mixin.dart';
-import 'widget/change_theme_button.dart';
 import 'widget/index.dart';
 
 part 'home_view.g.dart';

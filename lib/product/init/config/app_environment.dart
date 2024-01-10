@@ -23,7 +23,7 @@ enum AppEnvironmentItems {
         case AppEnvironmentItems.imageUrl:
           return AppEnvironment._config.imageUrl;
       }
-    } catch (e) {
+    } on Exception catch (_) {
       throw Exception('AppEnvironment is not initialized.');
     }
   }
