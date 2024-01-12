@@ -10,5 +10,8 @@
     "rating": "Rating",
     "release": "Release Date",
     "search": "Search"
+  },
+  "settings": {
+    "language": "Setting Language..."
   }
 }

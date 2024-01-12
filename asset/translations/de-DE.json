@@ -10,5 +10,8 @@
         "rating": "Bewertung",
         "release": "Veröffentlichungsdatum",
         "search": "Suchen"
+    },
+    "settings": {
+        "language": "Sprache wird eingestellt..."
     }
 }

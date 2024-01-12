@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:movie_app/product/utility/enum/index.dart';
 import 'package:movie_app/product/utility/extension/movie_paths_extension.dart';
 import 'package:vexana/vexana.dart';
