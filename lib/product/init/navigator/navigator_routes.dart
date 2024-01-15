@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/product/widget/animation/card_animation.dart';
 
 import '../../../feature/detail/view/detail_view.dart';
 import '../../../feature/home/model/movies.dart';
@@ -25,7 +26,12 @@ mixin NavigatorRoutesMixin<T extends MyApp> on Widget {
       case NavigatorRoutes.homeDetail:
         final movie = routeSettings.arguments;
         return _navigateToNormal(
-          DetailView(movie: movie is Movie ? movie : null),
+          CardAnimation(
+            child: DetailView(movie: movie is Movie ? movie : null),
+            closedBuilder: (BuildContext context, void Function() action) {
+              return DetailView(movie: movie is Movie ? movie : null);
+            },
+          ),
         );
     }
   }
