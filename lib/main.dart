@@ -15,7 +15,7 @@ void main() async {
     EasyLocalization(
       supportedLocales: initialManager.localize.supportedLocales,
       path: initialManager.localize.path,
-      saveLocale: false,
+      //  saveLocale: false,
       child: MultiProvider(
         providers: initialManager.providers,
         builder: (context, child) => const MyApp(),

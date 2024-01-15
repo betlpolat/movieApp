@@ -1,35 +1,31 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/product/init/cache/cache_keys.dart';
 
 import '../utility/enum/language_code.dart';
 
 class LanguageNotifier extends ChangeNotifier {
-  LanguageCode? currentLanguage = LanguageCode.english;
+  bool isEnglish = CacheKeys.language.readBool;
+  LanguageCode? get currentLanguage =>
+      isEnglish ? LanguageCode.english : LanguageCode.german;
 
-  Future<void> startLocalization(BuildContext context) async {
-    final currentLocal = EasyLocalization.of(context)!.currentLocale;
-    print(currentLocal);
-    if (currentLocal == const Locale('en', 'US')) {
-      currentLanguage = LanguageCode.german;
-      notifyListeners();
-    } else {
-      currentLanguage = LanguageCode.german;
-      notifyListeners();
-    }
-  }
-
-  void changeLanguage(BuildContext context) {
+  Future<void> changeLanguage(BuildContext context) async {
     final currentLocal = EasyLocalization.of(context)!.currentLocale;
 
     if (currentLocal == const Locale('en', 'US')) {
-      currentLanguage = LanguageCode.german;
-      notifyListeners();
+      isEnglish = false;
 
-      EasyLocalization.of(context)!.setLocale(const Locale('de', 'DE'));
-    } else {
-      currentLanguage = LanguageCode.english;
+      await EasyLocalization.of(context)!.setLocale(const Locale('de', 'DE'));
+      await CacheKeys.language.writeBool(value: false);
+
       notifyListeners();
-      EasyLocalization.of(context)!.setLocale(const Locale('en', 'US'));
+    } else {
+      isEnglish = true;
+
+      await EasyLocalization.of(context)!.setLocale(const Locale('en', 'US'));
+      await CacheKeys.language.writeBool(value: true);
+
+      notifyListeners();
     }
   }
 }

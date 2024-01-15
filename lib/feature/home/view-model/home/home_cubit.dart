@@ -12,7 +12,7 @@ class HomeCubit extends Cubit<HomeState> with BaseViewModel {
   HomeCubit() : super(const HomeState());
 
   Future<void> changeLanguage(BuildContext context) async {
-    context.read<LanguageNotifier>().changeLanguage(context);
+    await context.read<LanguageNotifier>().changeLanguage(context);
     await getMovie(context);
   }
 
@@ -21,7 +21,7 @@ class HomeCubit extends Cubit<HomeState> with BaseViewModel {
     final currentLanguage = context.read<LanguageNotifier>().currentLanguage;
 
     try {
-      emit(const HomeState(isLoading: true));
+      emit(const HomeState(onLoad: true));
 
       final popular = await service.fetchMovieList(
         currentLanguage: currentLanguage!,
@@ -38,14 +38,14 @@ class HomeCubit extends Cubit<HomeState> with BaseViewModel {
 
       emit(
         HomeState(
-          isCompleted: true,
+          onComplete: true,
           popular: popular,
           topRated: topRated,
           nowPlaying: nowPlaying,
         ),
       );
     } on BaseError catch (e) {
-      emit(HomeState(isError: true, errorMessage: e.message));
+      emit(HomeState(onError: true, errorMessage: e.message));
     }
   }
 }

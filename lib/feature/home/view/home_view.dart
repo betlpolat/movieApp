@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {},
       builder: (context, state) {
-        if (state.isLoading) {
+        if (state.onLoad) {
           return const Scaffold(
             appBar: CustomAppBar(),
             body: Center(
@@ -34,7 +34,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
               ),
             ),
           );
-        } else if (state.isCompleted) {
+        } else if (state.onComplete) {
           return const Scaffold(
             appBar: CustomAppBar(),
             body: _MovieLists(),
