@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
-import '../../view-model/search/search_cubit.dart';
 import '../widget/search_form.dart';
 
 mixin SearchFormMixin on State<SearchForm> {
@@ -20,7 +19,7 @@ mixin SearchFormMixin on State<SearchForm> {
   }
 
   void controllerClear() {
-    context.read<SearchCubit>().closeSearch();
+    context.searchCubit.closeSearch();
     searchController.clear();
     FocusScope.of(context).requestFocus(FocusNode());
   }

@@ -1,4 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/feature/home/view-model/home/home_cubit.dart';
+import 'package:movie_app/feature/home/view-model/search/search_cubit.dart';
 
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -18,6 +22,15 @@ extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;
   ColorScheme get colors => theme.colorScheme;
+}
+
+extension LocalizationExtension on BuildContext {
+  Locale? get currentLocale => EasyLocalization.of(this)!.currentLocale;
+}
+
+extension CubitExtension on BuildContext {
+  HomeCubit get homeCubit => read<HomeCubit>();
+  SearchCubit get searchCubit => read<SearchCubit>();
 }
 
 extension PaddingExtensionAll on BuildContext {

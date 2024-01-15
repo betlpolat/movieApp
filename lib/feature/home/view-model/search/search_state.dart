@@ -1,23 +1,39 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+
 import '../../model/movies.dart';
 
-abstract class SearchState {
-  SearchState();
-}
+class SearchState extends Equatable {
+  const SearchState({
+    this.onLoad = false,
+    this.onComplete = false,
+    this.onError = false,
+    this.errorMessage = '',
+    this.searchList,
+  });
 
-class SearchInitial extends SearchState {
-  SearchInitial();
-}
+  final bool onLoad;
+  final bool onComplete;
+  final bool onError;
+  final String errorMessage;
+  final List<Movie>? searchList;
 
-class SearchLoading extends SearchState {
-  SearchLoading();
-}
+  @override
+  List<Object?> get props => [onLoad, onComplete, onError];
 
-class SearchCompleted extends SearchState {
-  SearchCompleted(this.search);
-  final List<Movie?>? search;
-}
-
-class SearchError extends SearchState {
-  SearchError(this.message);
-  final String message;
+  SearchState copyWith({
+    bool? onLoad,
+    bool? onComplete,
+    bool? onError,
+    String? errorMessage,
+    List<Movie>? searchList,
+  }) {
+    return SearchState(
+      onLoad: onLoad ?? false,
+      onComplete: onComplete ?? false,
+      onError: onError ?? false,
+      errorMessage: errorMessage ?? this.errorMessage,
+      searchList: searchList ?? [],
+    );
+  }
 }
