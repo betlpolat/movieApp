@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/product/init/language/product_localization.dart';
 import 'package:provider/provider.dart';
 
 import 'product/init/application_init.dart';
@@ -12,10 +13,7 @@ void main() async {
   await initialManager.start();
 
   runApp(
-    EasyLocalization(
-      supportedLocales: initialManager.localize.supportedLocales,
-      path: initialManager.localize.path,
-      //  saveLocale: false,
+    ProductLocalization(
       child: MultiProvider(
         providers: initialManager.providers,
         builder: (context, child) => const MyApp(),

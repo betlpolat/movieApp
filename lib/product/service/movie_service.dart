@@ -11,7 +11,7 @@ abstract class IMovieService {
   final INetworkManager networkManager;
 
   Future<List<Movie>?> fetchMovieList({
-    @required LanguageCode currentLanguage,
+    @required Locales currentLanguage,
     @required MoviePaths path,
   });
   Future<List<Movie>?> fetchMovieListWithSearch({
@@ -24,7 +24,7 @@ class MovieService extends IMovieService {
 
   @override
   Future<List<Movie>?> fetchMovieList({
-    LanguageCode currentLanguage = LanguageCode.english,
+    Locales currentLanguage = Locales.en,
     MoviePaths path = MoviePaths.popular,
   }) async {
     final response = await networkManager.send<Movies, Movies>(

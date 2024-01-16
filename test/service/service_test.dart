@@ -3,7 +3,7 @@ import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/init/config/app_environment.dart';
 import 'package:movie_app/product/init/config/env_dev.dart';
 import 'package:movie_app/product/utility/constants/path_constant.dart';
-import 'package:movie_app/product/utility/enum/language_code.dart';
+import 'package:movie_app/product/utility/enum/locales.dart';
 import 'package:movie_app/product/utility/enum/movie_paths.dart';
 import 'package:movie_app/product/utility/extension/movie_paths_extension.dart';
 import 'package:vexana/vexana.dart';
@@ -25,7 +25,7 @@ void main() {
   });
   test('Service Test - popular movies', () async {
     final popular = await networkManager.send<Movies, Movies>(
-      MoviePaths.popular.moviePath(LanguageCode.english),
+      MoviePaths.popular.moviePath(Locales.en),
       parseModel: Movies(),
       method: RequestType.GET,
     );
@@ -35,7 +35,7 @@ void main() {
   });
   test('Service Test - top rated movies', () async {
     final topRated = await networkManager.send<Movies, Movies>(
-      MoviePaths.topRated.moviePath(LanguageCode.english),
+      MoviePaths.topRated.moviePath(Locales.en),
       parseModel: Movies(),
       method: RequestType.GET,
     );
@@ -45,7 +45,7 @@ void main() {
   });
   test('Service Test - now playing movies', () async {
     final nowPlaying = await networkManager.send<Movies, Movies>(
-      MoviePaths.nowPlaying.moviePath(LanguageCode.english),
+      MoviePaths.nowPlaying.moviePath(Locales.en),
       parseModel: Movies(),
       method: RequestType.GET,
     );

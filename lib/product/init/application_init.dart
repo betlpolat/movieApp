@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
-import '../../core/init/core_localize.dart';
 import '../state/language_notifier.dart';
 import '../state/theme_notifier.dart';
 import 'cache/app_cache.dart';
@@ -14,7 +13,7 @@ import 'config/env_dev.dart';
 final class ApplicationInit {
   ApplicationInit._();
   static ApplicationInit instance = ApplicationInit._();
-  final CoreLocalize localize = CoreLocalize.instance;
+  // final CoreLocalize localize = CoreLocalize.instance;
 
   final List<SingleChildWidget> providers = [
     ChangeNotifierProvider<ThemeNotifier>(
