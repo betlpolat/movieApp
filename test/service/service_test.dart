@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gen/gen.dart';
 import 'package:movie_app/feature/home/model/movies.dart';
 import 'package:movie_app/product/init/config/app_environment.dart';
-import 'package:movie_app/product/init/config/env_dev.dart';
 import 'package:movie_app/product/utility/constants/path_constant.dart';
 import 'package:movie_app/product/utility/enum/locales.dart';
 import 'package:movie_app/product/utility/enum/movie_paths.dart';

@@ -1,5 +1,11 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:gen/gen.dart';
+import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -7,13 +13,16 @@ import '../state/language_notifier.dart';
 import '../state/theme_notifier.dart';
 import 'cache/app_cache.dart';
 import 'config/app_environment.dart';
-import 'config/env_dev.dart';
 
 @immutable
 final class ApplicationInit {
-  ApplicationInit._();
-  static ApplicationInit instance = ApplicationInit._();
-  // final CoreLocalize localize = CoreLocalize.instance;
+  Future<void> start() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    await runZonedGuarded<Future<void>>(_initialize, (error, stack) {
+      Logger().e(error);
+    });
+  }
 
   final List<SingleChildWidget> providers = [
     ChangeNotifierProvider<ThemeNotifier>(
@@ -24,9 +33,13 @@ final class ApplicationInit {
     ),
   ];
 
-  Future<void> start() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  static Future<void> _initialize() async {
     await EasyLocalization.ensureInitialized();
+    EasyLocalization.logger.enableLevels = [LevelMessages.error];
+    FlutterError.onError = (details) {
+      Logger().e(details.exceptionAsString());
+    };
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     await AppCache.instance.setUp();
     AppEnvironment.setup(config: EnvDev());
   }

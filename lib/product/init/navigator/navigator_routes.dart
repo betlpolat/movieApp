@@ -4,10 +4,9 @@ import 'package:movie_app/product/widget/animation/card_animation.dart';
 import '../../../feature/detail/view/detail_view.dart';
 import '../../../feature/home/model/movies.dart';
 import '../../../feature/home/view/home_view.dart';
-import '../../../main.dart';
 import '../../state/bloc_widget.dart';
 
-mixin NavigatorRoutesMixin<T extends MyApp> on Widget {
+mixin NavigatorRoutesMixin<T> on Widget {
   Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
     if ((routeSettings.name?.isEmpty ?? true) || (routeSettings.name == '/')) {
       return _navigateToNormal(

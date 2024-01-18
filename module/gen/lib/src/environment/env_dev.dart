@@ -1,12 +1,11 @@
 import 'package:envied/envied.dart';
-
-import 'app_configuration.dart';
+import 'package:gen/src/environment/app_configuration.dart';
 
 part 'env_dev.g.dart';
 
 @Envied(
   obfuscate: true,
-  path: 'asset/env/.dev.env',
+  path: 'assets/env/.dev.env',
 )
 final class EnvDev implements AppConfiguration {
   @EnviedField(varName: 'BASE_URL')

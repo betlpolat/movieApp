@@ -8,22 +8,21 @@ import 'product/init/language/locale_keys.g.dart';
 import 'product/init/navigator/index.dart';
 import 'product/state/theme_notifier.dart';
 
-void main() async {
-  final initialManager = ApplicationInit.instance;
-  await initialManager.start();
+Future<void> main() async {
+  await ApplicationInit().start();
 
   runApp(
     ProductLocalization(
       child: MultiProvider(
-        providers: initialManager.providers,
-        builder: (context, child) => const MyApp(),
+        providers: ApplicationInit().providers,
+        builder: (context, child) => const _MyApp(),
       ),
     ),
   );
 }
 
-class MyApp extends StatelessWidget with NavigatorRoutesMixin {
-  const MyApp({super.key});
+class _MyApp extends StatelessWidget with NavigatorRoutesMixin {
+  const _MyApp();
 
   @override
   Widget build(BuildContext context) {

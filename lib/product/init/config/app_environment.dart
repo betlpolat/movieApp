@@ -1,4 +1,4 @@
-import 'app_configuration.dart';
+import 'package:gen/gen.dart';
 
 final class AppEnvironment {
   AppEnvironment.setup({required AppConfiguration config}) {

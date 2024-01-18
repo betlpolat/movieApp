@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gen/gen.dart';
 import 'package:movie_app/feature/home/view/widget/custom_app_bar.dart';
 
-import '../../../core/component/icon/lottie_icon.dart';
 import '../../../core/extension/context_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
-import '../../../product/utility/enum/lottie_items.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../view-model/home/index.dart';
 import 'mixin/home_view_mixin.dart';
@@ -26,11 +25,11 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       listener: (context, state) {},
       builder: (context, state) {
         if (state.onLoad) {
-          return const Scaffold(
-            appBar: CustomAppBar(),
+          return Scaffold(
+            appBar: const CustomAppBar(),
             body: Center(
-              child: LottieIcon(
-                item: LottieItems.loading,
+              child: Assets.lottie.lottieLoading.lottie(
+                package: 'gen',
               ),
             ),
           );

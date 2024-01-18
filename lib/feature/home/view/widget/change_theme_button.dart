@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gen/gen.dart';
 
-import '../../../../core/component/icon/lottie_icon.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../product/state/theme_notifier.dart';
-import '../../../../product/utility/enum/index.dart';
 
 class ChangeThemeButton extends StatefulWidget {
   const ChangeThemeButton({super.key});
@@ -41,8 +40,8 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton>
 
         isLight = !isLight;
       },
-      child: LottieIcon(
-        item: LottieItems.theme_change,
+      child: Assets.lottie.lottieThemeChange.lottie(
+        package: 'gen',
         controller: controller,
         fit: BoxFit.cover,
       ),
