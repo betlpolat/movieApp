@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
-import 'package:movie_app/feature/home/view/widget/custom_app_bar.dart';
 
 import '../../../core/extension/context_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
+import '../../../product/widget/decoration/adapt_padding_low.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../view-model/home/index.dart';
 import 'mixin/home_view_mixin.dart';
+import 'widget/custom_app_bar.dart';
 import 'widget/index.dart';
 
 part 'home_view.g.dart';

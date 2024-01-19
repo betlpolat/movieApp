@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/extension/context_extension.dart';
-import '../../utility/enum/widget_size.dart';
 
 class ArrowBackIconButton extends StatelessWidget {
   const ArrowBackIconButton({
@@ -11,8 +10,6 @@ class ArrowBackIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: WidgetSize.icon.value,
-      width: WidgetSize.icon.value,
       margin: context.paddingNormalTopLeft,
       decoration: BoxDecoration(
         borderRadius: context.borderRadiusLow,

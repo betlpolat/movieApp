@@ -43,7 +43,6 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton>
       child: Assets.lottie.lottieThemeChange.lottie(
         package: 'gen',
         controller: controller,
-        fit: BoxFit.cover,
       ),
     );
   }

@@ -6,7 +6,6 @@ import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/init/navigator/navigator_manager.dart';
 import '../../../../product/init/navigator/navigator_routes.dart';
-import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../view-model/search/search_cubit.dart';
 import '../../view-model/search/search_state.dart';
@@ -55,7 +54,7 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
             builder: (context, state) {
               if (state.onComplete) {
                 return SizedBox(
-                  height: (MediaQuery.of(context).size.height) / 3,
+                  height: (context.height) / 3,
                   child: ListView.builder(
                     itemCount: state.searchList?.length ?? 0,
                     itemBuilder: (context, index) {
@@ -72,8 +71,6 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
                           child: ListTile(
                             title: Text(state.searchList?[index].title ?? ''),
                             leading: SizedBox(
-                              height: WidgetSize.searchArea.value,
-                              width: WidgetSize.searchArea.value,
                               child: NetworkImageWithRadius(
                                 posterPathValue:
                                     state.searchList?[index].posterPathValue,

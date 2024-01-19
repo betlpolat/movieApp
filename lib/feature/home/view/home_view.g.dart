@@ -15,25 +15,36 @@ class _MovieLists extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: context.paddingLow,
+                _paddingLow(
+                  context: context,
                   child: const SearchForm(),
                 ),
-                const TopicTitleText(text: LocaleKeys.title_trending),
-                Padding(
-                  padding: context.paddingLow,
+                _paddingLow(
+                  context: context,
+                  child: const TopicTitleText(text: LocaleKeys.title_trending),
+                ),
+                _paddingLow(
+                  context: context,
                   child: CarouselMovieItems(movies: state.popular),
                 ),
-                const TopicTitleText(
-                  text: LocaleKeys.title_topRated,
+                _paddingLow(
+                  context: context,
+                  child: const TopicTitleText(
+                    text: LocaleKeys.title_topRated,
+                  ),
                 ),
-                Padding(
-                  padding: context.paddingLow,
+                _paddingLow(
+                  context: context,
                   child: MovieItems(movies: state.topRated),
                 ),
-                const TopicTitleText(text: LocaleKeys.title_nowPlaying),
-                Padding(
-                  padding: context.paddingLow,
+                _paddingLow(
+                  context: context,
+                  child: const TopicTitleText(
+                    text: LocaleKeys.title_nowPlaying,
+                  ),
+                ),
+                _paddingLow(
+                  context: context,
                   child: MovieItems(movies: state.nowPlaying),
                 ),
               ],
@@ -41,6 +52,16 @@ class _MovieLists extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Padding _paddingLow({
+    required BuildContext context,
+    required Widget child,
+  }) {
+    return Padding(
+      padding: context.paddingLow,
+      child: child,
     );
   }
 }

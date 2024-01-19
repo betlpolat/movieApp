@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extension/context_extension.dart';
 import '../../../../product/init/navigator/index.dart';
-import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../model/movies.dart';
 
@@ -42,10 +41,10 @@ class CarouselMovieItems extends StatelessWidget {
 
   CarouselOptions _carouselOptions({required BuildContext context}) {
     return CarouselOptions(
-      height: WidgetSize.carousel.value,
+      height: context.height / 3,
       autoPlay: true,
-      viewportFraction: 0.55,
       enlargeCenterPage: true,
+      viewportFraction: 0.4,
       autoPlayAnimationDuration: context.durationHigh,
     );
   }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/product/service/movie_service.dart';
-import 'package:movie_app/product/utility/enum/index.dart';
 
 import '../../../../core/base/model/base_error.dart';
 import '../../../../core/base/model/base_view_model.dart';
+import '../../../../product/service/movie_service.dart';
 import '../../../../product/state/language_notifier.dart';
+import '../../../../product/utility/enum/index.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> with BaseViewModel {

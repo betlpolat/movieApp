@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/extension/context_extension.dart';
 
+import '../../../../core/extension/context_extension.dart';
 import '../home_view.dart';
 
 mixin HomeViewMixin on State<HomeView> {

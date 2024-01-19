@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
-import '../../../../product/utility/enum/widget_size.dart';
 import '../../../home/model/movies.dart';
 import 'rating_field.dart';
 import 'release_field.dart';
@@ -38,9 +37,6 @@ class MovieInfos extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ReleaseField(movie: movie),
-                SizedBox(
-                  height: WidgetSize.sizeBoxed.value,
-                ),
                 RatingField(movie: movie),
               ],
             ),

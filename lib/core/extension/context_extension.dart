@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/feature/home/view-model/home/home_cubit.dart';
-import 'package:movie_app/feature/home/view-model/search/search_cubit.dart';
+
+import '../../feature/home/view-model/home/home_cubit.dart';
+import '../../feature/home/view-model/search/search_cubit.dart';
 
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -16,6 +17,11 @@ extension MediaQueryExtension on BuildContext {
   double get normalValue => height * 0.02;
   double get mediumValue => height * 0.04;
   double get highValue => height * 0.1;
+
+  double get lowValueWidth => width * 0.001;
+  double get normalValueWidth => width * 0.02;
+  double get mediumValueWidth => width * 0.04;
+  double get highValueWidth => width * 0.1;
 }
 
 extension ThemeExtension on BuildContext {
@@ -38,6 +44,10 @@ extension PaddingExtensionAll on BuildContext {
   EdgeInsets get paddingNormal => EdgeInsets.all(normalValue);
   EdgeInsets get paddingMedium => EdgeInsets.all(mediumValue);
   EdgeInsets get paddingHigh => EdgeInsets.all(highValue);
+  EdgeInsets get paddingLowWidth => EdgeInsets.all(lowValueWidth);
+  EdgeInsets get paddingNormalWidth => EdgeInsets.all(normalValueWidth);
+  EdgeInsets get paddingMediumWidth => EdgeInsets.all(mediumValueWidth);
+  EdgeInsets get paddingHighWidth => EdgeInsets.all(highValueWidth);
 }
 
 extension PaddingExtensionOnly on BuildContext {

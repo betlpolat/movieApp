@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extension/context_extension.dart';
 import '../../../../product/init/navigator/index.dart';
-import '../../../../product/utility/enum/widget_size.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../model/movies.dart';
 
@@ -17,7 +16,7 @@ class MovieItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: WidgetSize.image.value,
+      height: context.height / 4,
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

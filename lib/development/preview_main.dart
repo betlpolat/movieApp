@@ -1,22 +1,26 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:widgets/widgets.dart';
 
-import 'product/init/application_init.dart';
-import 'product/init/language/locale_keys.g.dart';
-import 'product/init/language/product_localization.dart';
-import 'product/init/navigator/index.dart';
-import 'product/state/theme_notifier.dart';
+import '../product/init/application_init.dart';
+import '../product/init/language/locale_keys.g.dart';
+import '../product/init/language/product_localization.dart';
+import '../product/init/navigator/navigator_manager.dart';
+import '../product/init/navigator/navigator_routes.dart';
+import '../product/state/theme_notifier.dart';
 
 Future<void> main() async {
   await ApplicationInit().start();
 
   runApp(
-    ProductLocalization(
-      child: MultiProvider(
-        providers: ApplicationInit().providers,
-        builder: (context, child) => const _MyApp(),
+    DevicePreview(
+      builder: (context) => ProductLocalization(
+        child: MultiProvider(
+          providers: ApplicationInit().providers,
+          builder: (context, child) => const _MyApp(),
+        ),
       ),
     ),
   );

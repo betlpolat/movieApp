@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/extension/context_extension.dart';
-import 'package:movie_app/core/extension/string_extension.dart';
 
+import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import 'change_theme_button.dart';
 import 'icon_button_change_language.dart';
@@ -16,10 +15,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       leading: const IconButtonChangeLanguage(),
-      actions: [
+      actions: const [
         SizedBox(
-          width: context.highValue,
-          child: const ChangeThemeButton(),
+          child: ChangeThemeButton(),
         ),
       ],
       title: Text(LocaleKeys.title_app.locale),

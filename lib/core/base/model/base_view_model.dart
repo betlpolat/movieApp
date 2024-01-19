@@ -1,6 +1,6 @@
-import 'package:movie_app/product/utility/model/throttle_helper.dart';
 import 'package:vexana/vexana.dart';
 
+import '../../../product/utility/model/throttle_helper.dart';
 import '../../network/vexana_manager.dart';
 
 mixin BaseViewModel {

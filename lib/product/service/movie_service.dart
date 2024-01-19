@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/utility/enum/index.dart';
-import 'package:movie_app/product/utility/extension/movie_paths_extension.dart';
 import 'package:vexana/vexana.dart';
 
 import '../../feature/home/model/movies.dart';
+import '../utility/enum/index.dart';
+import '../utility/extension/movie_paths_extension.dart';
 
 abstract class IMovieService {
   IMovieService({required this.networkManager});

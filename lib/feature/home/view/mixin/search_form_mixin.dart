@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:movie_app/core/extension/context_extension.dart';
 
+import '../../../../core/extension/context_extension.dart';
 import '../widget/search_form.dart';
 
 mixin SearchFormMixin on State<SearchForm> {

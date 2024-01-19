@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/utility/enum/locales.dart';
+
+import '../../utility/enum/locales.dart';
 
 @immutable
 final class ProductLocalization extends EasyLocalization {

@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/product/init/cache/cache_keys.dart';
 
+import '../init/cache/cache_keys.dart';
 import '../utility/enum/locales.dart';
 
 class LanguageNotifier extends ChangeNotifier {
