@@ -41,7 +41,7 @@ class CarouselMovieItems extends StatelessWidget {
 
   CarouselOptions _carouselOptions({required BuildContext context}) {
     return CarouselOptions(
-      height: context.height / 3,
+      height: context.dynamicHeight(0.3),
       autoPlay: true,
       enlargeCenterPage: true,
       viewportFraction: 0.4,

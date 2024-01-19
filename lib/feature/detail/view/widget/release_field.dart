@@ -19,7 +19,7 @@ class ReleaseField extends StatelessWidget {
       padding: context.paddingLow,
       decoration: BoxDecoration(
         border: Border.all(color: context.colors.onSurface),
-        borderRadius: context.borderRadiusLow,
+        borderRadius: context.lowBorderRadius,
       ),
       child: Row(
         children: [

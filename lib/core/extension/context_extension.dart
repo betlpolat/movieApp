@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +14,11 @@ extension ContextExtension on BuildContext {
 extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
+
+  double dynamicHeight(double val) => height * val;
+  double dynamicWidth(double val) => width * val;
+
+  MaterialColor get randomColor => Colors.primaries[Random().nextInt(17)];
 
   double get lowValue => height * 0.01;
   double get normalValue => height * 0.02;
@@ -81,7 +88,10 @@ extension DurationExtension on BuildContext {
 }
 
 extension BorderRadiusExtension on BuildContext {
-  BorderRadius get borderRadiusLow => BorderRadius.circular(8);
-  BorderRadius get borderRadiusNormal => BorderRadius.circular(12);
-  BorderRadius get borderRadiusHigh => BorderRadius.circular(16);
+  BorderRadius get lowBorderRadius =>
+      BorderRadius.all(Radius.circular(width * 0.02));
+  BorderRadius get normalBorderRadius =>
+      BorderRadius.all(Radius.circular(width * 0.05));
+  BorderRadius get highBorderRadius =>
+      BorderRadius.all(Radius.circular(width * 0.1));
 }

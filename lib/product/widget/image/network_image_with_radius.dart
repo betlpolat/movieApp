@@ -13,7 +13,7 @@ class NetworkImageWithRadius extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: context.borderRadiusNormal,
+      borderRadius: context.normalBorderRadius,
       child: Image.network(
         posterPathValue ?? '',
         filterQuality: FilterQuality.high,

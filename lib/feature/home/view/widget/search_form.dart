@@ -38,7 +38,7 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: context.colors.onSurface),
-                borderRadius: context.borderRadiusNormal,
+                borderRadius: context.normalBorderRadius,
               ),
               hintText: LocaleKeys.text_search.locale,
               hintStyle: context.textTheme.bodyLarge,
@@ -54,7 +54,7 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
             builder: (context, state) {
               if (state.onComplete) {
                 return SizedBox(
-                  height: (context.height) / 3,
+                  height: context.dynamicHeight(0.3),
                   child: ListView.builder(
                     itemCount: state.searchList?.length ?? 0,
                     itemBuilder: (context, index) {
@@ -97,11 +97,12 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
   }
 
   OutlineInputBorder _borderStyle(BuildContext context) {
+    const width = 2.0;
     return OutlineInputBorder(
-      borderRadius: context.borderRadiusNormal,
+      borderRadius: context.normalBorderRadius,
       borderSide: BorderSide(
         color: context.colors.onSurface,
-        width: 2,
+        width: width,
       ),
     );
   }

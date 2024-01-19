@@ -42,5 +42,6 @@ class _SizedBBox extends StatelessWidget {
   const _SizedBBox();
 
   @override
-  Widget build(BuildContext context) => SizedBox(height: context.height / 20);
+  Widget build(BuildContext context) =>
+      SizedBox(height: context.dynamicHeight(0.05));
 }

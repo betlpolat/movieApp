@@ -4,7 +4,6 @@ import 'package:gen/gen.dart';
 
 import '../../../core/extension/context_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
-import '../../../product/widget/decoration/adapt_padding_low.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../view-model/home/index.dart';
 import 'mixin/home_view_mixin.dart';

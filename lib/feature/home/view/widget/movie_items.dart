@@ -16,7 +16,7 @@ class MovieItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.height / 4,
+      height: context.dynamicHeight(0.25),
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

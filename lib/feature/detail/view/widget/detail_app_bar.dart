@@ -15,7 +15,7 @@ class DetailAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar.large(
-      expandedHeight: context.height / 2,
+      expandedHeight: context.dynamicHeight(0.5),
       floating: true,
       leading: const ArrowBackIconButton(),
       flexibleSpace: FlexibleSpaceBar(
