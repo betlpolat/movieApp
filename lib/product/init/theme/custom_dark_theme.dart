@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:widgets/widgets.dart';
 
-import '../../../core/extension/context_extension.dart';
 import 'custom_color_scheme.dart';
 import 'custom_theme.dart';
 
