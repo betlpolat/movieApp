@@ -1,4 +1,4 @@
-part of '../widget/change_theme_button.dart';
+part of 'change_theme_button.dart';
 
 mixin _ChangeThemeButtonMixin
     on TickerProviderStateMixin<ChangeThemeButton>, State<ChangeThemeButton> {
@@ -15,5 +15,16 @@ mixin _ChangeThemeButtonMixin
       controller.animateTo(isLight ? 0 : 0.5);
     });
     super.initState();
+  }
+
+  Future<void> changeTheme() async {
+    {
+      await Future.microtask(() {
+        context.read<ThemeNotifier>().changeTheme();
+        controller.animateTo(isLight ? 0.5 : 1);
+      });
+
+      isLight = !isLight;
+    }
   }
 }

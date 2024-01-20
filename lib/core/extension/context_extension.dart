@@ -95,3 +95,10 @@ extension BorderRadiusExtension on BuildContext {
   BorderRadius get highBorderRadius =>
       BorderRadius.all(Radius.circular(width * 0.1));
 }
+
+final class ProjectBorderRadius extends BorderRadius {
+  const ProjectBorderRadius.allLow() : super.all(const Radius.circular(2));
+  const ProjectBorderRadius.allNormal() : super.all(const Radius.circular(4));
+  const ProjectBorderRadius.allMedium() : super.all(const Radius.circular(8));
+  const ProjectBorderRadius.allHigh() : super.all(const Radius.circular(16));
+}

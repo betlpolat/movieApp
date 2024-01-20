@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
-import 'change_theme_button.dart';
-import 'icon_button_change_language.dart';
+import '../../../../product/widget/button/change_language_button.dart';
+import '../../../../product/widget/button/change_theme/change_theme_button.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
+class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const HomeAppBar({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      centerTitle: true,
-      leading: const IconButtonChangeLanguage(),
+      leading: const ChangeLanguageButton(),
       actions: const [
         SizedBox(
           child: ChangeThemeButton(),

@@ -19,15 +19,21 @@ class DetailAppBar extends StatelessWidget {
       floating: true,
       leading: const ArrowBackIconButton(),
       flexibleSpace: FlexibleSpaceBar(
-        title: Text(
-          movie?.title ?? '',
-          style: context.textTheme.bodyLarge!.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        background:
-            NetworkImageWithRadius(posterPathValue: movie?.posterPathValue),
+        title: _movieTitle(context),
+        background: _movieImage(),
       ),
     );
   }
+
+  Text _movieTitle(BuildContext context) {
+    return Text(
+      movie?.title ?? '',
+      style: context.textTheme.bodyLarge!.copyWith(
+        fontWeight: FontWeight.w600,
+      ),
+    );
+  }
+
+  NetworkImageWithRadius _movieImage() =>
+      NetworkImageWithRadius(posterPathValue: movie?.posterPathValue);
 }

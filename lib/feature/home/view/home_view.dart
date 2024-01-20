@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gen/gen.dart';
 
 import '../../../core/extension/context_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
+import '../../../product/widget/animation/loading_lottie.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../view-model/home/index.dart';
 import 'mixin/home_view_mixin.dart';
-import 'widget/custom_app_bar.dart';
 import 'widget/index.dart';
 
 part 'home_view.g.dart';
@@ -22,21 +21,21 @@ class _HomeViewState extends State<HomeView>
     with TickerProviderStateMixin, HomeViewMixin {
   @override
   Widget build(BuildContext context) {
+    return _homeBlocManager();
+  }
+
+  BlocConsumer<HomeCubit, HomeState> _homeBlocManager() {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {},
       builder: (context, state) {
         if (state.onLoad) {
-          return Scaffold(
-            appBar: const CustomAppBar(),
-            body: Center(
-              child: Assets.lottie.lottieLoading.lottie(
-                package: 'gen',
-              ),
-            ),
+          return const Scaffold(
+            appBar: HomeAppBar(),
+            body: LoadingLottie(),
           );
         } else if (state.onComplete) {
           return const Scaffold(
-            appBar: CustomAppBar(),
+            appBar: HomeAppBar(),
             body: _MovieLists(),
           );
         } else {

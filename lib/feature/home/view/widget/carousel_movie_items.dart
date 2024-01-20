@@ -2,8 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/extension/context_extension.dart';
-import '../../../../product/init/navigator/index.dart';
-import '../../../../product/widget/image/network_image_with_radius.dart';
+import '../../../../product/widget/button/movie_button.dart';
 import '../../model/movies.dart';
 
 class CarouselMovieItems extends StatelessWidget {
@@ -21,18 +20,7 @@ class CarouselMovieItems extends StatelessWidget {
       child: CarouselSlider.builder(
         itemCount: movies?.length ?? 0,
         itemBuilder: (context, index, realIndex) {
-          return GestureDetector(
-            onTap: () async {
-              await NavigatorManager.instance.pushToPage<Widget>(
-                route: NavigatorRoutes.homeDetail,
-                fullScreenDialog: true,
-                arguments: movies?[index],
-              );
-            },
-            child: NetworkImageWithRadius(
-              posterPathValue: movies?[index]?.posterPathValue,
-            ),
-          );
+          return MovieButton(movie: movies?[index] ?? Movie());
         },
         options: _carouselOptions(context: context),
       ),

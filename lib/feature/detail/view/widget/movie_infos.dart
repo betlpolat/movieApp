@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
+import '../../../../product/widget/decoration/sized_box_normal.dart';
 import '../../../home/model/movies.dart';
 import 'rating_field.dart';
 import 'release_field.dart';
@@ -27,17 +28,17 @@ class MovieInfos extends StatelessWidget {
             _OverviewTitle(
               textStyle: context.textTheme.headlineLarge ?? const TextStyle(),
             ),
-            const _SizedBBox(),
+            const SizedBoxNormal(),
             _OverviewText(
               movie: movie,
               textStyle: context.textTheme.headlineSmall ?? const TextStyle(),
             ),
-            const _SizedBBox(),
+            const SizedBoxNormal(),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ReleaseField(movie: movie),
-                RatingField(movie: movie),
+                ReleaseField(releaseDate: movie?.releaseDate ?? ''),
+                RatingField(voteAverage: movie?.voteAverage ?? 0),
               ],
             ),
           ],

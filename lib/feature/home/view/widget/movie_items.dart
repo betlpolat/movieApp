@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/extension/context_extension.dart';
-import '../../../../product/init/navigator/index.dart';
-import '../../../../product/widget/image/network_image_with_radius.dart';
+import '../../../../product/widget/button/movie_button.dart';
 import '../../model/movies.dart';
 
 class MovieItems extends StatelessWidget {
@@ -24,17 +23,7 @@ class MovieItems extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: context.paddingLow,
-            child: GestureDetector(
-              onTap: () async {
-                await NavigatorManager.instance.pushToPage<Widget>(
-                  route: NavigatorRoutes.homeDetail,
-                  arguments: movies?[index],
-                );
-              },
-              child: NetworkImageWithRadius(
-                posterPathValue: movies?[index]?.posterPathValue,
-              ),
-            ),
+            child: MovieButton(movie: movies?[index] ?? Movie()),
           );
         },
       ),

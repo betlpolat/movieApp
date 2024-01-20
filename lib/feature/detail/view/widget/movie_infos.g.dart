@@ -37,11 +37,3 @@ class _OverviewTitle extends StatelessWidget {
     );
   }
 }
-
-class _SizedBBox extends StatelessWidget {
-  const _SizedBBox();
-
-  @override
-  Widget build(BuildContext context) =>
-      SizedBox(height: context.dynamicHeight(0.05));
-}
