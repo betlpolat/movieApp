@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
+import 'package:movie_app/core/extension/context_extension.dart';
 
-import '../../../../core/extension/context_extension.dart';
 import '../../../../product/state/theme_notifier.dart';
+
+part '../mixin/change_theme_button_mixin.dart';
 
 class ChangeThemeButton extends StatefulWidget {
   const ChangeThemeButton({super.key});
@@ -13,22 +15,7 @@ class ChangeThemeButton extends StatefulWidget {
 }
 
 class _ChangeThemeButtonState extends State<ChangeThemeButton>
-    with TickerProviderStateMixin {
-  late AnimationController controller;
-  bool isLight = false;
-
-  @override
-  void initState() {
-    isLight = context.read<ThemeNotifier>().isLightTheme;
-
-    controller =
-        AnimationController(duration: context.durationHigh, vsync: this);
-    Future.microtask(() {
-      controller.animateTo(isLight ? 0 : 0.5);
-    });
-    super.initState();
-  }
-
+    with TickerProviderStateMixin, _ChangeThemeButtonMixin {
   @override
   Widget build(BuildContext context) {
     return InkWell(

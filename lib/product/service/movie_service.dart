@@ -29,7 +29,7 @@ class MovieService extends IMovieService {
   }) async {
     final response = await networkManager.send<Movies, Movies>(
       path.moviePath(currentLanguage),
-      parseModel: Movies(),
+      parseModel: const Movies(),
       method: RequestType.GET,
     );
     return response.data?.results;
@@ -39,7 +39,7 @@ class MovieService extends IMovieService {
   Future<List<Movie>?> fetchMovieListWithSearch({String path = ''}) async {
     final response = await networkManager.send<Movies, Movies>(
       path,
-      parseModel: Movies(),
+      parseModel: const Movies(),
       method: RequestType.GET,
     );
     return response.data?.results;

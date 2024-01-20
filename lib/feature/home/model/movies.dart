@@ -8,13 +8,13 @@ part 'movies.g.dart';
 
 @JsonSerializable()
 class Movies extends INetworkModel<Movies> {
-  Movies({this.page, this.results, this.totalPages, this.totalResults});
-  int? page;
-  List<Movie>? results;
+  const Movies({this.page, this.results, this.totalPages, this.totalResults});
+  final int? page;
+  final List<Movie>? results;
   @JsonKey(name: 'total_pages')
-  int? totalPages;
+  final int? totalPages;
   @JsonKey(name: 'total_results')
-  int? totalResults;
+  final int? totalResults;
 
   @override
   Movies fromJson(Map<String, dynamic> json) {

@@ -18,7 +18,8 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> with HomeViewMixin {
+class _HomeViewState extends State<HomeView>
+    with TickerProviderStateMixin, HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(

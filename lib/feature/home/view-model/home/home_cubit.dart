@@ -13,7 +13,9 @@ class HomeCubit extends Cubit<HomeState> with BaseViewModel {
 
   Future<void> changeLanguage(BuildContext context) async {
     await context.read<LanguageNotifier>().changeLanguage(context);
-    await getMovie(context);
+    if (context.mounted) {
+      await getMovie(context);
+    }
   }
 
   Future<void> getMovie(BuildContext context) async {
