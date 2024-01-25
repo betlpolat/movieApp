@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 
 import '../../../../core/extension/context_extension.dart';
 import '../../../../product/widget/button/arrow_back_icon_button.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
-import '../../../home/model/movies.dart';
 
 class DetailAppBar extends StatelessWidget {
   const DetailAppBar({

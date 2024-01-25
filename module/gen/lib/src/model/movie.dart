@@ -2,14 +2,16 @@
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:gen/gen.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
 
 part 'movie.g.dart';
 
 @JsonSerializable()
 @immutable
-final class Movie with EquatableMixin {
-  const Movie({
+final class Movie extends INetworkModel<Movie> with EquatableMixin {
+  Movie({
     this.adult,
     this.backdropPath,
     this.genreIds,
@@ -42,7 +44,7 @@ final class Movie with EquatableMixin {
   @JsonKey(name: 'poster_path')
   final String? posterPath;
   @JsonKey(name: 'release_date')
-  final DateTime? releaseDate;
+  final String? releaseDate;
   final String? title;
   final bool? video;
   @JsonKey(name: 'vote_average')
@@ -50,7 +52,16 @@ final class Movie with EquatableMixin {
   @JsonKey(name: 'vote_count')
   final int? voteCount;
 
+  String? get backdropPathValue => EnvDev().imageUrl + (backdropPath ?? '');
+  String? get posterPathValue => EnvDev().imageUrl + (posterPath ?? '');
+
+  @override
   Map<String, dynamic> toJson() => _$MovieToJson(this);
+
+  @override
+  Movie fromJson(Map<String, dynamic> json) {
+    return _$MovieFromJson(json);
+  }
 
   @override
   List<Object?> get props => [
@@ -80,7 +91,7 @@ final class Movie with EquatableMixin {
     String? overview,
     double? popularity,
     String? posterPath,
-    DateTime? releaseDate,
+    String? releaseDate,
     String? title,
     bool? video,
     double? voteAverage,

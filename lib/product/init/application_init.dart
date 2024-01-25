@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gen/gen.dart';
 import 'package:logger/logger.dart';
+import 'package:movie_app/product/state/container/product_state_container.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -42,5 +43,8 @@ final class ApplicationInit {
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     await AppCache.instance.setUp();
     AppEnvironment.setup(config: EnvDev());
+
+    /// It must be call after [AppEnvironment.setup()]
+    ProductContainer.setup();
   }
 }

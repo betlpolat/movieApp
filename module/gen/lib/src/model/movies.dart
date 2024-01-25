@@ -4,13 +4,14 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:gen/src/model/movie.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
 
 part 'movies.g.dart';
 
 @JsonSerializable()
 @immutable
-final class Movies with EquatableMixin {
-  const Movies({
+final class Movies extends INetworkModel<Movies> with EquatableMixin {
+  Movies({
     this.page,
     this.results,
     this.totalPages,
@@ -25,6 +26,12 @@ final class Movies with EquatableMixin {
   @JsonKey(name: 'total_results')
   final int? totalResults;
 
+  @override
+  Movies fromJson(Map<String, dynamic> json) {
+    return _$MoviesFromJson(json);
+  }
+
+  @override
   Map<String, dynamic> toJson() => _$MoviesToJson(this);
 
   @override

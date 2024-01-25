@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 
-import '../../../feature/home/model/movies.dart';
 import '../../init/navigator/navigator_manager.dart';
 import '../../init/navigator/navigator_routes.dart';
 

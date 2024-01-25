@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 
 import '../../../feature/detail/view/detail_view.dart';
-import '../../../feature/home/model/movies.dart';
 import '../../../feature/home/view/home_view.dart';
 import '../../state/bloc_widget.dart';
 import '../../widget/animation/card_animation.dart';

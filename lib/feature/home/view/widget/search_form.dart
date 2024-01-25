@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gen/gen.dart';
 
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/utility/function/navigate_to_detail.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
-import '../../model/movies.dart';
 import '../../view-model/search/search_cubit.dart';
 import '../../view-model/search/search_state.dart';
 
@@ -42,6 +42,7 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
       onChanged: (value) async => _checkSearchText(value),
       controller: searchController,
       decoration: InputDecoration(
+        hintStyle: context.textTheme.bodyLarge,
         border: const OutlineInputBorder(),
         hintText: LocaleKeys.text_search.locale,
       ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 
 import '../../../../core/extension/context_extension.dart';
 import '../../../../product/widget/button/movie_button.dart';
-import '../../model/movies.dart';
 
 class MovieItems extends StatelessWidget {
   const MovieItems({

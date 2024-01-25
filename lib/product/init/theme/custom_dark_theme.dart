@@ -26,7 +26,6 @@ final class CustomDarkTheme implements CustomTheme {
   @override
   InputDecorationTheme get inputDecorationTheme => InputDecorationTheme(
         fillColor: CustomColorScheme.darkColorScheme.onSurface,
-        hintStyle: themeData.textTheme.bodyLarge,
         enabledBorder: OutlineInputBorder(
           borderRadius: const ProjectBorderRadius.allMedium(),
           borderSide: BorderSide(

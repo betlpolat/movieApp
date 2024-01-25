@@ -12,10 +12,11 @@ dependencies:
     sdk: flutter
   json_annotation: ^4.8.1
   flutter_svg: ^2.0.9
-  lottie: ^3.0.0
+  lottie: any
   envied: ^0.5.3
   equatable: ^2.0.5
-
+  #for network model
+  vexana: any
 
 dev_dependencies:
   flutter_test:
