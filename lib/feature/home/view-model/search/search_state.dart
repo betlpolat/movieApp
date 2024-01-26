@@ -2,7 +2,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:gen/gen.dart';
 
-class SearchState extends Equatable {
+final class SearchState extends Equatable {
   const SearchState({
     this.onLoad = false,
     this.onComplete = false,
@@ -18,7 +18,7 @@ class SearchState extends Equatable {
   final List<Movie>? searchList;
 
   @override
-  List<Object?> get props => [onLoad, onComplete, onError];
+  List<Object?> get props => [onLoad, onComplete, onError, searchList];
 
   SearchState copyWith({
     bool? onLoad,

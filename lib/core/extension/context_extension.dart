@@ -4,8 +4,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../feature/home/view-model/home/home_cubit.dart';
-import '../../feature/home/view-model/search/search_cubit.dart';
+import '../../feature/home/view-model/home/home_view_model.dart';
+import '../../feature/home/view-model/search/search_view_model.dart';
 
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -42,8 +42,8 @@ extension LocalizationExtension on BuildContext {
 }
 
 extension CubitExtension on BuildContext {
-  HomeCubit get homeCubit => read<HomeCubit>();
-  SearchCubit get searchCubit => read<SearchCubit>();
+  HomeViewModel get homeCubit => read<HomeViewModel>();
+  SearchViewModel get searchCubit => read<SearchViewModel>();
 }
 
 extension PaddingExtensionAll on BuildContext {

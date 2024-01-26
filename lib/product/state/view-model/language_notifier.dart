@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../init/cache/cache_keys.dart';
-import '../utility/enum/locales.dart';
+import '../../init/cache/cache_keys.dart';
+import '../../utility/enum/locales.dart';
 
 class LanguageNotifier extends ChangeNotifier {
   bool isEnglish = CacheKeys.language.readBool;

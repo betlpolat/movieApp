@@ -5,7 +5,7 @@ class _MovieLists extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
+    return BlocConsumer<HomeViewModel, HomeState>(
       listener: (context, state) {},
       builder: (context, state) {
         return Padding(

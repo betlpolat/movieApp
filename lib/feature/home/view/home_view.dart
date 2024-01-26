@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/product/state/base/base_state.dart';
 
 import '../../../core/extension/context_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
@@ -17,15 +18,18 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView>
+class _HomeViewState extends BaseState<HomeView>
     with TickerProviderStateMixin, HomeViewMixin {
   @override
   Widget build(BuildContext context) {
-    return _homeBlocManager();
+    return BlocProvider(
+      create: (context) => homeViewModel,
+      child: _homeBlocManager(),
+    );
   }
 
-  BlocConsumer<HomeCubit, HomeState> _homeBlocManager() {
-    return BlocConsumer<HomeCubit, HomeState>(
+  BlocConsumer<HomeViewModel, HomeState> _homeBlocManager() {
+    return BlocConsumer<HomeViewModel, HomeState>(
       listener: (context, state) {},
       builder: (context, state) {
         if (state.onLoad) {

@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:widgets/widgets.dart';
 
-import '../product/init/application_init.dart';
+import '../product/init/application_initialize.dart';
 import '../product/init/language/locale_keys.g.dart';
 import '../product/init/language/product_localization.dart';
 import '../product/init/navigator/navigator_manager.dart';
 import '../product/init/navigator/navigator_routes.dart';
-import '../product/state/theme_notifier.dart';
+import '../product/state/view-model/theme_notifier.dart';
 
 Future<void> main() async {
-  await ApplicationInit().start();
+  await ApplicationInitialize().start();
 
   runApp(
     DevicePreview(
       builder: (context) => ProductLocalization(
         child: MultiProvider(
-          providers: ApplicationInit().providers,
+          providers: ApplicationInitialize().providers,
           builder: (context, child) => const _MyApp(),
         ),
       ),

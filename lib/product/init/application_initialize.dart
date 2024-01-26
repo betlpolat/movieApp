@@ -10,13 +10,13 @@ import 'package:movie_app/product/state/container/product_state_container.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
-import '../state/language_notifier.dart';
-import '../state/theme_notifier.dart';
+import '../state/view-model/language_notifier.dart';
+import '../state/view-model/theme_notifier.dart';
 import 'cache/app_cache.dart';
 import 'config/app_environment.dart';
 
 @immutable
-final class ApplicationInit {
+final class ApplicationInitialize {
   Future<void> start() async {
     WidgetsFlutterBinding.ensureInitialized();
 

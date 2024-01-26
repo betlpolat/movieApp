@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
+import 'package:movie_app/feature/home/view-model/search/search_view_model.dart';
 
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
+import '../../../../product/network/movie_service.dart';
+import '../../../../product/state/base/base_state.dart';
+import '../../../../product/state/container/product_state_items.dart';
 import '../../../../product/utility/function/navigate_to_detail.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
-import '../../view-model/search/search_cubit.dart';
 import '../../view-model/search/search_state.dart';
 
 part '../mixin/search_form_mixin.dart';
@@ -22,16 +25,19 @@ class SearchForm extends StatefulWidget {
   State<SearchForm> createState() => _SearchFormState();
 }
 
-class _SearchFormState extends State<SearchForm> with SearchFormMixin {
+class _SearchFormState extends BaseState<SearchForm> with SearchFormMixin {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: Column(
-        children: [
-          _searchTextField(context),
-          _searchBlocManager(),
-        ],
+    return BlocProvider(
+      create: (context) => searchViewModel,
+      child: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            _searchTextField(context),
+            _searchBlocManager(),
+          ],
+        ),
       ),
     );
   }
@@ -50,8 +56,8 @@ class _SearchFormState extends State<SearchForm> with SearchFormMixin {
     );
   }
 
-  BlocConsumer<SearchCubit, SearchState> _searchBlocManager() {
-    return BlocConsumer<SearchCubit, SearchState>(
+  BlocConsumer<SearchViewModel, SearchState> _searchBlocManager() {
+    return BlocConsumer<SearchViewModel, SearchState>(
       listener: (context, state) {},
       builder: (context, state) {
         if (state.onComplete) {

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/product/state/base/base_cubit.dart';
+import 'package:vexana/vexana.dart';
 
-import '../../../../core/base/model/base_error.dart';
-import '../../../../core/base/model/base_view_model.dart';
 import '../../../../product/network/manager/IMovieService.dart';
-import '../../../../product/network/movie_service.dart';
-import '../../../../product/state/language_notifier.dart';
+import '../../../../product/state/view-model/language_notifier.dart';
 import '../../../../product/utility/enum/index.dart';
 import 'home_state.dart';
 
-class HomeCubit extends Cubit<HomeState> with BaseViewModel {
-  HomeCubit() : super(const HomeState());
+final class HomeViewModel extends BaseCubit<HomeState> {
+  HomeViewModel({required IMovieService movieService})
+      : _movieService = movieService,
+        super(const HomeState());
 
+  late final IMovieService _movieService;
   Future<void> changeLanguage(BuildContext context) async {
     await context.read<LanguageNotifier>().changeLanguage(context);
     if (context.mounted) {
@@ -20,35 +22,34 @@ class HomeCubit extends Cubit<HomeState> with BaseViewModel {
   }
 
   Future<void> getMovie(BuildContext context) async {
-    final IMovieService service = MovieService(networkManager: networkManager);
     final currentLanguage = context.read<LanguageNotifier>().currentLanguage;
 
     try {
-      emit(const HomeState(onLoad: true));
+      emit(state.copyWith(onLoad: true));
 
-      final popular = await service.fetchMovieList(
+      final popular = await _movieService.fetchMovieList(
         currentLanguage: currentLanguage!,
         path: MoviePaths.popular,
       );
-      final topRated = await service.fetchMovieList(
+      final topRated = await _movieService.fetchMovieList(
         currentLanguage: currentLanguage,
         path: MoviePaths.topRated,
       );
-      final nowPlaying = await service.fetchMovieList(
+      final nowPlaying = await _movieService.fetchMovieList(
         currentLanguage: currentLanguage,
         path: MoviePaths.nowPlaying,
       );
 
       emit(
-        HomeState(
+        state.copyWith(
           onComplete: true,
           popular: popular,
           topRated: topRated,
           nowPlaying: nowPlaying,
         ),
       );
-    } on BaseError catch (e) {
-      emit(HomeState(onError: true, errorMessage: e.message));
+    } on ErrorModel catch (e) {
+      emit(state.copyWith(onError: true, errorMessage: e.description));
     }
   }
 }

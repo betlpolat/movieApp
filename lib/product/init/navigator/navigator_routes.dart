@@ -3,16 +3,12 @@ import 'package:gen/gen.dart';
 
 import '../../../feature/detail/view/detail_view.dart';
 import '../../../feature/home/view/home_view.dart';
-import '../../state/bloc_widget.dart';
-import '../../widget/animation/card_animation.dart';
 
 mixin NavigatorRoutesMixin<T> on Widget {
   Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
     if ((routeSettings.name?.isEmpty ?? true) || (routeSettings.name == '/')) {
       return _navigateToNormal(
-        const BlocWidget(
-          widget: HomeView(),
-        ),
+        const HomeView(),
       );
     }
 
@@ -25,12 +21,7 @@ mixin NavigatorRoutesMixin<T> on Widget {
       case NavigatorRoutes.homeDetail:
         final movie = routeSettings.arguments;
         return _navigateToNormal(
-          CardAnimation(
-            child: DetailView(movie: movie is Movie ? movie : null),
-            closedBuilder: (BuildContext context, void Function() action) {
-              return DetailView(movie: movie is Movie ? movie : null);
-            },
-          ),
+          DetailView(movie: movie is Movie ? movie : null),
         );
     }
   }

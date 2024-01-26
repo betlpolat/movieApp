@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
 
 import '../../../../core/extension/context_extension.dart';
-import '../../../state/theme_notifier.dart';
+import '../../../state/view-model/theme_notifier.dart';
 
 part 'change_theme_button_mixin.dart';
 

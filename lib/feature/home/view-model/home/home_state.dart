@@ -2,7 +2,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:gen/gen.dart';
 
-class HomeState extends Equatable {
+final class HomeState extends Equatable {
   const HomeState({
     this.onLoad = false,
     this.onComplete = false,
@@ -24,7 +24,7 @@ class HomeState extends Equatable {
   final bool isLanguageChange;
 //isLoading değişmedikçe sayfayı tetiklemez
   @override
-  List<Object?> get props => [onLoad];
+  List<Object?> get props => [onLoad, onComplete, isLanguageChange, onError];
 
   HomeState copyWith({
     bool? onLoad,
