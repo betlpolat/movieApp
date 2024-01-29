@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:widgets/widgets.dart';
 
-import '../../../../core/extension/context_extension.dart';
 import '../../../../product/widget/button/movie_button.dart';
 
 class CarouselMovieItems extends StatelessWidget {

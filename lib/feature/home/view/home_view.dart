@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/product/state/base/base_state.dart';
+import 'package:widgets/widgets.dart';
 
-import '../../../core/extension/context_extension.dart';
 import '../../../product/init/language/locale_keys.g.dart';
 import '../../../product/widget/animation/loading_lottie.dart';
 import '../../../product/widget/text/topic_title_text.dart';

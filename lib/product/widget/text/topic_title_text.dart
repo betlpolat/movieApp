@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/extension/context_extension.dart';
-import '../../../core/extension/string_extension.dart';
+import 'package:widgets/widgets.dart';
 
 class TopicTitleText extends StatelessWidget {
   const TopicTitleText({

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/extension/context_extension.dart';
+import '../../../feature/home/view-model/home/home_view_model.dart';
 
 class ChangeLanguageButton extends StatelessWidget {
   const ChangeLanguageButton({
@@ -18,5 +19,5 @@ class ChangeLanguageButton extends StatelessWidget {
   }
 
   Future<void> _changeLanguage(BuildContext context) =>
-      context.homeCubit.changeLanguage(context);
+      context.read<HomeViewModel>().changeLanguage(context);
 }

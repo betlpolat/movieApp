@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/extension/context_extension.dart';
+import 'package:widgets/widgets.dart';
 
 class NetworkImageWithRadius extends StatelessWidget {
   const NetworkImageWithRadius({

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/widgets.dart';
 
-import '../../../core/extension/context_extension.dart';
-
 class AdaptPaddingLow extends StatelessWidget {
   const AdaptPaddingLow({super.key, required this.child});
   final Widget child;

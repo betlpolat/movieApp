@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:widgets/widgets.dart';
 
-import '../../../../core/extension/context_extension.dart';
-import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/widget/decoration/custom_field.dart';
 import '../../../../product/widget/text/custom_field_text.dart';

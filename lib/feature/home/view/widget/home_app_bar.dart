@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:widgets/widgets.dart';
 
-import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/widget/button/change_language_button.dart';
 import '../../../../product/widget/button/change_theme/change_theme_button.dart';

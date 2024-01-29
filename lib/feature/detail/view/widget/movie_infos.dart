@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:widgets/widgets.dart';
 
-import '../../../../core/extension/context_extension.dart';
-import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/widget/decoration/sized_box_normal.dart';
 import 'rating_field.dart';

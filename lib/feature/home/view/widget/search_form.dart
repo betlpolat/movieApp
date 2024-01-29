@@ -3,13 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
 import 'package:movie_app/feature/home/view-model/search/search_view_model.dart';
+import 'package:widgets/widgets.dart';
 
-import '../../../../core/extension/context_extension.dart';
-import '../../../../core/extension/string_extension.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/network/movie_service.dart';
 import '../../../../product/state/base/base_state.dart';
-import '../../../../product/state/container/product_state_items.dart';
 import '../../../../product/utility/function/navigate_to_detail.dart';
 import '../../../../product/widget/image/network_image_with_radius.dart';
 import '../../view-model/search/search_state.dart';
