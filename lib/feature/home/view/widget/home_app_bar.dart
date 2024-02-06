@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:widgets/widgets.dart';
 
@@ -8,12 +9,16 @@ import '../../../../product/widget/button/change_theme/change_theme_button.dart'
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({
     super.key,
+    required this.onPressedLanguageButton,
   });
+  final AsyncCallback? onPressedLanguageButton;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: const ChangeLanguageButton(),
+      leading: ChangeLanguageButton(
+        onPressed: onPressedLanguageButton,
+      ),
       actions: const [
         SizedBox(
           child: ChangeThemeButton(),

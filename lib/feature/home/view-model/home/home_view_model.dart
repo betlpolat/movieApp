@@ -14,12 +14,6 @@ final class HomeViewModel extends BaseCubit<HomeState> {
         super(const HomeState());
 
   late final IMovieService _movieService;
-  Future<void> changeLanguage(BuildContext context) async {
-    await context.read<LanguageNotifier>().changeLanguage(context);
-    if (context.mounted) {
-      await getMovie(context);
-    }
-  }
 
   Future<void> getMovie(BuildContext context) async {
     final currentLanguage = context.read<LanguageNotifier>().currentLanguage;
@@ -50,6 +44,13 @@ final class HomeViewModel extends BaseCubit<HomeState> {
       );
     } on ErrorModel catch (e) {
       emit(state.copyWith(onError: true, errorMessage: e.description));
+    }
+  }
+
+  Future<void> changeLanguage(BuildContext context) async {
+    await context.read<LanguageNotifier>().changeLanguage(context);
+    if (context.mounted) {
+      await getMovie(context);
     }
   }
 }

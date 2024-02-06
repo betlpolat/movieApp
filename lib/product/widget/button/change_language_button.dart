@@ -1,23 +1,18 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../feature/home/view-model/home/home_view_model.dart';
 
 class ChangeLanguageButton extends StatelessWidget {
   const ChangeLanguageButton({
     super.key,
-    this.onPressed,
+    required this.onPressed,
   });
-  final VoidCallback? onPressed;
+  final AsyncCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () async => _changeLanguage(context),
+      onPressed: onPressed,
       icon: const Icon(Icons.language_outlined),
     );
   }
-
-  Future<void> _changeLanguage(BuildContext context) =>
-      context.read<HomeViewModel>().changeLanguage(context);
 }

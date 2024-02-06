@@ -34,13 +34,17 @@ class _HomeViewState extends BaseState<HomeView>
       builder: (context, state) {
         if (state.onLoad) {
           return const Scaffold(
-            appBar: HomeAppBar(),
+            appBar: HomeAppBar(
+              onPressedLanguageButton: null,
+            ),
             body: LoadingLottie(),
           );
         } else if (state.onComplete) {
-          return const Scaffold(
-            appBar: HomeAppBar(),
-            body: _MovieLists(),
+          return Scaffold(
+            appBar: HomeAppBar(
+              onPressedLanguageButton: () => changeLanguage(context),
+            ),
+            body: const _MovieLists(),
           );
         } else {
           final error = state.errorMessage;

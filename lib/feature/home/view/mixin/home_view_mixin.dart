@@ -18,4 +18,7 @@ mixin HomeViewMixin on TickerProviderStateMixin<HomeView>, BaseState<HomeView> {
     );
     homeViewModel.getMovie(context);
   }
+
+  Future<void> changeLanguage(BuildContext context) =>
+      _homeViewModel.changeLanguage(context);
 }

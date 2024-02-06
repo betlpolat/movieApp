@@ -8,7 +8,7 @@ import 'package:movie_app/product/utility/enum/index.dart';
 import 'package:vexana/vexana.dart';
 
 void main() {
-  late final ProductNetworkManager manager;
+  late ProductNetworkManager manager;
   setUp(() {
     AppEnvironment.setup(config: EnvDev());
     manager = ProductNetworkManager.base();
