@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/feature/home/view/mixin/home_view_mixin.dart';
+import 'package:movie_app/feature/home/view/widget/movie_items.dart';
+import 'package:movie_app/product/init/language/locale_keys.g.dart';
 import 'package:movie_app/product/state/base/base_state.dart';
 import 'package:widgets/widgets.dart';
 
-import '../../../product/init/language/locale_keys.g.dart';
 import '../../../product/widget/animation/loading_lottie.dart';
 import '../../../product/widget/text/topic_title_text.dart';
 import '../view-model/home/index.dart';
-import 'mixin/home_view_mixin.dart';
-import 'widget/index.dart';
+import 'widget/carousel_movie_items.dart';
+import 'widget/home_app_bar.dart';
+import 'widget/search_form.dart';
 
 part 'home_view.g.dart';
 

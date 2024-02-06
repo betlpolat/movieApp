@@ -39,9 +39,7 @@ dependencies:
   easy_logger: ^0.0.2
   logger: ^2.0.2+1
 
- 
-  #Cache
-  shared_preferences: ^2.2.2
+
 
   #Modules
   gen:
@@ -49,6 +47,9 @@ dependencies:
   
   widgets:
     path: module/widgets
+
+  core:
+    path: module/core
 
 dev_dependencies:
   integration_test:
