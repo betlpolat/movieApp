@@ -2,17 +2,17 @@ part of 'movie_infos.dart';
 
 class _OverviewText extends StatelessWidget {
   const _OverviewText({
-    required this.movie,
+    required this.overview,
     required this.textStyle,
   });
 
-  final Movie? movie;
+  final String? overview;
   final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      movie?.overview ?? '',
+      overview ?? '',
       style: textStyle!.copyWith(
         fontWeight: FontWeight.w400,
       ),

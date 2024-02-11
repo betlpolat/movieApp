@@ -29,7 +29,7 @@ class MovieInfos extends StatelessWidget {
             ),
             const SizedBoxNormal(),
             _OverviewText(
-              movie: movie,
+              overview: movie?.overview,
               textStyle: context.textTheme.headlineSmall ?? const TextStyle(),
             ),
             const SizedBoxNormal(),

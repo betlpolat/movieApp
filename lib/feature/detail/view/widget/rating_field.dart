@@ -18,7 +18,7 @@ class RatingField extends StatelessWidget {
       child: Row(
         children: [
           CustomFieldText(
-            text: '${LocaleKeys.text_release.locale}: ',
+            text: '${LocaleKeys.text_rating.locale}: ',
           ),
           Icon(Icons.star, color: context.colors.tertiary),
           Text(
