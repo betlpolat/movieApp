@@ -1,7 +1,7 @@
-part of 'change_theme_button.dart';
+part of 'theme_button.dart';
 
-mixin _ChangeThemeButtonMixin
-    on TickerProviderStateMixin<ChangeThemeButton>, State<ChangeThemeButton> {
+mixin _ThemeButtonMixin
+    on TickerProviderStateMixin<ThemeButton>, State<ThemeButton> {
   late AnimationController controller;
   bool isLight = false;
 

@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
 import 'package:movie_app/feature/home/view-model/search/search_view_model.dart';
+import 'package:movie_app/feature/home/view/widget/search_text_field.dart';
 import 'package:widgets/widgets.dart';
 
-import '../../../../product/init/language/locale_keys.g.dart';
 import '../../../../product/network/movie_service.dart';
 import '../../../../product/state/base/base_state.dart';
 import '../../../../product/utility/function/navigate_to_detail.dart';
@@ -32,7 +32,10 @@ class _SearchFormState extends BaseState<SearchForm> with SearchFormMixin {
         physics: const NeverScrollableScrollPhysics(),
         child: Column(
           children: [
-            _searchTextField(context),
+            SearchTextField(
+              controller: searchController,
+              onChanged: _checkSearchText,
+            ),
             _searchBlocManager(),
           ],
         ),
@@ -40,19 +43,19 @@ class _SearchFormState extends BaseState<SearchForm> with SearchFormMixin {
     );
   }
 
-  TextField _searchTextField(BuildContext context) {
-    return TextField(
-      style: context.textTheme.bodyLarge,
-      onChanged: (value) async => _checkSearchText(value),
-      controller: searchController,
-      decoration: InputDecoration(
-        hintStyle: context.textTheme.bodyLarge,
-        border: const OutlineInputBorder(),
-        hintText: LocaleKeys.text_search.locale,
-      ),
-      cursorColor: context.colors.onSurface,
-    );
-  }
+  // TextField searchTextField(BuildContext context) {
+  //   return TextField(
+  //     style: context.textTheme.bodyLarge,
+  //     onChanged: (value) async => _checkSearchText(value),
+  //     controller: searchController,
+  //     decoration: InputDecoration(
+  //       hintStyle: context.textTheme.bodyLarge,
+  //       border: const OutlineInputBorder(),
+  //       hintText: LocaleKeys.text_search.locale,
+  //     ),
+  //     cursorColor: context.colors.onSurface,
+  //   );
+  // }
 
   BlocConsumer<SearchViewModel, SearchState> _searchBlocManager() {
     return BlocConsumer<SearchViewModel, SearchState>(

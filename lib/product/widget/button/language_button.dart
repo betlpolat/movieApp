@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class ChangeLanguageButton extends StatelessWidget {
-  const ChangeLanguageButton({
+class LanguageButton extends StatelessWidget {
+  const LanguageButton({
     super.key,
     required this.onPressed,
   });

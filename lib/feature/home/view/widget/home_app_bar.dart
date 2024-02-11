@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:widgets/widgets.dart';
 
 import '../../../../product/init/language/locale_keys.g.dart';
-import '../../../../product/widget/button/change_language_button.dart';
-import '../../../../product/widget/button/change_theme/change_theme_button.dart';
+import '../../../../product/widget/button/language_button.dart';
+import '../../../../product/widget/button/theme/theme_button.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({
@@ -16,12 +16,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: ChangeLanguageButton(
+      leading: LanguageButton(
         onPressed: onPressedLanguageButton,
       ),
       actions: const [
         SizedBox(
-          child: ChangeThemeButton(),
+          child: ThemeButton(),
         ),
       ],
       title: Text(LocaleKeys.title_app.locale),

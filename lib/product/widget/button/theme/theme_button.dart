@@ -5,17 +5,17 @@ import 'package:widgets/widgets.dart';
 
 import '../../../state/view-model/theme_notifier.dart';
 
-part 'change_theme_button_mixin.dart';
+part 'theme_button_mixin.dart';
 
-class ChangeThemeButton extends StatefulWidget {
-  const ChangeThemeButton({super.key});
+class ThemeButton extends StatefulWidget {
+  const ThemeButton({super.key});
 
   @override
-  State<ChangeThemeButton> createState() => _ChangeThemeButtonState();
+  State<ThemeButton> createState() => _ThemeButtonState();
 }
 
-class _ChangeThemeButtonState extends State<ChangeThemeButton>
-    with TickerProviderStateMixin, _ChangeThemeButtonMixin {
+class _ThemeButtonState extends State<ThemeButton>
+    with TickerProviderStateMixin, _ThemeButtonMixin {
   @override
   Widget build(BuildContext context) {
     return InkWell(

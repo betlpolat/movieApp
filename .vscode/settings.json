@@ -38,5 +38,6 @@
         "roboto",
         "sublist",
         "vsync"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
