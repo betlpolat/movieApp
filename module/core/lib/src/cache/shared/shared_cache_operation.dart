@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:core/src/cache/core/cache_operation.dart';
 
+///Cache operations with shared preferences package
 class SharedCacheOperation extends CacheOperation {
   @override
   bool readBool({required String key}) {
