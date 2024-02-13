@@ -15,22 +15,30 @@ final class HomeViewModel extends BaseCubit<HomeState> {
 
   late final IMovieService _movieService;
 
-  Future<void> getMovie(BuildContext context) async {
-    final currentLanguage = context.read<LanguageNotifier>().currentLanguage;
+  /// Change loading state
+  void changeLoading() {
+    emit(state.copyWith(onLoad: !state.onLoad));
+  }
 
+  ///Fetch Movies
+  Future<void> fetchMovies(Locales? currentLanguage) async {
+    changeLoading();
+    await _getMovies(currentLanguage);
+  }
+
+  ///Get Movies
+  Future<void> _getMovies(Locales? currentLanguage) async {
     try {
-      emit(state.copyWith(onLoad: true));
-
       final popular = await _movieService.fetchMovieList(
-        currentLanguage: currentLanguage!,
+        currentLanguage: currentLanguage ?? Locales.en,
         path: MoviePaths.popular,
       );
       final topRated = await _movieService.fetchMovieList(
-        currentLanguage: currentLanguage,
+        currentLanguage: currentLanguage ?? Locales.en,
         path: MoviePaths.topRated,
       );
       final nowPlaying = await _movieService.fetchMovieList(
-        currentLanguage: currentLanguage,
+        currentLanguage: currentLanguage ?? Locales.en,
         path: MoviePaths.nowPlaying,
       );
 
@@ -47,10 +55,11 @@ final class HomeViewModel extends BaseCubit<HomeState> {
     }
   }
 
+//TODO: Unit test with context mock
   Future<void> changeLanguage(BuildContext context) async {
     await context.read<LanguageNotifier>().changeLanguage(context);
     if (context.mounted) {
-      await getMovie(context);
+      await fetchMovies(context.read<LanguageNotifier>().currentLanguage);
     }
   }
 }

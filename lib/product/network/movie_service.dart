@@ -5,14 +5,15 @@ import '../utility/enum/index.dart';
 import 'manager/IMovieService.dart';
 
 final class MovieService extends IMovieService {
-  MovieService({required super.networkManager});
-
+  MovieService({required INetworkManager<EmptyModel> networkManager})
+      : _networkManager = networkManager;
+  final INetworkManager<EmptyModel> _networkManager;
   @override
   Future<List<Movie>?> fetchMovieList({
     Locales currentLanguage = Locales.en,
     MoviePaths path = MoviePaths.popular,
   }) async {
-    final response = await networkManager.send<Movies, Movies>(
+    final response = await _networkManager.send<Movies, Movies>(
       path.withQuery(currentLanguage),
       parseModel: Movies(),
       method: RequestType.GET,
@@ -22,7 +23,7 @@ final class MovieService extends IMovieService {
 
   @override
   Future<List<Movie>?> fetchMovieListWithSearch({String path = ''}) async {
-    final response = await networkManager.send<Movies, Movies>(
+    final response = await _networkManager.send<Movies, Movies>(
       path,
       parseModel: Movies(),
       method: RequestType.GET,

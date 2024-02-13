@@ -7,17 +7,20 @@ import '../../../../product/utility/model/throttle_helper.dart';
 import 'search_state.dart';
 
 final class SearchViewModel extends BaseCubit<SearchState> {
-  SearchViewModel({required IMovieService movieService})
-      : _movieService = movieService,
+  SearchViewModel({
+    required IMovieService movieService,
+    required ThrottleHelper throttleHelper,
+  })  : _movieService = movieService,
+        _throttleHelper = throttleHelper,
         super(const SearchState());
-  ThrottleHelper throttleHelper = ThrottleHelper();
+  final ThrottleHelper _throttleHelper;
 
   late final IMovieService _movieService;
-  Future<void> getSearch(String query) async {
-    throttleHelper.onDelayTouch(query, (text) => _getSearch(text ?? ''));
+  Future<void> fetchSearch(String query) async {
+    _throttleHelper.onDelayTouch(query, (text) => getSearch(text ?? ''));
   }
 
-  Future<void> _getSearch(String query) async {
+  Future<void> getSearch(String query) async {
     // ignore: unnecessary_null_comparison
     if (query == '' || query == null || query.length < 2) {
       emit(const SearchState());

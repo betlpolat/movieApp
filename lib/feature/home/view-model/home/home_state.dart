@@ -24,7 +24,16 @@ final class HomeState extends Equatable {
   final bool isLanguageChange;
 //isLoading değişmedikçe sayfayı tetiklemez
   @override
-  List<Object?> get props => [onLoad, onComplete, isLanguageChange, onError];
+  List<Object?> get props => [
+        onLoad,
+        onComplete,
+        popular,
+        topRated,
+        nowPlaying,
+        onError,
+        errorMessage,
+        isLanguageChange,
+      ];
 
   HomeState copyWith({
     bool? onLoad,
@@ -43,7 +52,7 @@ final class HomeState extends Equatable {
       topRated: topRated ?? this.topRated,
       nowPlaying: nowPlaying ?? this.nowPlaying,
       onError: onError ?? false,
-      errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage ?? '',
       isLanguageChange: isLanguageChange ?? false,
     );
   }

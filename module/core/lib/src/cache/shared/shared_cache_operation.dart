@@ -4,7 +4,7 @@ import 'package:core/src/cache/core/cache_operation.dart';
 class SharedCacheOperation extends CacheOperation {
   @override
   bool readBool({required String key}) {
-    return SharedCacheManager.instance.sharedPreferences.getBool('') ?? false;
+    return SharedCacheManager.instance.sharedPreferences.getBool(key) ?? false;
   }
 
   @override
@@ -24,7 +24,7 @@ class SharedCacheOperation extends CacheOperation {
 
   @override
   int readInt({required String key}) {
-    return SharedCacheManager.instance.sharedPreferences.getInt('') ?? 0;
+    return SharedCacheManager.instance.sharedPreferences.getInt(key) ?? 0;
   }
 
   @override

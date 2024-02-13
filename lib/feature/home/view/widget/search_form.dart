@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
 import 'package:movie_app/feature/home/view-model/search/search_view_model.dart';
 import 'package:movie_app/feature/home/view/widget/search_text_field.dart';
+import 'package:movie_app/product/utility/model/throttle_helper.dart';
 import 'package:widgets/widgets.dart';
 
 import '../../../../product/network/movie_service.dart';

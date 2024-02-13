@@ -10,6 +10,7 @@ mixin SearchFormMixin on BaseState<SearchForm> {
       movieService: MovieService(
         networkManager: productNetworkManager,
       ),
+      throttleHelper: ThrottleHelper(),
     );
     SystemChannels.textInput.invokeMethod('TextInput.hide');
     super.initState();
@@ -22,7 +23,7 @@ mixin SearchFormMixin on BaseState<SearchForm> {
   }
 
   Future<void> _checkSearchText(String value) async => value.isNotEmpty
-      ? searchViewModel.getSearch(searchController.text)
+      ? searchViewModel.fetchSearch(searchController.text)
       : searchViewModel.closeSearch();
 
   Future<void> _controllerClear() async {
