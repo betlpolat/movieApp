@@ -33,6 +33,8 @@ final class SearchViewModel extends BaseCubit<SearchState> {
         );
         if (search == null || search.isEmpty) {
           emit(const SearchState());
+        } else if (search.length < 5) {
+          emit(SearchState(onComplete: true, searchList: search));
         } else {
           emit(SearchState(onComplete: true, searchList: search.sublist(0, 5)));
         }

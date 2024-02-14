@@ -25,11 +25,12 @@ final class HomeViewModel extends BaseCubit<HomeState> {
   ///Fetch Movies
   Future<void> fetchMovies() async {
     changeLoading();
-    await _getMovies();
+    await _getMoviesFromService();
   }
 
-  ///Get Movies
-  Future<void> _getMovies() async {
+  ///Get Movies From Movies Service with Movie Paths
+
+  Future<void> _getMoviesFromService() async {
     try {
       final popular = await _movieService.fetchMovieList(
         path: MoviePaths.popular,
@@ -54,7 +55,7 @@ final class HomeViewModel extends BaseCubit<HomeState> {
     }
   }
 
-//TODO: Unit test with context mock
+//TODO: UI Test
   Future<void> changeLanguage(BuildContext context) async {
     await context.read<LanguageNotifier>().changeLanguage(context);
     if (context.mounted) {
