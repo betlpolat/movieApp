@@ -9,6 +9,7 @@ mixin SearchFormMixin on BaseState<SearchForm> {
     _searchViewModel = SearchViewModel(
       movieService: MovieService(
         networkManager: productNetworkManager,
+        context: context,
       ),
       throttleHelper: ThrottleHelper(),
     );

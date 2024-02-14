@@ -30,15 +30,12 @@ final class HomeViewModel extends BaseCubit<HomeState> {
   Future<void> _getMovies(Locales? currentLanguage) async {
     try {
       final popular = await _movieService.fetchMovieList(
-        currentLanguage: currentLanguage ?? Locales.en,
         path: MoviePaths.popular,
       );
       final topRated = await _movieService.fetchMovieList(
-        currentLanguage: currentLanguage ?? Locales.en,
         path: MoviePaths.topRated,
       );
       final nowPlaying = await _movieService.fetchMovieList(
-        currentLanguage: currentLanguage ?? Locales.en,
         path: MoviePaths.nowPlaying,
       );
 

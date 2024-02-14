@@ -16,6 +16,7 @@ mixin HomeViewMixin on TickerProviderStateMixin<HomeView>, BaseState<HomeView> {
     _homeViewModel = HomeViewModel(
       movieService: MovieService(
         networkManager: productNetworkManager,
+        context: context,
       ),
     );
     homeViewModel.fetchMovies(context.read<LanguageNotifier>().currentLanguage);

@@ -17,6 +17,7 @@ mixin _ThemeButtonMixin
     super.initState();
   }
 
+  //TODO: Add texts
   Future<void> changeTheme() async {
     {
       await Future.microtask(() {
