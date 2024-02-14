@@ -4,8 +4,11 @@ import 'package:widgets/widgets.dart';
 import '../../../../product/init/language/locale_keys.g.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField(
-      {super.key, required this.controller, required this.onChanged});
+  const SearchTextField({
+    super.key,
+    required this.controller,
+    required this.onChanged,
+  });
   final TextEditingController controller;
   final void Function(String value) onChanged;
   @override

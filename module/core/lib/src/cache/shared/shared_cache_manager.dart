@@ -2,7 +2,7 @@ import 'package:core/src/cache/core/cache_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// The SharedCacheManager class is an implementation of the CacheManager class.
-final class SharedCacheManager extends CacheManger {
+final class SharedCacheManager extends CacheManager {
   SharedCacheManager._();
 
   ///Singleton instance for Shared Cache Manager
