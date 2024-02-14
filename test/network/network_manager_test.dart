@@ -9,31 +9,35 @@ import 'package:vexana/vexana.dart';
 
 void main() {
   late ProductNetworkManager manager;
+  AppEnvironment.setup(config: EnvDev());
+
   setUp(() {
-    AppEnvironment.setup(config: EnvDev());
     manager = ProductNetworkManager.base();
   });
-  test('get movie items from api with popular path', () async {
-    final response = await manager.send<Movies, Movies>(
-      MoviePaths.popular.withQuery(Locales.en),
-      parseModel: Movies(),
-      method: RequestType.GET,
-    );
-    expect(response.data, isNotNull);
-  });
 
-  test('get movie items from api with popular path and error', () async {
-    manager.listenErrorState(
-      onErrorStatus: (value) {
-        if (value == HttpStatus.unauthorized) {}
-        expect(value, isNotNull);
-      },
-    );
-    final response = await manager.send<Movies, Movies>(
-      '${MoviePaths.popular.withQuery(Locales.en)}wrong url',
-      parseModel: Movies(),
-      method: RequestType.GET,
-    );
-    expect(response.data, isNull);
+  group('Network Manager Test', () {
+    test('get movie items from api with popular path', () async {
+      final response = await manager.send<Movies, Movies>(
+        MoviePaths.popular.withQuery(Locales.en),
+        parseModel: Movies(),
+        method: RequestType.GET,
+      );
+      expect(response.data, isNotNull);
+    });
+
+    test('get movie items from api with popular path and error', () async {
+      manager.listenErrorState(
+        onErrorStatus: (value) {
+          if (value == HttpStatus.unauthorized) {}
+          expect(value, isNotNull);
+        },
+      );
+      final response = await manager.send<Movies, Movies>(
+        '${MoviePaths.popular.withQuery(Locales.en)}wrong url',
+        parseModel: Movies(),
+        method: RequestType.GET,
+      );
+      expect(response.data, isNull);
+    });
   });
 }

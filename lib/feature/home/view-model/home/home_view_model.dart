@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/product/state/base/base_cubit.dart';
 import 'package:vexana/vexana.dart';
@@ -9,8 +10,9 @@ import '../../../../product/utility/enum/index.dart';
 import 'home_state.dart';
 
 final class HomeViewModel extends BaseCubit<HomeState> {
-  HomeViewModel({required IMovieService movieService})
-      : _movieService = movieService,
+  HomeViewModel({
+    required IMovieService movieService,
+  })  : _movieService = movieService,
         super(const HomeState());
 
   late final IMovieService _movieService;
@@ -21,13 +23,13 @@ final class HomeViewModel extends BaseCubit<HomeState> {
   }
 
   ///Fetch Movies
-  Future<void> fetchMovies(Locales? currentLanguage) async {
+  Future<void> fetchMovies() async {
     changeLoading();
-    await _getMovies(currentLanguage);
+    await _getMovies();
   }
 
   ///Get Movies
-  Future<void> _getMovies(Locales? currentLanguage) async {
+  Future<void> _getMovies() async {
     try {
       final popular = await _movieService.fetchMovieList(
         path: MoviePaths.popular,
@@ -56,7 +58,7 @@ final class HomeViewModel extends BaseCubit<HomeState> {
   Future<void> changeLanguage(BuildContext context) async {
     await context.read<LanguageNotifier>().changeLanguage(context);
     if (context.mounted) {
-      await fetchMovies(context.read<LanguageNotifier>().currentLanguage);
+      await fetchMovies();
     }
   }
 }

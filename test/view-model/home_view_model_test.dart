@@ -2,7 +2,6 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:movie_app/feature/home/view-model/home/home_state.dart';
 import 'package:movie_app/feature/home/view-model/home/home_view_model.dart';
-import 'package:movie_app/product/utility/enum/index.dart';
 
 import '../mock/movie_service_mock.dart';
 
@@ -30,7 +29,7 @@ void main() {
     blocTest<HomeViewModel, HomeState>(
       'fetch movies',
       build: () => homeViewModel,
-      act: (bloc) async => bloc.fetchMovies(Locales.en),
+      act: (bloc) async => bloc.fetchMovies(),
       expect: () => {
         isA<HomeState>().having((state) => state.onLoad, 'onLoad', true),
         isA<HomeState>()

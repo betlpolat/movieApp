@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/view-model/home/index.dart';
 import 'package:movie_app/product/state/base/base_state.dart';
 
 import '../../../../product/network/movie_service.dart';
-import '../../../../product/state/view-model/language_notifier.dart';
 import '../home_view.dart';
 
 mixin HomeViewMixin on TickerProviderStateMixin<HomeView>, BaseState<HomeView> {
@@ -19,7 +17,7 @@ mixin HomeViewMixin on TickerProviderStateMixin<HomeView>, BaseState<HomeView> {
         context: context,
       ),
     );
-    homeViewModel.fetchMovies(context.read<LanguageNotifier>().currentLanguage);
+    homeViewModel.fetchMovies();
   }
 
   Future<void> changeLanguage(BuildContext context) =>
