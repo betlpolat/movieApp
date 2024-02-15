@@ -6,25 +6,42 @@ import 'package:movie_app/product/widget/animation/loading_lottie.dart';
 import 'package:movie_app/product/widget/button/language_button.dart';
 
 void main() {
-  group('Home Integration Test', () {
-    testWidgets('', (tester) async {
-      await restoreFlutterError(() async {
-        await app.main();
-      });
-      await tester.pumpWidget(const LoadingLottie());
-      await tester.pumpAndSettle();
-
-      expect(find.byType(HomeView), findsOneWidget);
-      expect(find.text('Trending Movies'), findsOneWidget);
-
-      await tester.pumpAndSettle();
-
-      expect(find.byType(LanguageButton), findsOneWidget);
-      await tester.tap(find.byType(LanguageButton));
-      await tester.pumpAndSettle();
-
-      expect(find.text('Trend Filme'), findsOneWidget);
+  testWidgets('change language for initial language English ', (tester) async {
+    await restoreFlutterError(() async {
+      await app.main();
     });
+    await tester.pumpWidget(const LoadingLottie());
+    await tester.pumpAndSettle();
+
+    expect(find.byType(HomeView), findsOneWidget);
+    expect(find.text('Trending Movies'), findsOneWidget);
+
+    await tester.pumpAndSettle();
+
+    expect(find.byType(LanguageButton), findsOneWidget);
+    await tester.tap(find.byType(LanguageButton));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Trend Filme'), findsOneWidget);
+  });
+
+  testWidgets('change language for initial language German ', (tester) async {
+    await restoreFlutterError(() async {
+      await app.main();
+    });
+    await tester.pumpWidget(const LoadingLottie());
+    await tester.pumpAndSettle();
+
+    expect(find.byType(HomeView), findsOneWidget);
+    expect(find.text('Trend Filme'), findsOneWidget);
+
+    await tester.pumpAndSettle();
+
+    expect(find.byType(LanguageButton), findsOneWidget);
+    await tester.tap(find.byType(LanguageButton));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Trending Movies'), findsOneWidget);
   });
 }
 
