@@ -90,12 +90,13 @@ class _SearchFormState extends BaseState<SearchForm> with SearchFormMixin {
   GestureDetector _movieButton({required Movie movie}) {
     return GestureDetector(
       onTap: () async => _navigateToDetail(movie: movie),
-      child: _movieInfoCard(movie: movie),
+      child: movieInfoCard(movie: movie),
     );
   }
 
-  Card _movieInfoCard({required Movie movie}) {
+  Card movieInfoCard({required Movie movie}) {
     return Card(
+      key: const Key('search card'),
       child: ListTile(
         title: Text(movie.title ?? ''),
         leading: SizedBox(
