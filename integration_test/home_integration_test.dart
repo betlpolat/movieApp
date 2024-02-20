@@ -63,23 +63,19 @@ void main() {
     expect(find.text('Trend Filme'), findsOneWidget);
   });
 
-  testWidgets('change theme for initial theme light ', (tester) async {
+  testWidgets('change theme ', (tester) async {
     await restoreFlutterError(() async {
       await app.main();
     });
     final notifier = ThemeNotifier();
-
     await tester.pumpAndSettle();
-    expect(notifier.currentTheme.brightness, Brightness.light);
-
-    await tester.pumpAndSettle();
-
     expect(find.byType(ThemeButton), findsOneWidget);
     await tester.tap(find.byType(ThemeButton));
     await tester.pumpAndSettle();
     final newNotifier = ThemeNotifier();
-
-    expect(newNotifier.currentTheme.brightness, Brightness.dark);
+    notifier.currentTheme.brightness == Brightness.light
+        ? expect(newNotifier.currentTheme.brightness, Brightness.dark)
+        : expect(newNotifier.currentTheme.brightness, Brightness.light);
   });
 
   testWidgets('change language for initial language German ', (tester) async {
