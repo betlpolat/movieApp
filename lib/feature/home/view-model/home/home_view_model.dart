@@ -55,7 +55,6 @@ final class HomeViewModel extends BaseCubit<HomeState> {
     }
   }
 
-//TODO: UI Test
   Future<void> changeLanguage(BuildContext context) async {
     await context.read<LanguageNotifier>().changeLanguage(context);
     if (context.mounted) {
